@@ -22,6 +22,11 @@ import {
   User,
   DollarSign,
   TrendingUp,
+  Truck,
+  Play,
+  Sparkles,
+  CheckCircle2,
+  Image as ImageIcon,
 } from "lucide-react";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
 
@@ -32,16 +37,34 @@ const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
   },
 };
 
 const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const fadeInRight: Variants = {
+  hidden: { opacity: 0, x: 40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const scaleIn: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
   },
 };
 
@@ -97,12 +120,104 @@ function Navbar() {
 }
 
 // ============================================
+// HERO VISUAL COMPONENT
+// ============================================
+function HeroVisual() {
+  return (
+    <motion.div
+      variants={fadeInRight}
+      className="relative hidden lg:block"
+    >
+      {/* Floating animation wrapper */}
+      <motion.div
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        className="relative"
+      >
+        {/* Main card - SMS Conversation */}
+        <div className="relative rounded-2xl border border-slate-200/80 bg-white/90 p-4 shadow-2xl shadow-slate-300/50 backdrop-blur-sm">
+          {/* Phone header */}
+          <div className="mb-3 flex items-center gap-2 border-b border-slate-100 pb-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100">
+              <MessageCircle className="h-4 w-4 text-blue-600" />
+            </div>
+            <div>
+              <p className="text-sm font-medium text-slate-900">Chauffeur - Martin D.</p>
+              <p className="text-xs text-slate-500">via SMS</p>
+            </div>
+          </div>
+
+          {/* Messages */}
+          <div className="space-y-3">
+            {/* Driver message */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.8, duration: 0.4 }}
+              className="flex gap-2"
+            >
+              <div className="rounded-2xl rounded-tl-sm bg-slate-100 px-3 py-2">
+                <div className="mb-1 flex items-center gap-1.5">
+                  <ImageIcon className="h-3.5 w-3.5 text-slate-500" />
+                  <span className="text-xs text-slate-500">POD_livraison.jpg</span>
+                </div>
+                <div className="h-16 w-24 rounded-lg bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
+                  <FileText className="h-6 w-6 text-slate-400" />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Astrale response */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.4, duration: 0.4 }}
+              className="flex justify-end"
+            >
+              <div className="rounded-2xl rounded-tr-sm bg-gradient-to-r from-blue-600 to-blue-700 px-3 py-2 text-white">
+                <div className="flex items-center gap-1.5 text-xs">
+                  <Sparkles className="h-3 w-3" />
+                  <span>Astrale</span>
+                </div>
+                <p className="mt-1 text-sm">POD extrait avec succès</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Floating data card */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 1.8, duration: 0.5 }}
+          className="absolute -bottom-6 -right-6 rounded-xl border border-green-200 bg-white p-3 shadow-lg"
+        >
+          <div className="flex items-center gap-2">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-100">
+              <CheckCircle2 className="h-4 w-4 text-green-600" />
+            </div>
+            <div>
+              <p className="text-xs font-medium text-slate-900">Données extraites</p>
+              <p className="text-[10px] text-slate-500">Prêt pour facturation</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Decorative elements */}
+        <div className="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-blue-500/10 blur-2xl" />
+        <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-cyan-500/10 blur-2xl" />
+      </motion.div>
+    </motion.div>
+  );
+}
+
+// ============================================
 // HERO SECTION
 // ============================================
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden pb-48 pt-20 lg:pt-28">
-      {/* Background Image */}
+    <section className="relative overflow-hidden pb-32 pt-16 lg:pb-40 lg:pt-24">
+      {/* Background */}
       <div className="absolute inset-0 z-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -110,63 +225,128 @@ function HeroSection() {
           alt="Signature de preuve de livraison"
           className="h-full w-full object-cover object-center"
         />
-        {/* Modern gradient overlay with blue tint */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/70 to-blue-50/60" />
-        {/* Bottom fade to white - seamless transition to next section */}
-        <div className="absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-white via-white/90 via-50% to-transparent" />
+        {/* Modern gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/85 to-blue-50/80" />
+        {/* Radial gradient for depth */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent" />
+        {/* Bottom fade */}
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-white via-white/95 to-transparent" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="mx-auto max-w-3xl text-center"
-        >
-          {/* Title */}
-          <motion.h1
-            variants={fadeInUp}
-            className="mb-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl"
-          >
-            Vos PODs traités.
-            <br />
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              Vos factures payées.
-            </span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            variants={fadeInUp}
-            className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-slate-600"
-          >
-            Vos preuves de livraison passent du terrain à votre système de
-            facturation en quelques secondes. Chaque POD est extrait, validé et
-            prêt à facturer — sans intervention manuelle.
-          </motion.p>
-
-          {/* CTA Buttons */}
+        <div className="grid items-center gap-12 lg:grid-cols-5 lg:gap-16">
+          {/* Left Column - Text Content */}
           <motion.div
-            variants={fadeInUp}
-            className="flex flex-col items-center justify-center gap-4 sm:flex-row"
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="lg:col-span-3"
           >
-            <Button
-              size="lg"
-              className="h-14 bg-gradient-to-r from-blue-600 to-blue-700 px-8 text-base font-semibold shadow-xl shadow-blue-500/25 transition-all hover:from-blue-500 hover:to-blue-600 hover:shadow-2xl hover:shadow-blue-500/30"
+            {/* Badge */}
+            <motion.div variants={fadeInUp} className="mb-6">
+              <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/80 px-4 py-1.5 text-sm font-medium text-blue-700 backdrop-blur-sm">
+                <Truck className="h-4 w-4" />
+                Pour entreprises de transport et logistique
+              </span>
+            </motion.div>
+
+            {/* Title */}
+            <motion.h1
+              variants={fadeInUp}
+              className="mb-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
             >
-              Découvrir Astrale
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="h-14 border-slate-300 bg-white/90 px-8 text-base font-medium text-slate-700 backdrop-blur-sm transition-all hover:border-blue-300 hover:bg-white hover:text-blue-600"
+              Facturez{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                15 jours plus vite
+              </span>
+              <br />
+              grâce à vos PODs automatisés
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              variants={fadeInUp}
+              className="mb-8 max-w-xl text-lg leading-relaxed text-slate-600"
             >
-              Voir la Démo (1 min)
-            </Button>
+              Vos chauffeurs envoient les preuves de livraison par SMS, WhatsApp ou
+              Messenger. Astrale extrait les données et les synchronise
+              instantanément vers votre ERP — sans saisie manuelle.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-col gap-4 sm:flex-row"
+            >
+              <a href="#contact">
+                <Button
+                  size="lg"
+                  className="group h-14 w-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 text-base font-semibold shadow-xl shadow-blue-500/25 transition-all hover:from-blue-500 hover:to-blue-600 hover:shadow-2xl hover:shadow-blue-500/30 sm:w-auto"
+                >
+                  Découvrir Astrale
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </a>
+              <a href="#fonctionnement">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="group h-14 w-full border-slate-300 bg-white/90 px-8 text-base font-medium text-slate-700 backdrop-blur-sm transition-all hover:border-blue-300 hover:bg-white hover:text-blue-600 sm:w-auto"
+                >
+                  <Play className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+                  Voir comment ça marche
+                </Button>
+              </a>
+            </motion.div>
+
+            {/* Social Proof Bar */}
+            <motion.div
+              variants={fadeInUp}
+              className="mt-10 flex flex-wrap items-center gap-6 border-t border-slate-200/60 pt-8 sm:gap-8"
+            >
+              <div className="flex items-center gap-2">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100">
+                  <Clock className="h-4 w-4 text-blue-600" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">-15 jours</p>
+                  <p className="text-xs text-slate-500">Cycle facturation</p>
+                </div>
+              </div>
+              <div className="hidden h-8 w-px bg-slate-200 sm:block" />
+              <div className="flex items-center gap-2">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-green-100">
+                  <Zap className="h-4 w-4 text-green-600" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">90%</p>
+                  <p className="text-xs text-slate-500">Saisie éliminée</p>
+                </div>
+              </div>
+              <div className="hidden h-8 w-px bg-slate-200 sm:block" />
+              <div className="flex items-center gap-2">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-cyan-100">
+                  <Cpu className="h-4 w-4 text-cyan-600" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">Instantané</p>
+                  <p className="text-xs text-slate-500">Extraction IA</p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
+
+          {/* Right Column - Visual */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="lg:col-span-2"
+          >
+            <HeroVisual />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

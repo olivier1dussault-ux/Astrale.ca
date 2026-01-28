@@ -30,6 +30,7 @@ interface Integration {
   name: string;
   logo: string;
   badge?: string;
+  scale?: number; // Scale factor for logo (1 = default, 1.5 = 150%, etc.)
 }
 
 interface IntegrationCategory {
@@ -51,7 +52,7 @@ const integrationCategories: IntegrationCategory[] = [
     title: "Comptabilité",
     items: [
       { name: "QuickBooks Online", logo: "/Intuit_QuickBooks.png" },
-      { name: "Acomba", logo: "/Acomba.svg" },
+      { name: "Acomba", logo: "/Acomba.svg", scale: 1.4 },
       { name: "Sage 50", logo: "/Sage-NA-logo.png" },
       { name: "Maestro Technologies", logo: "/maestro-technologies-logo.png" },
     ],
@@ -72,10 +73,15 @@ const integrationCategories: IntegrationCategory[] = [
 // INTEGRATION LOGO COMPONENT
 // ============================================
 function IntegrationLogo({ integration }: { integration: Integration }) {
+  const scale = integration.scale || 1;
+  
   return (
     <div className="flex flex-col items-center">
-      <div className="flex h-20 w-40 items-center justify-center rounded-xl bg-white p-4 shadow-sm transition-all duration-300 hover:shadow-md">
-        <div className="relative h-12 w-full">
+      <div className="flex h-24 w-52 items-center justify-center rounded-xl bg-white p-5 shadow-sm transition-all duration-300 hover:shadow-md">
+        <div 
+          className="relative h-14 w-full"
+          style={{ transform: `scale(${scale})` }}
+        >
           <Image
             src={integration.logo}
             alt={integration.name}
@@ -84,7 +90,7 @@ function IntegrationLogo({ integration }: { integration: Integration }) {
           />
         </div>
       </div>
-      <span className="mt-2 text-center text-xs font-medium text-slate-500 transition-colors duration-300">
+      <span className="mt-2 text-center text-sm font-medium text-slate-600 transition-colors duration-300">
         {integration.name}
       </span>
       {integration.badge && (
@@ -117,35 +123,37 @@ function MarqueeRow({
   const animationName = direction === "left" ? "marquee-left" : "marquee-right";
 
   const labelElement = (
-    <div className="flex w-36 shrink-0 items-center justify-center">
-      <span className="text-base font-bold uppercase tracking-widest text-slate-700">
+    <div className="flex w-44 shrink-0 items-center justify-center">
+      <span className="text-lg font-extrabold uppercase tracking-widest text-slate-800">
         {label}
       </span>
     </div>
   );
 
   const marqueeElement = (
-    <div className="group relative max-w-2xl flex-1 overflow-hidden">
+    <div className="group relative max-w-3xl flex-1 overflow-hidden">
       {/* Gradient mask - left side */}
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-slate-50 to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-slate-100 to-transparent" />
       {/* Gradient mask - right side */}
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-slate-50 to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-slate-100 to-transparent" />
 
       <div
-        className="marquee-animate flex w-max gap-6"
+        className="marquee-animate flex w-max"
         style={{
           animation: `${animationName} ${speed}s linear infinite`,
         }}
       >
         {/* Render 2 copies for seamless infinite scroll */}
-        {[...Array(2)].map((_, setIndex) =>
-          items.map((integration) => (
-            <IntegrationLogo
-              key={`${integration.name}-${setIndex}`}
-              integration={integration}
-            />
-          ))
-        )}
+        {[...Array(2)].map((_, setIndex) => (
+          <div key={setIndex} className="flex gap-8 pr-8">
+            {items.map((integration) => (
+              <IntegrationLogo
+                key={`${integration.name}-${setIndex}`}
+                integration={integration}
+              />
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -172,7 +180,7 @@ function MarqueeRow({
 // ============================================
 export function IntegrationsSection() {
   return (
-    <section className="relative bg-slate-50 py-24">
+    <section className="relative bg-slate-100 py-24">
       {/* Gradient transition to next section */}
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-white" />
       <div className="relative mx-auto max-w-6xl px-6">

@@ -148,7 +148,10 @@
 }
 
 .marquee-animate {
+  will-change: transform;
   animation-play-state: running;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .group:hover .marquee-animate {
