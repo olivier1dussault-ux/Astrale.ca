@@ -73,18 +73,18 @@ const integrationCategories: IntegrationCategory[] = [
 // ============================================
 function IntegrationLogo({ integration }: { integration: Integration }) {
   return (
-    <div className="group relative flex flex-col items-center">
-      <div className="flex h-20 w-full items-center justify-center rounded-xl bg-white p-4 shadow-sm transition-all duration-300 hover:shadow-md">
+    <div className="flex flex-col items-center">
+      <div className="flex h-20 w-40 items-center justify-center rounded-xl bg-white p-4 shadow-sm transition-all duration-300 hover:shadow-md">
         <div className="relative h-12 w-full">
           <Image
             src={integration.logo}
             alt={integration.name}
             fill
-            className="object-contain opacity-70 transition-all duration-300 group-hover:opacity-100"
+            className="object-contain"
           />
         </div>
       </div>
-      <span className="mt-2 text-center text-xs font-medium text-slate-500 transition-colors duration-300 group-hover:text-slate-700">
+      <span className="mt-2 text-center text-xs font-medium text-slate-500 transition-colors duration-300">
         {integration.name}
       </span>
       {integration.badge && (
@@ -97,12 +97,85 @@ function IntegrationLogo({ integration }: { integration: Integration }) {
 }
 
 // ============================================
+// MARQUEE ROW COMPONENT
+// ============================================
+interface MarqueeRowProps {
+  items: Integration[];
+  direction: "left" | "right";
+  label: string;
+  labelPosition: "left" | "right";
+  speed?: number; // seconds per cycle
+}
+
+function MarqueeRow({
+  items,
+  direction,
+  label,
+  labelPosition,
+  speed = 35,
+}: MarqueeRowProps) {
+  const animationName = direction === "left" ? "marquee-left" : "marquee-right";
+
+  const labelElement = (
+    <div className="flex w-36 shrink-0 items-center justify-center">
+      <span className="text-base font-bold uppercase tracking-widest text-slate-700">
+        {label}
+      </span>
+    </div>
+  );
+
+  const marqueeElement = (
+    <div className="group relative max-w-2xl flex-1 overflow-hidden">
+      {/* Gradient mask - left side */}
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-slate-50 to-transparent" />
+      {/* Gradient mask - right side */}
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-slate-50 to-transparent" />
+
+      <div
+        className="marquee-animate flex w-max gap-6"
+        style={{
+          animation: `${animationName} ${speed}s linear infinite`,
+        }}
+      >
+        {/* Render 2 copies for seamless infinite scroll */}
+        {[...Array(2)].map((_, setIndex) =>
+          items.map((integration) => (
+            <IntegrationLogo
+              key={`${integration.name}-${setIndex}`}
+              integration={integration}
+            />
+          ))
+        )}
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="flex items-center justify-center gap-4">
+      {labelPosition === "left" ? (
+        <>
+          {labelElement}
+          {marqueeElement}
+        </>
+      ) : (
+        <>
+          {marqueeElement}
+          {labelElement}
+        </>
+      )}
+    </div>
+  );
+}
+
+// ============================================
 // INTEGRATIONS SECTION
 // ============================================
 export function IntegrationsSection() {
   return (
-    <section className="bg-slate-50 py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section className="relative bg-slate-50 py-24">
+      {/* Gradient transition to next section */}
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-white" />
+      <div className="relative mx-auto max-w-6xl px-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -123,26 +196,40 @@ export function IntegrationsSection() {
             </p>
           </motion.div>
 
-          {/* Categories Grid */}
+          {/* Categories Marquee Rows */}
           <div className="mt-16 space-y-12">
-            {integrationCategories.map((category) => (
-              <motion.div key={category.title} variants={fadeInUp}>
-                {/* Category Label */}
-                <h3 className="mb-6 text-center text-xs font-semibold uppercase tracking-wider text-slate-400">
-                  {category.title}
-                </h3>
+            {/* Canaux: label left, icons scroll left toward label */}
+            <motion.div variants={fadeInUp}>
+              <MarqueeRow
+                items={integrationCategories[0].items}
+                direction="left"
+                label={integrationCategories[0].title}
+                labelPosition="left"
+                speed={35}
+              />
+            </motion.div>
 
-                {/* Logos Grid */}
-                <div className="mx-auto grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-                  {category.items.map((integration) => (
-                    <IntegrationLogo
-                      key={integration.name}
-                      integration={integration}
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+            {/* Comptabilité: label right, icons scroll right toward label */}
+            <motion.div variants={fadeInUp}>
+              <MarqueeRow
+                items={integrationCategories[1].items}
+                direction="right"
+                label={integrationCategories[1].title}
+                labelPosition="right"
+                speed={35}
+              />
+            </motion.div>
+
+            {/* Financement: label left, icons scroll left toward label */}
+            <motion.div variants={fadeInUp}>
+              <MarqueeRow
+                items={integrationCategories[2].items}
+                direction="left"
+                label={integrationCategories[2].title}
+                labelPosition="left"
+                speed={35}
+              />
+            </motion.div>
           </div>
 
           {/* Legal Disclaimer */}

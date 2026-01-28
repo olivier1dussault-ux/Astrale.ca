@@ -177,8 +177,10 @@ function HeroSection() {
 // ============================================
 function RealityVsAstraleSection() {
   return (
-    <section id="solution" className="bg-white py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="solution" className="relative bg-white py-24">
+      {/* Gradient transition to next section */}
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-slate-50" />
+      <div className="relative mx-auto max-w-6xl px-6">
         <div className="text-center">
           <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
             Comparaison
@@ -296,8 +298,10 @@ function RealityVsAstraleSection() {
 // ============================================
 function DataFlowSection() {
   return (
-    <section id="fonctionnement" className="bg-gradient-to-b from-slate-50 to-white py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="fonctionnement" className="relative bg-gradient-to-b from-slate-50 to-white py-24">
+      {/* Gradient transition to next section */}
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-slate-50" />
+      <div className="relative mx-auto max-w-6xl px-6">
         <div className="text-center">
           <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
             Processus
@@ -419,8 +423,10 @@ function ROICalculatorSection() {
   const billingAcceleration = 13;
 
   return (
-    <section className="bg-gradient-to-b from-white to-blue-50/50 py-24">
-      <div className="mx-auto max-w-4xl px-6">
+    <section className="relative bg-gradient-to-b from-white to-blue-50/50 py-24">
+      {/* Gradient transition to next section */}
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-white" />
+      <div className="relative mx-auto max-w-4xl px-6">
         <div className="text-center">
           <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
             Calculateur ROI
