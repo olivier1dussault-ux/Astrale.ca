@@ -17,8 +17,8 @@ export default function MentionsLegales() {
             <Image
               src="/logo.svg"
               alt="Astrale"
-              width={140}
-              height={35}
+              width={180}
+              height={45}
               priority
             />
           </a>

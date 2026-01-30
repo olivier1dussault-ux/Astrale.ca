@@ -25,8 +25,6 @@ import {
   Truck,
   Play,
   Sparkles,
-  CheckCircle2,
-  Image as ImageIcon,
 } from "lucide-react";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
 
@@ -74,14 +72,14 @@ const scaleIn: Variants = {
 function Navbar() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-lg supports-[backdrop-filter]:bg-white/60">
-      <div className="relative mx-auto flex h-20 max-w-6xl items-center px-6">
+      <div className="relative mx-auto flex h-20 max-w-7xl items-center px-6 lg:px-8">
         {/* Logo - Left */}
-        <a href="/" className="flex w-48 items-center">
+        <a href="/" className="flex w-60 items-center">
           <Image
             src="/logo.svg"
             alt="Astrale"
-            width={180}
-            height={45}
+            width={240}
+            height={60}
             priority
           />
         </a>
@@ -142,66 +140,49 @@ function HeroVisual() {
               <MessageCircle className="h-4 w-4 text-blue-600" />
             </div>
             <div>
-              <p className="text-sm font-medium text-slate-900">Chauffeur - Martin D.</p>
+              <p className="text-sm font-medium text-slate-900">Astrale</p>
               <p className="text-xs text-slate-500">via SMS</p>
             </div>
           </div>
 
           {/* Messages */}
           <div className="space-y-3">
-            {/* Driver message */}
+            {/* User's message (outgoing - right) - you sent the POD first */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8, duration: 0.4 }}
-              className="flex gap-2"
+              className="flex justify-end"
             >
-              <div className="rounded-2xl rounded-tl-sm bg-slate-100 px-3 py-2">
-                <div className="mb-1 flex items-center gap-1.5">
-                  <ImageIcon className="h-3.5 w-3.5 text-slate-500" />
-                  <span className="text-xs text-slate-500">POD_livraison.jpg</span>
-                </div>
-                <div className="h-16 w-24 rounded-lg bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                  <FileText className="h-6 w-6 text-slate-400" />
+              <div className="rounded-2xl rounded-tr-sm bg-gradient-to-r from-blue-600 to-blue-700 p-2">
+                <div className="relative h-32 w-48 overflow-hidden rounded-lg bg-white/20 sm:h-40 sm:w-56">
+                  <Image
+                    src="/POD.png"
+                    alt="Exemple de preuve de livraison"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </motion.div>
 
-            {/* Astrale response */}
+            {/* Astrale response (incoming - left) */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.4, duration: 0.4 }}
-              className="flex justify-end"
+              className="flex gap-2"
             >
-              <div className="rounded-2xl rounded-tr-sm bg-gradient-to-r from-blue-600 to-blue-700 px-3 py-2 text-white">
-                <div className="flex items-center gap-1.5 text-xs">
-                  <Sparkles className="h-3 w-3" />
+              <div className="rounded-2xl rounded-tl-sm bg-slate-100 px-3 py-2">
+                <div className="flex items-center gap-1.5 text-xs text-slate-600">
+                  <Sparkles className="h-3 w-3 text-blue-500" />
                   <span>Astrale</span>
                 </div>
-                <p className="mt-1 text-sm">POD extrait avec succès</p>
+                <p className="mt-1 text-sm text-slate-700">POD extrait avec succès</p>
               </div>
             </motion.div>
           </div>
         </div>
-
-        {/* Floating data card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ delay: 1.8, duration: 0.5 }}
-          className="absolute -bottom-6 -right-6 rounded-xl border border-green-200 bg-white p-3 shadow-lg"
-        >
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-100">
-              <CheckCircle2 className="h-4 w-4 text-green-600" />
-            </div>
-            <div>
-              <p className="text-xs font-medium text-slate-900">Données extraites</p>
-              <p className="text-[10px] text-slate-500">Prêt pour facturation</p>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Decorative elements */}
         <div className="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-blue-500/10 blur-2xl" />
@@ -990,15 +971,15 @@ function ContactSection() {
 // ============================================
 function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-slate-50 py-12">
+    <footer className="border-t border-slate-200 bg-slate-50 py-8">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="flex flex-col items-center gap-4 md:flex-row md:items-center">
             <Image
               src="/logo.svg"
               alt="Astrale"
-              width={120}
-              height={30}
+              width={240}
+              height={60}
             />
             <div className="hidden h-6 w-px bg-slate-300 md:block" />
             <span className="text-center text-sm text-slate-500 md:text-left">
@@ -1014,7 +995,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-8 md:flex-row">
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 md:flex-row">
           <div className="flex items-center gap-6 text-sm text-slate-500">
             <a href="/mentions-legales" className="transition-colors hover:text-blue-600">
               Mentions légales
