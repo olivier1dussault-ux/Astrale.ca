@@ -178,7 +178,7 @@ function HeroVisual() {
                   <Sparkles className="h-3 w-3 text-blue-500" />
                   <span>Astrale</span>
                 </div>
-                <p className="mt-1 text-sm text-slate-700">POD extrait avec succès</p>
+                <p className="mt-1 text-sm text-slate-700">Preuve de livraison extraite avec succès</p>
               </div>
             </motion.div>
           </div>
@@ -242,7 +242,7 @@ function HeroSection() {
                 15 jours plus vite
               </span>
               <br />
-              grâce à vos PODs automatisés
+              grâce à vos preuves de livraison automatisées
             </motion.h1>
 
             {/* Subtitle */}
@@ -252,7 +252,7 @@ function HeroSection() {
             >
               Vos chauffeurs envoient les preuves de livraison par SMS, WhatsApp ou
               Messenger. Astrale extrait les données et les synchronise
-              instantanément vers votre ERP — sans saisie manuelle.
+              instantanément vers votre système de gestion — sans saisie manuelle.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -350,7 +350,7 @@ function RealityVsAstraleSection() {
             Saisie manuelle vs Extraction automatique
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-slate-500">
-            Comparez votre processus actuel de traitement des PODs.
+            Comparez votre processus actuel de traitement des preuves de livraison.
           </p>
         </div>
 
@@ -370,7 +370,7 @@ function RealityVsAstraleSection() {
                     <X className="h-3 w-3 text-red-600" />
                   </div>
                   <span className="text-slate-600">
-                    PODs empilés sur le bureau en fin de semaine
+                    Preuves de livraison empilées sur le bureau en fin de semaine
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -418,7 +418,7 @@ function RealityVsAstraleSection() {
                     <Check className="h-3 w-3 text-green-600" />
                   </div>
                   <span className="text-slate-600">
-                    Extraction automatique dès réception du POD
+                    Extraction automatique dès réception de la preuve de livraison
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -426,7 +426,7 @@ function RealityVsAstraleSection() {
                     <Check className="h-3 w-3 text-green-600" />
                   </div>
                   <span className="text-slate-600">
-                    Données structurées prêtes pour votre ERP
+                    Données structurées prêtes pour votre système de gestion
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -468,10 +468,10 @@ function DataFlowSection() {
             Processus
           </span>
           <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">
-            Du POD à la facture. Automatiquement.
+            De la preuve de livraison à la facture. Automatiquement.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-slate-500">
-            Astrale est le tuyau invisible entre vos livreurs et votre ERP.
+            Astrale est le tuyau invisible entre vos livreurs et votre système de gestion.
           </p>
         </div>
 
@@ -483,7 +483,7 @@ function DataFlowSection() {
               <FileText className="h-10 w-10 text-slate-700" />
             </div>
             <span className="mt-4 text-sm font-semibold text-slate-900">
-              POD reçu
+              Preuve reçue
             </span>
             <span className="text-xs text-slate-500">SMS / WhatsApp / Messenger</span>
           </div>
@@ -519,7 +519,7 @@ function DataFlowSection() {
               <FileSpreadsheet className="h-10 w-10 text-slate-700" />
             </div>
             <span className="mt-4 text-sm font-semibold text-slate-900">
-              ERP / Facturation
+              Gestion / Facturation
             </span>
             <span className="text-xs text-slate-500">Données prêtes</span>
           </div>
@@ -533,7 +533,7 @@ function DataFlowSection() {
           <div className="mt-6 space-y-4 text-slate-600">
             <p className="flex items-start gap-3">
               <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-semibold text-blue-700">1</span>
-              Le chauffeur envoie le POD par SMS, WhatsApp ou Messenger.
+              Le chauffeur envoie la preuve de livraison par SMS, WhatsApp ou Messenger.
             </p>
             <p className="flex items-start gap-3">
               <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-semibold text-blue-700">2</span>
@@ -541,7 +541,7 @@ function DataFlowSection() {
             </p>
             <p className="flex items-start gap-3">
               <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-semibold text-blue-700">3</span>
-              Les informations sont synchronisées vers votre ERP, prêtes pour facturation.
+              Les informations sont synchronisées vers votre système de gestion, prêtes pour facturation.
             </p>
           </div>
         </div>
@@ -623,7 +623,7 @@ function ROICalculatorSection() {
                     onChange={(e) => setDocuments(Number(e.target.value))}
                     className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-slate-200 accent-blue-600"
                   />
-                  <p className="mt-2 text-xs text-slate-500">PODs, factures, bons de livraison...</p>
+                  <p className="mt-2 text-xs text-slate-500">Preuves de livraison, factures, bons...</p>
                 </div>
 
                 {/* Time per document */}
@@ -753,7 +753,7 @@ function MetricsSection() {
     {
       icon: Zap,
       value: "Instantané",
-      label: "Extraction POD",
+      label: "Extraction preuve",
       description: "Données structurées en quelques secondes",
       color: "cyan",
     },
@@ -826,7 +826,7 @@ function ContactSection() {
             <h2 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Automatisez le processus
               <br />
-              administratif des PODs
+              administratif des preuves de livraison
               <br />
               <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 en toute simplicité
@@ -983,7 +983,7 @@ function Footer() {
             />
             <div className="hidden h-6 w-px bg-slate-300 md:block" />
             <span className="text-center text-sm text-slate-500 md:text-left">
-              L&apos;automatisation invisible entre vos livreurs et votre ERP
+              L&apos;automatisation invisible entre vos livreurs et votre système de gestion
             </span>
           </div>
           
