@@ -1,0 +1,312 @@
+{
+  "nav": {
+    "solution": "Solution",
+    "howItWorks": "How it works",
+    "impact": "Impact",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "For transport and logistics companies",
+    "titlePart1": "Invoice",
+    "titleHighlight": "15 days faster",
+    "titlePart2": "with automated proof of delivery",
+    "subtitle": "Your drivers send proof of delivery via SMS, WhatsApp, or Messenger. Astrale extracts the data and instantly syncs it to your management system — no manual entry required.",
+    "cta": "Discover Astrale",
+    "ctaSecondary": "See how it works",
+    "stats": {
+      "days": "-15 days",
+      "daysLabel": "Billing cycle",
+      "automation": "90%",
+      "automationLabel": "Entry eliminated",
+      "instant": "Instant",
+      "instantLabel": "AI extraction"
+    }
+  },
+  "heroVisual": {
+    "via": "via SMS",
+    "extractionSuccess": "Proof of delivery extracted successfully"
+  },
+  "comparison": {
+    "badge": "Comparison",
+    "title": "Manual entry vs Automatic extraction",
+    "subtitle": "Compare your current proof of delivery processing workflow.",
+    "before": "Before",
+    "after": "With Astrale",
+    "beforeItems": [
+      "Proof of delivery piling up on desks at end of week",
+      "Manual data entry, time-consuming and error-prone",
+      "Billing delays of 5 to 15 days",
+      "Cash flow blocked by administrative delays"
+    ],
+    "afterItems": [
+      "Automatic extraction upon proof of delivery receipt",
+      "Structured data ready for your management system",
+      "Accelerated billing cycle",
+      "Integration via SMS, WhatsApp, or Messenger"
+    ]
+  },
+  "process": {
+    "badge": "Process",
+    "title": "From proof of delivery to invoice. Automatically.",
+    "subtitle": "Astrale is the invisible pipeline between your drivers and your management system.",
+    "step1": "Proof received",
+    "step1Sub": "SMS / WhatsApp / Messenger",
+    "step2": "Extraction",
+    "step2Sub": "Astrale processes the data",
+    "step3": "Management / Billing",
+    "step3Sub": "Data ready",
+    "howItWorksTitle": "How it works",
+    "howItWorksSteps": [
+      "The driver sends the proof of delivery via SMS, WhatsApp, or Messenger.",
+      "Astrale extracts and structures the data instantly.",
+      "The information is synced to your management system, ready for billing."
+    ],
+    "callout": "Works in the background. Zero adaptation required.",
+    "calloutSub": "Your teams continue as before. Astrale does the rest."
+  },
+  "integrations": {
+    "badge": "Ecosystem",
+    "title": "Compatible with your infrastructure.",
+    "subtitle": "We connect the field to your existing accounting and banking systems. No migration required.",
+    "categories": {
+      "channels": "Channels",
+      "accounting": "Accounting",
+      "financing": "Financing"
+    },
+    "disclaimer": "All product names, logos, and brands are property of their respective owners. Astrale is an independent automation solution and is not directly affiliated with these entities unless otherwise stated."
+  },
+  "roi": {
+    "badge": "ROI Calculator",
+    "title": "Calculate your potential savings",
+    "subtitle": "Estimate the time and money you could save with Astrale.",
+    "yourData": "Your data",
+    "documentsPerMonth": "Documents per month",
+    "documentsHint": "Proof of delivery, invoices, receipts...",
+    "timePerDoc": "Time per document",
+    "timeHint": "Entry, verification, filing...",
+    "hourlyRate": "Hourly rate",
+    "hourlyHint": "Employee cost including benefits",
+    "results": "Your estimated savings",
+    "hoursPerMonth": "Hours / month",
+    "hoursPerYear": "Hours / year",
+    "savingsPerYear": "Savings / year",
+    "billingCycle": "Billing cycle",
+    "disclaimer": "*Estimate based on 90% automation",
+    "cta": "Discover the solution"
+  },
+  "metrics": {
+    "badge": "Results",
+    "title": "Measurable acceleration",
+    "subtitle": "Results observed with our pilot customers.",
+    "items": [
+      {
+        "value": "-15 days",
+        "label": "Billing cycle",
+        "description": "Average acceleration between delivery and payment"
+      },
+      {
+        "value": "-90%",
+        "label": "Data entry",
+        "description": "Elimination of repetitive administrative tasks"
+      },
+      {
+        "value": "Instant",
+        "label": "Proof extraction",
+        "description": "Structured data in seconds"
+      }
+    ]
+  },
+  "contact": {
+    "badge": "Contact",
+    "titlePart1": "Automate the proof of delivery",
+    "titlePart2": "administrative process",
+    "titleHighlight": "with ease",
+    "subtitle": "Discover how Astrale can automate your proof of delivery processing.",
+    "formTitle": "Contact us",
+    "formSubtitle": "Fill out the form and we'll get back to you shortly.",
+    "nameLabel": "Full name",
+    "namePlaceholder": "Your Name",
+    "companyLabel": "Company",
+    "companyPlaceholder": "Your Company",
+    "emailLabel": "Email",
+    "emailPlaceholder": "your@email.com",
+    "messageLabel": "Message (optional)",
+    "messagePlaceholder": "Briefly describe your needs...",
+    "submit": "Send request",
+    "privacyNotice": "By submitting this form, you agree to our",
+    "privacyLink": "privacy policy"
+  },
+  "footer": {
+    "tagline": "The invisible automation between your drivers and your management system",
+    "legalLinks": {
+      "legal": "Legal notice",
+      "privacy": "Privacy",
+      "contact": "Contact"
+    },
+    "copyright": "© {year} Astrale. All rights reserved."
+  },
+  "legal": {
+    "backToHome": "Back to home",
+    "lastUpdated": "Last updated: January 26, 2026",
+    "copyright": "© {year} Astrale. All rights reserved.",
+    "title": "Legal Notice",
+    "sections": {
+      "editor": {
+        "title": "1. Publisher identification",
+        "companyName": "Company name:",
+        "email": "Email:",
+        "website": "Website:"
+      },
+      "privacy": {
+        "title": "2. Personal information protection officer",
+        "content": "In accordance with Law 25 (Act to modernize legislative provisions respecting the protection of personal information), Astrale has designated a person responsible for the protection of personal information.",
+        "contact": "For any questions regarding the collection, use, or disclosure of your personal information, or to exercise your rights under Law 25, please contact us at:"
+      },
+      "hosting": {
+        "title": "3. Hosting",
+        "intro": "This site is hosted by:",
+        "website": "Website:"
+      },
+      "intellectual": {
+        "title": "4. Intellectual property",
+        "content1": "All content on this site (texts, images, logos, graphics, icons, software, databases, etc.) is protected by Canadian and international intellectual property laws.",
+        "content2": "Any reproduction, representation, modification, publication, adaptation, or exploitation of all or part of the elements of the site, by any means or process, is prohibited without the prior written authorization of Astrale.",
+        "content3": "The trademarks, logos, and domain names associated with Astrale are the exclusive property of Astrale. Any unauthorized use constitutes infringement."
+      },
+      "cookies": {
+        "title": "5. Cookies",
+        "content1": "In accordance with Quebec's Law 25, cookies and other tracking technologies are disabled by default on our site.",
+        "content2": "We only use strictly necessary cookies for the site to function. No advertising or analytics tracking cookies are installed without your explicit consent.",
+        "content3": "For more information about our use of cookies, please see our",
+        "privacyLink": "privacy policy"
+      },
+      "links": {
+        "title": "6. External links",
+        "content1": "This site may contain links to third-party websites. These links are provided for your convenience only.",
+        "content2": "Astrale has no control over the content of these third-party sites and disclaims any responsibility for their content, privacy practices, or availability.",
+        "content3": "The inclusion of links to third-party sites does not imply endorsement of their content by Astrale."
+      },
+      "liability": {
+        "title": "7. Limitation of liability",
+        "content1": "The information contained on this site is provided for informational purposes only. Astrale strives to keep this information accurate and up-to-date but cannot guarantee its accuracy, completeness, or relevance.",
+        "content2": "Astrale shall not be liable for any direct or indirect damages resulting from the use or inability to use this site, including damages related to loss of data, profits, or business opportunities."
+      },
+      "jurisdiction": {
+        "title": "8. Applicable law and jurisdiction",
+        "content1": "These legal notices are governed by the laws in force in Quebec, Canada.",
+        "content2": "Any dispute relating to the use of this site shall be subject to the exclusive jurisdiction of the courts of Quebec.",
+        "content3": "Applicable laws include:",
+        "laws": [
+          "Act respecting the protection of personal information in the private sector (APPIPS)",
+          "Law 25 - Act to modernize legislative provisions respecting the protection of personal information",
+          "Quebec Consumer Protection Act",
+          "Personal Information Protection and Electronic Documents Act (PIPEDA) - federal level"
+        ]
+      },
+      "modifications": {
+        "title": "9. Modifications to legal notices",
+        "content1": "Astrale reserves the right to modify these legal notices at any time. Modifications take effect upon publication on this page.",
+        "content2": "We invite you to regularly consult this page to be aware of any modifications."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "For any questions regarding these legal notices or the website, please contact us:"
+      }
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: January 26, 2026",
+    "intro": "At Astrale, we take the protection of your personal information very seriously. This privacy policy describes how we collect, use, disclose, and protect your personal information, in accordance with Quebec's Law 25 (Act to modernize legislative provisions respecting the protection of personal information) and applicable Canadian federal laws.",
+    "sections": {
+      "collected": {
+        "title": "1. Personal information collected",
+        "intro": "We collect the following personal information when you use our site or services:",
+        "identification": "Identification information",
+        "identificationItems": ["Full name", "Professional email address", "Phone number", "Company name"],
+        "technical": "Technical information",
+        "technicalItems": ["IP address", "Browser type", "Pages visited", "Date and time of visit"]
+      },
+      "purposes": {
+        "title": "2. Purposes of collection",
+        "intro": "We collect and use your personal information only for the following purposes:",
+        "items": [
+          { "title": "Respond to your requests", "content": "Process and respond to your questions, demo requests, or information requests." },
+          { "title": "Provide our services", "content": "Allow you to use our document processing automation platform." },
+          { "title": "Improve our services", "content": "Analyze site usage to improve user experience." },
+          { "title": "Communications", "content": "Send you information about our services (with your consent)." },
+          { "title": "Legal compliance", "content": "Meet our legal and regulatory obligations." }
+        ]
+      },
+      "consent": {
+        "title": "3. Legal basis and consent",
+        "content": "In accordance with Law 25, we collect your personal information only with your explicit consent, except in cases where the law authorizes us to collect it without consent.",
+        "notice": "Your consent is free, informed, and given for specific purposes. You may withdraw your consent at any time by contacting us."
+      },
+      "sharing": {
+        "title": "4. Sharing with third parties",
+        "intro": "We do not sell, rent, or share your personal information with third parties for marketing purposes.",
+        "content": "We may share your information only in the following cases:",
+        "items": [
+          { "title": "Service providers", "content": "With providers who help us deliver our services (hosting, analytics), subject to strict confidentiality clauses." },
+          { "title": "Legal obligations", "content": "When required by law or in response to a valid request from competent authorities." },
+          { "title": "Protection of rights", "content": "To protect our rights, safety, or that of third parties." }
+        ]
+      },
+      "retention": {
+        "title": "5. Retention period",
+        "intro": "We retain your personal information only for the time necessary for the purposes for which it was collected:",
+        "items": [
+          { "label": "Contact requests", "value": "2 years" },
+          { "label": "Customer data (active account)", "value": "Duration of contract" },
+          { "label": "Customer data (after termination)", "value": "3 years" },
+          { "label": "Technical data (logs)", "value": "12 months" }
+        ],
+        "outro": "Upon expiration of these periods, your information is securely deleted or anonymized."
+      },
+      "security": {
+        "title": "6. Security measures",
+        "intro": "We implement appropriate technical and organizational security measures to protect your personal information against:",
+        "items": [
+          { "title": "SSL/TLS encryption", "subtitle": "Data in transit" },
+          { "title": "Restricted access", "subtitle": "Authorized personnel" },
+          { "title": "Backups", "subtitle": "Regular and secure" }
+        ]
+      },
+      "rights": {
+        "title": "7. Your rights (Law 25)",
+        "intro": "In accordance with Law 25 and applicable laws, you have the following rights regarding your personal information:",
+        "items": [
+          { "title": "Right of access", "content": "You may request access to the personal information we hold about you." },
+          { "title": "Right of rectification", "content": "You may request correction of inaccurate or incomplete information." },
+          { "title": "Right to erasure", "content": "You may request deletion of your personal information, subject to our legal retention obligations." },
+          { "title": "Right to portability", "content": "You may request to receive your information in a structured, commonly used format (in effect since September 2024)." },
+          { "title": "Right to withdraw consent", "content": "You may withdraw your consent at any time for future processing of your information." }
+        ],
+        "outro": "To exercise your rights, please contact us at {email}. We will respond to your request within 30 days."
+      },
+      "cookies": {
+        "title": "8. Cookies",
+        "intro": "In accordance with Law 25, cookies and tracking technologies are disabled by default on our site.",
+        "typesTitle": "Types of cookies used:",
+        "necessary": { "title": "Strictly necessary cookies", "content": "Essential for the site to function. Do not require consent." },
+        "analytics": { "title": "Analytics cookies (optional)", "content": "Help us understand how visitors use the site. Only enabled with your explicit consent." },
+        "outro": "You can manage your cookie preferences at any time through your browser settings."
+      },
+      "modifications": {
+        "title": "9. Modifications to this policy",
+        "content1": "We may update this privacy policy periodically. The date of the last update is indicated at the top of this page.",
+        "content2": "In case of significant changes, we will notify you by email or by a visible notice on our site."
+      },
+      "contact": {
+        "title": "10. Contact us",
+        "intro": "For any questions regarding this privacy policy, to exercise your rights, or to file a complaint, please contact our personal information protection officer:",
+        "role": "Personal Information Protection Officer",
+        "cai": {
+          "title": "Commission d'accès à l'information du Québec (CAI)",
+          "content": "If you are not satisfied with our response, you may file a complaint with the CAI:"
+        }
+      }
+    }
+  }
+}

@@ -1,13 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import { Mail, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-export const metadata = {
-  title: "Mentions Légales | Astrale",
-  description: "Mentions légales et informations juridiques du site Astrale.",
-};
+import { useTranslation } from "@/lib/i18n";
 
 export default function MentionsLegales() {
+  const { t, messages } = useTranslation();
+  const laws = messages.legal.sections.jurisdiction.laws as string[];
+  
   return (
     <main className="min-h-screen bg-slate-50">
       {/* Header */}
@@ -25,7 +26,7 @@ export default function MentionsLegales() {
           <a href="/">
             <Button variant="ghost" className="text-slate-600 hover:text-blue-600">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Retour à l&apos;accueil
+              {t("legal.backToHome")}
             </Button>
           </a>
         </div>
@@ -34,28 +35,28 @@ export default function MentionsLegales() {
       {/* Content */}
       <article className="mx-auto max-w-4xl px-6 py-16">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-slate-900">Mentions Légales</h1>
+          <h1 className="text-4xl font-bold text-slate-900">{t("legal.title")}</h1>
           <p className="mt-4 text-slate-500">
-            Dernière mise à jour : 26 janvier 2026
+            {t("legal.lastUpdated")}
           </p>
         </div>
 
         <div className="prose prose-slate max-w-none">
           {/* Identification */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">1. Identification de l&apos;éditeur</h2>
+            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.editor.title")}</h2>
             <div className="mt-4 rounded-lg border border-slate-200 bg-white p-6">
               <p className="text-slate-600">
-                <strong className="text-slate-900">Raison sociale :</strong> Astrale
+                <strong className="text-slate-900">{t("legal.sections.editor.companyName")}</strong> Astrale
               </p>
               <p className="mt-2 text-slate-600">
-                <strong className="text-slate-900">Courriel :</strong>{" "}
+                <strong className="text-slate-900">{t("legal.sections.editor.email")}</strong>{" "}
                 <a href="mailto:contact@astrale.ca" className="text-blue-600 hover:underline">
                   contact@astrale.ca
                 </a>
               </p>
               <p className="mt-2 text-slate-600">
-                <strong className="text-slate-900">Site web :</strong>{" "}
+                <strong className="text-slate-900">{t("legal.sections.editor.website")}</strong>{" "}
                 <a href="https://astrale.ca" className="text-blue-600 hover:underline">
                   astrale.ca
                 </a>
@@ -66,17 +67,13 @@ export default function MentionsLegales() {
           {/* Responsable protection des renseignements */}
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-slate-900">
-              2. Responsable de la protection des renseignements personnels
+              {t("legal.sections.privacy.title")}
             </h2>
             <p className="mt-4 text-slate-600">
-              Conformément à la <strong>Loi 25</strong> (Loi modernisant des dispositions législatives en 
-              matière de protection des renseignements personnels), Astrale a désigné une personne 
-              responsable de la protection des renseignements personnels.
+              {t("legal.sections.privacy.content")}
             </p>
             <p className="mt-4 text-slate-600">
-              Pour toute question concernant la collecte, l&apos;utilisation ou la divulgation de vos 
-              renseignements personnels, ou pour exercer vos droits en vertu de la Loi 25, veuillez 
-              nous contacter à :
+              {t("legal.sections.privacy.contact")}
             </p>
             <div className="mt-4 flex items-center gap-3 rounded-lg border border-blue-100 bg-blue-50 p-4">
               <Mail className="h-5 w-5 text-blue-600" />
@@ -88,9 +85,9 @@ export default function MentionsLegales() {
 
           {/* Hébergement */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">3. Hébergement</h2>
+            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.hosting.title")}</h2>
             <p className="mt-4 text-slate-600">
-              Ce site est hébergé par :
+              {t("legal.sections.hosting.intro")}
             </p>
             <div className="mt-4 rounded-lg border border-slate-200 bg-white p-6">
               <p className="text-slate-600">
@@ -102,7 +99,7 @@ export default function MentionsLegales() {
                 États-Unis
               </p>
               <p className="mt-2 text-slate-600">
-                Site web :{" "}
+                {t("legal.sections.hosting.website")}{" "}
                 <a href="https://vercel.com" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
                   vercel.com
                 </a>
@@ -112,39 +109,31 @@ export default function MentionsLegales() {
 
           {/* Propriété intellectuelle */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">4. Propriété intellectuelle</h2>
+            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.intellectual.title")}</h2>
             <p className="mt-4 text-slate-600">
-              L&apos;ensemble du contenu de ce site (textes, images, logos, graphiques, icônes, 
-              logiciels, bases de données, etc.) est protégé par les lois canadiennes et 
-              internationales relatives à la propriété intellectuelle.
+              {t("legal.sections.intellectual.content1")}
             </p>
             <p className="mt-4 text-slate-600">
-              Toute reproduction, représentation, modification, publication, adaptation ou 
-              exploitation de tout ou partie des éléments du site, quel que soit le moyen ou 
-              le procédé utilisé, est interdite sans l&apos;autorisation écrite préalable d&apos;Astrale.
+              {t("legal.sections.intellectual.content2")}
             </p>
             <p className="mt-4 text-slate-600">
-              Les marques, logos et noms de domaine associés à Astrale sont la propriété 
-              exclusive d&apos;Astrale. Toute utilisation non autorisée constitue une contrefaçon.
+              {t("legal.sections.intellectual.content3")}
             </p>
           </section>
 
           {/* Témoins (Cookies) */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">5. Témoins (Cookies)</h2>
+            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.cookies.title")}</h2>
             <p className="mt-4 text-slate-600">
-              Conformément à la <strong>Loi 25 du Québec</strong>, les témoins (cookies) et autres 
-              technologies de suivi sont <strong>désactivés par défaut</strong> sur notre site.
+              {t("legal.sections.cookies.content1")}
             </p>
             <p className="mt-4 text-slate-600">
-              Nous utilisons uniquement des témoins strictement nécessaires au fonctionnement 
-              du site. Aucun témoin de suivi publicitaire ou analytique n&apos;est installé sans 
-              votre consentement explicite.
+              {t("legal.sections.cookies.content2")}
             </p>
             <p className="mt-4 text-slate-600">
-              Pour plus d&apos;informations sur notre utilisation des témoins, consultez notre{" "}
+              {t("legal.sections.cookies.content3")}{" "}
               <a href="/confidentialite" className="text-blue-600 hover:underline">
-                politique de confidentialité
+                {t("legal.sections.cookies.privacyLink")}
               </a>
               .
             </p>
@@ -152,87 +141,66 @@ export default function MentionsLegales() {
 
           {/* Liens externes */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">6. Liens externes</h2>
+            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.links.title")}</h2>
             <p className="mt-4 text-slate-600">
-              Ce site peut contenir des liens vers des sites web tiers. Ces liens sont fournis 
-              uniquement pour votre commodité.
+              {t("legal.sections.links.content1")}
             </p>
             <p className="mt-4 text-slate-600">
-              Astrale n&apos;exerce aucun contrôle sur le contenu de ces sites tiers et décline 
-              toute responsabilité quant à leur contenu, leurs pratiques de confidentialité 
-              ou leur disponibilité.
+              {t("legal.sections.links.content2")}
             </p>
             <p className="mt-4 text-slate-600">
-              L&apos;inclusion de liens vers des sites tiers n&apos;implique pas l&apos;approbation de 
-              leur contenu par Astrale.
+              {t("legal.sections.links.content3")}
             </p>
           </section>
 
           {/* Limitation de responsabilité */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">7. Limitation de responsabilité</h2>
+            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.liability.title")}</h2>
             <p className="mt-4 text-slate-600">
-              Les informations contenues sur ce site sont fournies à titre informatif 
-              uniquement. Astrale s&apos;efforce de maintenir ces informations exactes et à jour, 
-              mais ne peut garantir leur exactitude, leur exhaustivité ou leur pertinence.
+              {t("legal.sections.liability.content1")}
             </p>
             <p className="mt-4 text-slate-600">
-              Astrale ne pourra être tenue responsable des dommages directs ou indirects 
-              résultant de l&apos;utilisation ou de l&apos;impossibilité d&apos;utiliser ce site, y compris 
-              les dommages liés à la perte de données, de profits ou d&apos;opportunités commerciales.
+              {t("legal.sections.liability.content2")}
             </p>
           </section>
 
           {/* Droit applicable */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">8. Droit applicable et juridiction</h2>
+            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.jurisdiction.title")}</h2>
             <p className="mt-4 text-slate-600">
-              Les présentes mentions légales sont régies par les lois en vigueur au 
-              <strong> Québec, Canada</strong>.
+              {t("legal.sections.jurisdiction.content1")}
             </p>
             <p className="mt-4 text-slate-600">
-              Tout litige relatif à l&apos;utilisation de ce site sera soumis à la compétence 
-              exclusive des tribunaux du Québec.
+              {t("legal.sections.jurisdiction.content2")}
             </p>
             <p className="mt-4 text-slate-600">
-              Les lois applicables incluent notamment :
+              {t("legal.sections.jurisdiction.content3")}
             </p>
             <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-600">
-              <li>
-                <strong>Loi sur la protection des renseignements personnels dans le secteur privé</strong> (LPRPSP)
-              </li>
-              <li>
-                <strong>Loi 25</strong> - Loi modernisant des dispositions législatives en matière de 
-                protection des renseignements personnels
-              </li>
-              <li>
-                <strong>Loi sur la protection du consommateur</strong> du Québec
-              </li>
-              <li>
-                <strong>Loi sur la protection des renseignements personnels et les documents électroniques</strong> (LPRPDE) - niveau fédéral
-              </li>
+              {laws.map((law, index) => (
+                <li key={index}>
+                  <strong>{law}</strong>
+                </li>
+              ))}
             </ul>
           </section>
 
           {/* Modification */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">9. Modification des mentions légales</h2>
+            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.modifications.title")}</h2>
             <p className="mt-4 text-slate-600">
-              Astrale se réserve le droit de modifier les présentes mentions légales à tout 
-              moment. Les modifications entrent en vigueur dès leur publication sur cette page.
+              {t("legal.sections.modifications.content1")}
             </p>
             <p className="mt-4 text-slate-600">
-              Nous vous invitons à consulter régulièrement cette page pour prendre connaissance 
-              des éventuelles modifications.
+              {t("legal.sections.modifications.content2")}
             </p>
           </section>
 
           {/* Contact */}
           <section className="rounded-lg border border-slate-200 bg-white p-8">
-            <h2 className="text-2xl font-semibold text-slate-900">Contact</h2>
+            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.contact.title")}</h2>
             <p className="mt-4 text-slate-600">
-              Pour toute question concernant ces mentions légales ou le site web, 
-              veuillez nous contacter :
+              {t("legal.sections.contact.content")}
             </p>
             <div className="mt-6">
               <a
@@ -250,7 +218,7 @@ export default function MentionsLegales() {
       {/* Footer */}
       <footer className="border-t border-slate-200 bg-white py-8">
         <div className="mx-auto max-w-4xl px-6 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} Astrale. Tous droits réservés.
+          {t("legal.copyright", { year: new Date().getFullYear() })}
         </div>
       </footer>
     </main>

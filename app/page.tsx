@@ -27,6 +27,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
+import { useTranslation } from "@/lib/i18n";
 
 // ============================================
 // ANIMATION VARIANTS
@@ -57,19 +58,12 @@ const fadeInRight: Variants = {
   },
 };
 
-const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
-
 // ============================================
 // NAVBAR
 // ============================================
 function Navbar() {
+  const { t } = useTranslation();
+  
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-lg supports-[backdrop-filter]:bg-white/60">
       <div className="relative mx-auto flex h-20 max-w-7xl items-center px-6 lg:px-8">
@@ -90,26 +84,26 @@ function Navbar() {
             href="#solution"
             className="text-base font-medium text-slate-600 transition-colors hover:text-blue-600"
           >
-            Solution
+            {t("nav.solution")}
           </a>
           <a
             href="#fonctionnement"
             className="text-base font-medium text-slate-600 transition-colors hover:text-blue-600"
           >
-            Fonctionnement
+            {t("nav.howItWorks")}
           </a>
           <a
             href="#impact"
             className="text-base font-medium text-slate-600 transition-colors hover:text-blue-600"
           >
-            Impact
+            {t("nav.impact")}
           </a>
         </div>
 
         {/* CTA - Right */}
         <a href="#contact" className="ml-auto flex w-48 justify-end">
           <Button className="h-11 bg-gradient-to-r from-blue-600 to-blue-700 px-6 text-base font-medium text-white shadow-md shadow-blue-500/20 transition-all hover:from-blue-500 hover:to-blue-600 hover:shadow-lg hover:shadow-blue-500/30">
-            Contact
+            {t("nav.contact")}
           </Button>
         </a>
       </div>
@@ -121,6 +115,8 @@ function Navbar() {
 // HERO VISUAL COMPONENT
 // ============================================
 function HeroVisual() {
+  const { t } = useTranslation();
+  
   return (
     <motion.div
       variants={fadeInRight}
@@ -141,7 +137,7 @@ function HeroVisual() {
             </div>
             <div>
               <p className="text-sm font-medium text-slate-900">Astrale</p>
-              <p className="text-xs text-slate-500">via SMS</p>
+              <p className="text-xs text-slate-500">{t("heroVisual.via")}</p>
             </div>
           </div>
 
@@ -158,7 +154,7 @@ function HeroVisual() {
                 <div className="relative h-32 w-48 overflow-hidden rounded-lg bg-white/20 sm:h-40 sm:w-56">
                   <Image
                     src="/POD.png"
-                    alt="Exemple de preuve de livraison"
+                    alt="Proof of delivery example"
                     fill
                     className="object-cover"
                   />
@@ -178,7 +174,7 @@ function HeroVisual() {
                   <Sparkles className="h-3 w-3 text-blue-500" />
                   <span>Astrale</span>
                 </div>
-                <p className="mt-1 text-sm text-slate-700">Preuve de livraison extraite avec succès</p>
+                <p className="mt-1 text-sm text-slate-700">{t("heroVisual.extractionSuccess")}</p>
               </div>
             </motion.div>
           </div>
@@ -196,6 +192,8 @@ function HeroVisual() {
 // HERO SECTION
 // ============================================
 function HeroSection() {
+  const { t } = useTranslation();
+  
   return (
     <section className="relative overflow-hidden pb-32 pt-16 lg:pb-40 lg:pt-24">
       {/* Background */}
@@ -203,7 +201,7 @@ function HeroSection() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/HeroBackground.jpg"
-          alt="Signature de preuve de livraison"
+          alt="Proof of delivery signature"
           className="h-full w-full object-cover object-center"
         />
         {/* Modern gradient overlay */}
@@ -228,7 +226,7 @@ function HeroSection() {
             <motion.div variants={fadeInUp} className="mb-6">
               <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/80 px-4 py-1.5 text-sm font-medium text-blue-700 backdrop-blur-sm">
                 <Truck className="h-4 w-4" />
-                Pour entreprises de transport et logistique
+                {t("hero.badge")}
               </span>
             </motion.div>
 
@@ -237,12 +235,12 @@ function HeroSection() {
               variants={fadeInUp}
               className="mb-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
             >
-              Facturez{" "}
+              {t("hero.titlePart1")}{" "}
               <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                15 jours plus vite
+                {t("hero.titleHighlight")}
               </span>
               <br />
-              grâce à vos preuves de livraison automatisées
+              {t("hero.titlePart2")}
             </motion.h1>
 
             {/* Subtitle */}
@@ -250,9 +248,7 @@ function HeroSection() {
               variants={fadeInUp}
               className="mb-8 max-w-xl text-lg leading-relaxed text-slate-600"
             >
-              Vos chauffeurs envoient les preuves de livraison par SMS, WhatsApp ou
-              Messenger. Astrale extrait les données et les synchronise
-              instantanément vers votre système de gestion — sans saisie manuelle.
+              {t("hero.subtitle")}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -265,7 +261,7 @@ function HeroSection() {
                   size="lg"
                   className="group h-14 w-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 text-base font-semibold shadow-xl shadow-blue-500/25 transition-all hover:from-blue-500 hover:to-blue-600 hover:shadow-2xl hover:shadow-blue-500/30 sm:w-auto"
                 >
-                  Découvrir Astrale
+                  {t("hero.cta")}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
@@ -276,7 +272,7 @@ function HeroSection() {
                   className="group h-14 w-full border-slate-300 bg-white/90 px-8 text-base font-medium text-slate-700 backdrop-blur-sm transition-all hover:border-blue-300 hover:bg-white hover:text-blue-600 sm:w-auto"
                 >
                   <Play className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-                  Voir comment ça marche
+                  {t("hero.ctaSecondary")}
                 </Button>
               </a>
             </motion.div>
@@ -291,8 +287,8 @@ function HeroSection() {
                   <Clock className="h-4 w-4 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">-15 jours</p>
-                  <p className="text-xs text-slate-500">Cycle facturation</p>
+                  <p className="text-sm font-semibold text-slate-900">{t("hero.stats.days")}</p>
+                  <p className="text-xs text-slate-500">{t("hero.stats.daysLabel")}</p>
                 </div>
               </div>
               <div className="hidden h-8 w-px bg-slate-200 sm:block" />
@@ -301,8 +297,8 @@ function HeroSection() {
                   <Zap className="h-4 w-4 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">90%</p>
-                  <p className="text-xs text-slate-500">Saisie éliminée</p>
+                  <p className="text-sm font-semibold text-slate-900">{t("hero.stats.automation")}</p>
+                  <p className="text-xs text-slate-500">{t("hero.stats.automationLabel")}</p>
                 </div>
               </div>
               <div className="hidden h-8 w-px bg-slate-200 sm:block" />
@@ -311,8 +307,8 @@ function HeroSection() {
                   <Cpu className="h-4 w-4 text-cyan-600" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">Instantané</p>
-                  <p className="text-xs text-slate-500">Extraction IA</p>
+                  <p className="text-sm font-semibold text-slate-900">{t("hero.stats.instant")}</p>
+                  <p className="text-xs text-slate-500">{t("hero.stats.instantLabel")}</p>
                 </div>
               </div>
             </motion.div>
@@ -337,6 +333,10 @@ function HeroSection() {
 // REALITY VS ASTRALE SECTION
 // ============================================
 function RealityVsAstraleSection() {
+  const { t, messages } = useTranslation();
+  const beforeItems = messages.comparison.beforeItems as string[];
+  const afterItems = messages.comparison.afterItems as string[];
+  
   return (
     <section id="solution" className="relative bg-white py-24">
       {/* Gradient transition to next section */}
@@ -344,13 +344,13 @@ function RealityVsAstraleSection() {
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="text-center">
           <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
-            Comparaison
+            {t("comparison.badge")}
           </span>
           <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">
-            Saisie manuelle vs Extraction automatique
+            {t("comparison.title")}
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-slate-500">
-            Comparez votre processus actuel de traitement des preuves de livraison.
+            {t("comparison.subtitle")}
           </p>
         </div>
 
@@ -362,41 +362,17 @@ function RealityVsAstraleSection() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-100">
                   <X className="h-6 w-6 text-red-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900">Avant</h3>
+                <h3 className="text-xl font-bold text-slate-900">{t("comparison.before")}</h3>
               </div>
               <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-red-100">
-                    <X className="h-3 w-3 text-red-600" />
-                  </div>
-                  <span className="text-slate-600">
-                    Preuves de livraison empilées sur le bureau en fin de semaine
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-red-100">
-                    <X className="h-3 w-3 text-red-600" />
-                  </div>
-                  <span className="text-slate-600">
-                    Saisie de données manuelle, chronophage et source d&apos;erreurs
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-red-100">
-                    <X className="h-3 w-3 text-red-600" />
-                  </div>
-                  <span className="text-slate-600">
-                    Retard de facturation de 5 à 15 jours
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-red-100">
-                    <X className="h-3 w-3 text-red-600" />
-                  </div>
-                  <span className="text-slate-600">
-                    Trésorerie bloquée par les délais administratifs
-                  </span>
-                </li>
+                {beforeItems.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-red-100">
+                      <X className="h-3 w-3 text-red-600" />
+                    </div>
+                    <span className="text-slate-600">{item}</span>
+                  </li>
+                ))}
               </ul>
             </CardContent>
           </Card>
@@ -409,42 +385,18 @@ function RealityVsAstraleSection() {
                   <Check className="h-6 w-6 text-green-600" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">
-                  Avec Astrale
+                  {t("comparison.after")}
                 </h3>
               </div>
               <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
-                    <Check className="h-3 w-3 text-green-600" />
-                  </div>
-                  <span className="text-slate-600">
-                    Extraction automatique dès réception de la preuve de livraison
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
-                    <Check className="h-3 w-3 text-green-600" />
-                  </div>
-                  <span className="text-slate-600">
-                    Données structurées prêtes pour votre système de gestion
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
-                    <Check className="h-3 w-3 text-green-600" />
-                  </div>
-                  <span className="text-slate-600">
-                    Accélération du cycle de facturation
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
-                    <Check className="h-3 w-3 text-green-600" />
-                  </div>
-                  <span className="text-slate-600">
-                    Intégration via SMS, WhatsApp ou Messenger
-                  </span>
-                </li>
+                {afterItems.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
+                      <Check className="h-3 w-3 text-green-600" />
+                    </div>
+                    <span className="text-slate-600">{item}</span>
+                  </li>
+                ))}
               </ul>
             </CardContent>
           </Card>
@@ -458,6 +410,9 @@ function RealityVsAstraleSection() {
 // DATA FLOW SECTION
 // ============================================
 function DataFlowSection() {
+  const { t, messages } = useTranslation();
+  const howItWorksSteps = messages.process.howItWorksSteps as string[];
+  
   return (
     <section id="fonctionnement" className="relative bg-gradient-to-b from-slate-50 to-white py-24">
       {/* Gradient transition to next section */}
@@ -465,13 +420,13 @@ function DataFlowSection() {
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="text-center">
           <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
-            Processus
+            {t("process.badge")}
           </span>
           <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">
-            De la preuve de livraison à la facture. Automatiquement.
+            {t("process.title")}
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-slate-500">
-            Astrale est le tuyau invisible entre vos livreurs et votre système de gestion.
+            {t("process.subtitle")}
           </p>
         </div>
 
@@ -483,9 +438,9 @@ function DataFlowSection() {
               <FileText className="h-10 w-10 text-slate-700" />
             </div>
             <span className="mt-4 text-sm font-semibold text-slate-900">
-              Preuve reçue
+              {t("process.step1")}
             </span>
-            <span className="text-xs text-slate-500">SMS / WhatsApp / Messenger</span>
+            <span className="text-xs text-slate-500">{t("process.step1Sub")}</span>
           </div>
 
           {/* Connector */}
@@ -500,10 +455,10 @@ function DataFlowSection() {
               <Cpu className="h-10 w-10 text-white" />
             </div>
             <span className="mt-4 text-sm font-semibold text-slate-900">
-              Extraction
+              {t("process.step2")}
             </span>
             <span className="text-xs text-slate-500">
-              Astrale traite les données
+              {t("process.step2Sub")}
             </span>
           </div>
 
@@ -519,40 +474,34 @@ function DataFlowSection() {
               <FileSpreadsheet className="h-10 w-10 text-slate-700" />
             </div>
             <span className="mt-4 text-sm font-semibold text-slate-900">
-              Gestion / Facturation
+              {t("process.step3")}
             </span>
-            <span className="text-xs text-slate-500">Données prêtes</span>
+            <span className="text-xs text-slate-500">{t("process.step3Sub")}</span>
           </div>
         </div>
 
         {/* Technical details */}
         <div className="mx-auto mt-16 max-w-2xl rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
           <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-600">
-            Comment ça marche
+            {t("process.howItWorksTitle")}
           </h3>
           <div className="mt-6 space-y-4 text-slate-600">
-            <p className="flex items-start gap-3">
-              <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-semibold text-blue-700">1</span>
-              Le chauffeur envoie la preuve de livraison par SMS, WhatsApp ou Messenger.
-            </p>
-            <p className="flex items-start gap-3">
-              <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-semibold text-blue-700">2</span>
-              Astrale extrait et structure les données instantanément.
-            </p>
-            <p className="flex items-start gap-3">
-              <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-semibold text-blue-700">3</span>
-              Les informations sont synchronisées vers votre système de gestion, prêtes pour facturation.
-            </p>
+            {howItWorksSteps.map((step, index) => (
+              <p key={index} className="flex items-start gap-3">
+                <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-semibold text-blue-700">{index + 1}</span>
+                {step}
+              </p>
+            ))}
           </div>
         </div>
 
         {/* Callout */}
         <div className="mx-auto mt-8 max-w-3xl rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 p-8 text-center shadow-xl">
           <p className="text-base font-semibold text-white">
-            Fonctionne en arrière-plan. Zéro adaptation requise.
+            {t("process.callout")}
           </p>
           <p className="mt-2 text-sm text-slate-400">
-            Vos équipes continuent comme avant. Astrale fait le reste.
+            {t("process.calloutSub")}
           </p>
         </div>
       </div>
@@ -564,13 +513,14 @@ function DataFlowSection() {
 // ROI CALCULATOR SECTION
 // ============================================
 function ROICalculatorSection() {
+  const { t, locale } = useTranslation();
   const [documents, setDocuments] = useState(500);
   const [timePerDoc, setTimePerDoc] = useState(8);
   const [hourlyRate, setHourlyRate] = useState(25);
 
   // Format number with spaces (consistent across server/client)
   const formatNumber = (num: number) => {
-    return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, locale === "fr" ? " " : ",");
   };
 
   // Calculations
@@ -590,13 +540,13 @@ function ROICalculatorSection() {
       <div className="relative mx-auto max-w-4xl px-6">
         <div className="text-center">
           <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
-            Calculateur ROI
+            {t("roi.badge")}
           </span>
           <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">
-            Calculez vos économies potentielles
+            {t("roi.title")}
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-slate-500">
-            Estimez le temps et l&apos;argent que vous pourriez économiser avec Astrale.
+            {t("roi.subtitle")}
           </p>
         </div>
 
@@ -605,13 +555,13 @@ function ROICalculatorSection() {
           <div className="grid gap-8 md:grid-cols-2">
             {/* Inputs */}
             <div className="flex flex-col">
-              <h3 className="mb-6 text-lg font-semibold text-slate-900">Vos données</h3>
+              <h3 className="mb-6 text-lg font-semibold text-slate-900">{t("roi.yourData")}</h3>
               
               <div className="flex flex-1 flex-col justify-between space-y-5">
                 {/* Documents per month */}
                 <div className="rounded-lg border border-slate-100 bg-slate-50/50 p-4">
                   <label className="mb-3 flex items-center justify-between text-sm font-medium text-slate-700">
-                    <span>Documents par mois</span>
+                    <span>{t("roi.documentsPerMonth")}</span>
                     <span className="rounded-md bg-blue-100 px-3 py-1 text-sm font-semibold text-blue-700">{formatNumber(documents)}</span>
                   </label>
                   <input
@@ -623,13 +573,13 @@ function ROICalculatorSection() {
                     onChange={(e) => setDocuments(Number(e.target.value))}
                     className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-slate-200 accent-blue-600"
                   />
-                  <p className="mt-2 text-xs text-slate-500">Preuves de livraison, factures, bons...</p>
+                  <p className="mt-2 text-xs text-slate-500">{t("roi.documentsHint")}</p>
                 </div>
 
                 {/* Time per document */}
                 <div className="rounded-lg border border-slate-100 bg-slate-50/50 p-4">
                   <label className="mb-3 flex items-center justify-between text-sm font-medium text-slate-700">
-                    <span>Temps par document</span>
+                    <span>{t("roi.timePerDoc")}</span>
                     <span className="rounded-md bg-blue-100 px-3 py-1 text-sm font-semibold text-blue-700">{timePerDoc} min</span>
                   </label>
                   <input
@@ -641,13 +591,13 @@ function ROICalculatorSection() {
                     onChange={(e) => setTimePerDoc(Number(e.target.value))}
                     className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-slate-200 accent-blue-600"
                   />
-                  <p className="mt-2 text-xs text-slate-500">Saisie, vérification, classement...</p>
+                  <p className="mt-2 text-xs text-slate-500">{t("roi.timeHint")}</p>
                 </div>
 
                 {/* Hourly rate */}
                 <div className="rounded-lg border border-slate-100 bg-slate-50/50 p-4">
                   <label className="mb-3 flex items-center justify-between text-sm font-medium text-slate-700">
-                    <span>Taux horaire</span>
+                    <span>{t("roi.hourlyRate")}</span>
                     <span className="rounded-md bg-blue-100 px-3 py-1 text-sm font-semibold text-blue-700">{hourlyRate} $/h</span>
                   </label>
                   <input
@@ -659,21 +609,21 @@ function ROICalculatorSection() {
                     onChange={(e) => setHourlyRate(Number(e.target.value))}
                     className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-slate-200 accent-blue-600"
                   />
-                  <p className="mt-2 text-xs text-slate-500">Coût employé incluant charges</p>
+                  <p className="mt-2 text-xs text-slate-500">{t("roi.hourlyHint")}</p>
                 </div>
               </div>
             </div>
 
             {/* Results */}
             <div className="flex flex-col rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 p-6 text-white">
-              <h3 className="mb-6 text-lg font-semibold">Vos économies estimées</h3>
+              <h3 className="mb-6 text-lg font-semibold">{t("roi.results")}</h3>
               
               <div className="flex flex-1 flex-col justify-between space-y-4">
                 <div className="rounded-lg bg-white/10 p-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <Clock className="h-5 w-5 flex-shrink-0 text-blue-400" />
-                      <span className="text-sm text-slate-300">Heures / mois</span>
+                      <span className="text-sm text-slate-300">{t("roi.hoursPerMonth")}</span>
                     </div>
                     <span className="text-2xl font-bold">{Math.round(hoursPerMonth)} h</span>
                   </div>
@@ -683,7 +633,7 @@ function ROICalculatorSection() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <TrendingUp className="h-5 w-5 flex-shrink-0 text-green-400" />
-                      <span className="text-sm text-slate-300">Heures / année</span>
+                      <span className="text-sm text-slate-300">{t("roi.hoursPerYear")}</span>
                     </div>
                     <span className="text-2xl font-bold">{formatNumber(hoursPerYear)} h</span>
                   </div>
@@ -693,7 +643,7 @@ function ROICalculatorSection() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <DollarSign className="h-5 w-5 flex-shrink-0 text-cyan-400" />
-                      <span className="text-sm text-slate-300">Économies / année</span>
+                      <span className="text-sm text-slate-300">{t("roi.savingsPerYear")}</span>
                     </div>
                     <span className="text-2xl font-bold text-cyan-400">{formatNumber(savingsPerYear)} $</span>
                   </div>
@@ -703,15 +653,15 @@ function ROICalculatorSection() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <Zap className="h-5 w-5 flex-shrink-0 text-yellow-400" />
-                      <span className="text-sm text-slate-300">Cycle facturation</span>
+                      <span className="text-sm text-slate-300">{t("roi.billingCycle")}</span>
                     </div>
-                    <span className="text-2xl font-bold">-{billingAcceleration} jours</span>
+                    <span className="text-2xl font-bold">-{billingAcceleration} {locale === "fr" ? "jours" : "days"}</span>
                   </div>
                 </div>
               </div>
 
               <p className="mt-6 text-center text-xs text-slate-400">
-                *Estimation basée sur 90% d&apos;automatisation
+                {t("roi.disclaimer")}
               </p>
             </div>
           </div>
@@ -720,7 +670,7 @@ function ROICalculatorSection() {
           <div className="mt-8 text-center">
             <a href="#contact">
               <Button className="h-12 bg-gradient-to-r from-blue-600 to-blue-700 px-8 font-semibold shadow-lg shadow-blue-500/25 hover:from-blue-500 hover:to-blue-600">
-                Découvrir la solution
+                {t("roi.cta")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
@@ -735,26 +685,29 @@ function ROICalculatorSection() {
 // METRICS SECTION
 // ============================================
 function MetricsSection() {
+  const { t, messages } = useTranslation();
+  const metricsData = messages.metrics.items as Array<{ value: string; label: string; description: string }>;
+  
   const metrics = [
     {
       icon: Clock,
-      value: "-15 jours",
-      label: "Cycle de facturation",
-      description: "Accélération moyenne entre livraison et paiement",
+      value: metricsData[0].value,
+      label: metricsData[0].label,
+      description: metricsData[0].description,
       color: "blue",
     },
     {
       icon: Calculator,
-      value: "-90%",
-      label: "Saisie de données",
-      description: "Élimination des tâches administratives répétitives",
+      value: metricsData[1].value,
+      label: metricsData[1].label,
+      description: metricsData[1].description,
       color: "green",
     },
     {
       icon: Zap,
-      value: "Instantané",
-      label: "Extraction preuve",
-      description: "Données structurées en quelques secondes",
+      value: metricsData[2].value,
+      label: metricsData[2].label,
+      description: metricsData[2].description,
       color: "cyan",
     },
   ];
@@ -764,13 +717,13 @@ function MetricsSection() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center">
           <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
-            Résultats
+            {t("metrics.badge")}
           </span>
           <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">
-            Accélération mesurable
+            {t("metrics.title")}
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-slate-500">
-            Résultats observés chez nos clients pilotes.
+            {t("metrics.subtitle")}
           </p>
         </div>
 
@@ -803,6 +756,8 @@ function MetricsSection() {
 // CONTACT SECTION
 // ============================================
 function ContactSection() {
+  const { t } = useTranslation();
+  
   return (
     <section id="contact" className="relative overflow-hidden bg-slate-900 py-24">
       {/* Subtle gradient background */}
@@ -821,19 +776,19 @@ function ContactSection() {
           {/* Left Column - Info */}
           <motion.div variants={fadeInUp} className="flex flex-col justify-center">
             <span className="mb-4 inline-block w-fit rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1 text-sm font-medium text-blue-400">
-              Contact
+              {t("contact.badge")}
             </span>
             <h2 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Automatisez le processus
+              {t("contact.titlePart1")}
               <br />
-              administratif des preuves de livraison
+              {t("contact.titlePart2")}
               <br />
               <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                en toute simplicité
+                {t("contact.titleHighlight")}
               </span>
             </h2>
             <p className="max-w-md text-lg leading-relaxed text-slate-400">
-              Découvrez comment Astrale peut automatiser votre processus de traitement des preuves de livraison.
+              {t("contact.subtitle")}
             </p>
 
             {/* Contact Info */}
@@ -852,10 +807,10 @@ function ContactSection() {
             <form className="rounded-2xl border border-slate-700/50 bg-slate-800/50 p-8 backdrop-blur-sm">
               <div className="mb-8">
                 <h3 className="text-xl font-semibold text-white">
-                  Contactez-nous
+                  {t("contact.formTitle")}
                 </h3>
                 <p className="mt-1 text-sm text-slate-400">
-                  Remplissez le formulaire et nous vous contacterons rapidement.
+                  {t("contact.formSubtitle")}
                 </p>
               </div>
 
@@ -867,7 +822,7 @@ function ContactSection() {
                       htmlFor="name"
                       className="mb-2 block text-sm font-medium text-slate-300"
                     >
-                      Nom complet
+                      {t("contact.nameLabel")}
                     </label>
                     <div className="relative">
                       <User className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500 transition-colors group-focus-within:text-blue-400" />
@@ -875,7 +830,7 @@ function ContactSection() {
                         type="text"
                         id="name"
                         name="name"
-                        placeholder="Votre Nom"
+                        placeholder={t("contact.namePlaceholder")}
                         className="w-full rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                       />
                     </div>
@@ -885,7 +840,7 @@ function ContactSection() {
                       htmlFor="company"
                       className="mb-2 block text-sm font-medium text-slate-300"
                     >
-                      Entreprise
+                      {t("contact.companyLabel")}
                     </label>
                     <div className="relative">
                       <Building2 className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500 transition-colors group-focus-within:text-blue-400" />
@@ -893,7 +848,7 @@ function ContactSection() {
                         type="text"
                         id="company"
                         name="company"
-                        placeholder="Votre Entreprise"
+                        placeholder={t("contact.companyPlaceholder")}
                         className="w-full rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                       />
                     </div>
@@ -906,7 +861,7 @@ function ContactSection() {
                     htmlFor="email"
                     className="mb-2 block text-sm font-medium text-slate-300"
                   >
-                    Email
+                    {t("contact.emailLabel")}
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500 transition-colors group-focus-within:text-blue-400" />
@@ -914,7 +869,7 @@ function ContactSection() {
                       type="email"
                       id="email"
                       name="email"
-                      placeholder="votre@email.com"
+                      placeholder={t("contact.emailPlaceholder")}
                       className="w-full rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                     />
                   </div>
@@ -926,7 +881,7 @@ function ContactSection() {
                     htmlFor="message"
                     className="mb-2 block text-sm font-medium text-slate-300"
                   >
-                    Message (facultatif)
+                    {t("contact.messageLabel")}
                   </label>
                   <div className="relative">
                     <MessageCircle className="absolute left-3 top-3 h-4 w-4 text-slate-500 transition-colors group-focus-within:text-blue-400" />
@@ -934,7 +889,7 @@ function ContactSection() {
                       id="message"
                       name="message"
                       rows={4}
-                      placeholder="Décrivez brièvement vos besoins..."
+                      placeholder={t("contact.messagePlaceholder")}
                       className="w-full resize-none rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                     />
                   </div>
@@ -946,15 +901,15 @@ function ContactSection() {
                   size="lg"
                   className="mt-2 w-full bg-gradient-to-r from-blue-600 to-cyan-600 py-6 text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:from-blue-500 hover:to-cyan-500 hover:shadow-xl hover:shadow-blue-500/30"
                 >
-                  Envoyer la demande
+                  {t("contact.submit")}
                   <Send className="ml-2 h-4 w-4" />
                 </Button>
               </div>
 
               <p className="mt-4 text-center text-xs text-slate-500">
-                En soumettant ce formulaire, vous acceptez notre{" "}
+                {t("contact.privacyNotice")}{" "}
                 <a href="/confidentialite" className="text-blue-400 hover:underline">
-                  politique de confidentialité
+                  {t("contact.privacyLink")}
                 </a>
                 .
               </p>
@@ -970,6 +925,8 @@ function ContactSection() {
 // FOOTER
 // ============================================
 function Footer() {
+  const { t } = useTranslation();
+  
   return (
     <footer className="border-t border-slate-200 bg-slate-50 py-8">
       <div className="mx-auto max-w-6xl px-6">
@@ -983,7 +940,7 @@ function Footer() {
             />
             <div className="hidden h-6 w-px bg-slate-300 md:block" />
             <span className="text-center text-sm text-slate-500 md:text-left">
-              L&apos;automatisation invisible entre vos livreurs et votre système de gestion
+              {t("footer.tagline")}
             </span>
           </div>
           
@@ -998,17 +955,17 @@ function Footer() {
         <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 md:flex-row">
           <div className="flex items-center gap-6 text-sm text-slate-500">
             <a href="/mentions-legales" className="transition-colors hover:text-blue-600">
-              Mentions légales
+              {t("footer.legalLinks.legal")}
             </a>
             <a href="/confidentialite" className="transition-colors hover:text-blue-600">
-              Confidentialité
+              {t("footer.legalLinks.privacy")}
             </a>
             <a href="#contact" className="transition-colors hover:text-blue-600">
-              Contact
+              {t("footer.legalLinks.contact")}
             </a>
           </div>
           <div className="text-sm text-slate-400">
-            © {new Date().getFullYear()} Astrale. Tous droits réservés.
+            {t("footer.copyright", { year: new Date().getFullYear() })}
           </div>
         </div>
       </div>

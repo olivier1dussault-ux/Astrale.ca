@@ -1,0 +1,312 @@
+{
+  "nav": {
+    "solution": "Solution",
+    "howItWorks": "Fonctionnement",
+    "impact": "Impact",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Pour entreprises de transport et logistique",
+    "titlePart1": "Facturez",
+    "titleHighlight": "15 jours plus vite",
+    "titlePart2": "grâce à vos preuves de livraison automatisées",
+    "subtitle": "Vos chauffeurs envoient les preuves de livraison par SMS, WhatsApp ou Messenger. Astrale extrait les données et les synchronise instantanément vers votre système de gestion — sans saisie manuelle.",
+    "cta": "Découvrir Astrale",
+    "ctaSecondary": "Voir comment ça marche",
+    "stats": {
+      "days": "-15 jours",
+      "daysLabel": "Cycle facturation",
+      "automation": "90%",
+      "automationLabel": "Saisie éliminée",
+      "instant": "Instantané",
+      "instantLabel": "Extraction IA"
+    }
+  },
+  "heroVisual": {
+    "via": "via SMS",
+    "extractionSuccess": "Preuve de livraison extraite avec succès"
+  },
+  "comparison": {
+    "badge": "Comparaison",
+    "title": "Saisie manuelle vs Extraction automatique",
+    "subtitle": "Comparez votre processus actuel de traitement des preuves de livraison.",
+    "before": "Avant",
+    "after": "Avec Astrale",
+    "beforeItems": [
+      "Preuves de livraison empilées sur le bureau en fin de semaine",
+      "Saisie de données manuelle, chronophage et source d'erreurs",
+      "Retard de facturation de 5 à 15 jours",
+      "Trésorerie bloquée par les délais administratifs"
+    ],
+    "afterItems": [
+      "Extraction automatique dès réception de la preuve de livraison",
+      "Données structurées prêtes pour votre système de gestion",
+      "Accélération du cycle de facturation",
+      "Intégration via SMS, WhatsApp ou Messenger"
+    ]
+  },
+  "process": {
+    "badge": "Processus",
+    "title": "De la preuve de livraison à la facture. Automatiquement.",
+    "subtitle": "Astrale est le tuyau invisible entre vos livreurs et votre système de gestion.",
+    "step1": "Preuve reçue",
+    "step1Sub": "SMS / WhatsApp / Messenger",
+    "step2": "Extraction",
+    "step2Sub": "Astrale traite les données",
+    "step3": "Gestion / Facturation",
+    "step3Sub": "Données prêtes",
+    "howItWorksTitle": "Comment ça marche",
+    "howItWorksSteps": [
+      "Le chauffeur envoie la preuve de livraison par SMS, WhatsApp ou Messenger.",
+      "Astrale extrait et structure les données instantanément.",
+      "Les informations sont synchronisées vers votre système de gestion, prêtes pour facturation."
+    ],
+    "callout": "Fonctionne en arrière-plan. Zéro adaptation requise.",
+    "calloutSub": "Vos équipes continuent comme avant. Astrale fait le reste."
+  },
+  "integrations": {
+    "badge": "Écosystème",
+    "title": "Compatible avec votre infrastructure.",
+    "subtitle": "Nous connectons le terrain à vos systèmes comptables et bancaires existants. Aucune migration requise.",
+    "categories": {
+      "channels": "Canaux",
+      "accounting": "Comptabilité",
+      "financing": "Financement"
+    },
+    "disclaimer": "Tous les noms de produits, logos et marques sont la propriété de leurs détenteurs respectifs. Astrale est une solution indépendante d'automatisation et n'est pas affiliée directement à ces entités, sauf mention contraire."
+  },
+  "roi": {
+    "badge": "Calculateur ROI",
+    "title": "Calculez vos économies potentielles",
+    "subtitle": "Estimez le temps et l'argent que vous pourriez économiser avec Astrale.",
+    "yourData": "Vos données",
+    "documentsPerMonth": "Documents par mois",
+    "documentsHint": "Preuves de livraison, factures, bons...",
+    "timePerDoc": "Temps par document",
+    "timeHint": "Saisie, vérification, classement...",
+    "hourlyRate": "Taux horaire",
+    "hourlyHint": "Coût employé incluant charges",
+    "results": "Vos économies estimées",
+    "hoursPerMonth": "Heures / mois",
+    "hoursPerYear": "Heures / année",
+    "savingsPerYear": "Économies / année",
+    "billingCycle": "Cycle facturation",
+    "disclaimer": "*Estimation basée sur 90% d'automatisation",
+    "cta": "Découvrir la solution"
+  },
+  "metrics": {
+    "badge": "Résultats",
+    "title": "Accélération mesurable",
+    "subtitle": "Résultats observés chez nos clients pilotes.",
+    "items": [
+      {
+        "value": "-15 jours",
+        "label": "Cycle de facturation",
+        "description": "Accélération moyenne entre livraison et paiement"
+      },
+      {
+        "value": "-90%",
+        "label": "Saisie de données",
+        "description": "Élimination des tâches administratives répétitives"
+      },
+      {
+        "value": "Instantané",
+        "label": "Extraction preuve",
+        "description": "Données structurées en quelques secondes"
+      }
+    ]
+  },
+  "contact": {
+    "badge": "Contact",
+    "titlePart1": "Automatisez le processus",
+    "titlePart2": "administratif des preuves de livraison",
+    "titleHighlight": "en toute simplicité",
+    "subtitle": "Découvrez comment Astrale peut automatiser votre processus de traitement des preuves de livraison.",
+    "formTitle": "Contactez-nous",
+    "formSubtitle": "Remplissez le formulaire et nous vous contacterons rapidement.",
+    "nameLabel": "Nom complet",
+    "namePlaceholder": "Votre Nom",
+    "companyLabel": "Entreprise",
+    "companyPlaceholder": "Votre Entreprise",
+    "emailLabel": "Email",
+    "emailPlaceholder": "votre@email.com",
+    "messageLabel": "Message (facultatif)",
+    "messagePlaceholder": "Décrivez brièvement vos besoins...",
+    "submit": "Envoyer la demande",
+    "privacyNotice": "En soumettant ce formulaire, vous acceptez notre",
+    "privacyLink": "politique de confidentialité"
+  },
+  "footer": {
+    "tagline": "L'automatisation invisible entre vos livreurs et votre système de gestion",
+    "legalLinks": {
+      "legal": "Mentions légales",
+      "privacy": "Confidentialité",
+      "contact": "Contact"
+    },
+    "copyright": "© {year} Astrale. Tous droits réservés."
+  },
+  "legal": {
+    "backToHome": "Retour à l'accueil",
+    "lastUpdated": "Dernière mise à jour : 26 janvier 2026",
+    "copyright": "© {year} Astrale. Tous droits réservés.",
+    "title": "Mentions Légales",
+    "sections": {
+      "editor": {
+        "title": "1. Identification de l'éditeur",
+        "companyName": "Raison sociale :",
+        "email": "Courriel :",
+        "website": "Site web :"
+      },
+      "privacy": {
+        "title": "2. Responsable de la protection des renseignements personnels",
+        "content": "Conformément à la Loi 25 (Loi modernisant des dispositions législatives en matière de protection des renseignements personnels), Astrale a désigné une personne responsable de la protection des renseignements personnels.",
+        "contact": "Pour toute question concernant la collecte, l'utilisation ou la divulgation de vos renseignements personnels, ou pour exercer vos droits en vertu de la Loi 25, veuillez nous contacter à :"
+      },
+      "hosting": {
+        "title": "3. Hébergement",
+        "intro": "Ce site est hébergé par :",
+        "website": "Site web :"
+      },
+      "intellectual": {
+        "title": "4. Propriété intellectuelle",
+        "content1": "L'ensemble du contenu de ce site (textes, images, logos, graphiques, icônes, logiciels, bases de données, etc.) est protégé par les lois canadiennes et internationales relatives à la propriété intellectuelle.",
+        "content2": "Toute reproduction, représentation, modification, publication, adaptation ou exploitation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation écrite préalable d'Astrale.",
+        "content3": "Les marques, logos et noms de domaine associés à Astrale sont la propriété exclusive d'Astrale. Toute utilisation non autorisée constitue une contrefaçon."
+      },
+      "cookies": {
+        "title": "5. Témoins (Cookies)",
+        "content1": "Conformément à la Loi 25 du Québec, les témoins (cookies) et autres technologies de suivi sont désactivés par défaut sur notre site.",
+        "content2": "Nous utilisons uniquement des témoins strictement nécessaires au fonctionnement du site. Aucun témoin de suivi publicitaire ou analytique n'est installé sans votre consentement explicite.",
+        "content3": "Pour plus d'informations sur notre utilisation des témoins, consultez notre",
+        "privacyLink": "politique de confidentialité"
+      },
+      "links": {
+        "title": "6. Liens externes",
+        "content1": "Ce site peut contenir des liens vers des sites web tiers. Ces liens sont fournis uniquement pour votre commodité.",
+        "content2": "Astrale n'exerce aucun contrôle sur le contenu de ces sites tiers et décline toute responsabilité quant à leur contenu, leurs pratiques de confidentialité ou leur disponibilité.",
+        "content3": "L'inclusion de liens vers des sites tiers n'implique pas l'approbation de leur contenu par Astrale."
+      },
+      "liability": {
+        "title": "7. Limitation de responsabilité",
+        "content1": "Les informations contenues sur ce site sont fournies à titre informatif uniquement. Astrale s'efforce de maintenir ces informations exactes et à jour, mais ne peut garantir leur exactitude, leur exhaustivité ou leur pertinence.",
+        "content2": "Astrale ne pourra être tenue responsable des dommages directs ou indirects résultant de l'utilisation ou de l'impossibilité d'utiliser ce site, y compris les dommages liés à la perte de données, de profits ou d'opportunités commerciales."
+      },
+      "jurisdiction": {
+        "title": "8. Droit applicable et juridiction",
+        "content1": "Les présentes mentions légales sont régies par les lois en vigueur au Québec, Canada.",
+        "content2": "Tout litige relatif à l'utilisation de ce site sera soumis à la compétence exclusive des tribunaux du Québec.",
+        "content3": "Les lois applicables incluent notamment :",
+        "laws": [
+          "Loi sur la protection des renseignements personnels dans le secteur privé (LPRPSP)",
+          "Loi 25 - Loi modernisant des dispositions législatives en matière de protection des renseignements personnels",
+          "Loi sur la protection du consommateur du Québec",
+          "Loi sur la protection des renseignements personnels et les documents électroniques (LPRPDE) - niveau fédéral"
+        ]
+      },
+      "modifications": {
+        "title": "9. Modification des mentions légales",
+        "content1": "Astrale se réserve le droit de modifier les présentes mentions légales à tout moment. Les modifications entrent en vigueur dès leur publication sur cette page.",
+        "content2": "Nous vous invitons à consulter régulièrement cette page pour prendre connaissance des éventuelles modifications."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "Pour toute question concernant ces mentions légales ou le site web, veuillez nous contacter :"
+      }
+    }
+  },
+  "privacy": {
+    "title": "Politique de Confidentialité",
+    "lastUpdated": "Dernière mise à jour : 26 janvier 2026",
+    "intro": "Chez Astrale, nous prenons la protection de vos renseignements personnels très au sérieux. Cette politique de confidentialité décrit comment nous collectons, utilisons, divulguons et protégeons vos renseignements personnels, conformément à la Loi 25 du Québec (Loi modernisant des dispositions législatives en matière de protection des renseignements personnels) et aux lois fédérales canadiennes applicables.",
+    "sections": {
+      "collected": {
+        "title": "1. Renseignements personnels collectés",
+        "intro": "Nous collectons les renseignements personnels suivants lorsque vous utilisez notre site ou nos services :",
+        "identification": "Informations d'identification",
+        "identificationItems": ["Nom complet", "Adresse courriel professionnelle", "Numéro de téléphone", "Nom de l'entreprise"],
+        "technical": "Informations techniques",
+        "technicalItems": ["Adresse IP", "Type de navigateur", "Pages visitées", "Date et heure de visite"]
+      },
+      "purposes": {
+        "title": "2. Finalités de la collecte",
+        "intro": "Nous collectons et utilisons vos renseignements personnels uniquement pour les finalités suivantes :",
+        "items": [
+          { "title": "Répondre à vos demandes", "content": "Traiter et répondre à vos questions, demandes de démonstration ou demandes d'information." },
+          { "title": "Fournir nos services", "content": "Vous permettre d'utiliser notre plateforme d'automatisation de traitement de documents." },
+          { "title": "Améliorer nos services", "content": "Analyser l'utilisation du site pour améliorer l'expérience utilisateur." },
+          { "title": "Communications", "content": "Vous envoyer des informations relatives à nos services (avec votre consentement)." },
+          { "title": "Conformité légale", "content": "Respecter nos obligations légales et réglementaires." }
+        ]
+      },
+      "consent": {
+        "title": "3. Base légale et consentement",
+        "content": "Conformément à la Loi 25, nous recueillons vos renseignements personnels uniquement avec votre consentement explicite, sauf dans les cas où la loi nous autorise à les collecter sans consentement.",
+        "notice": "Votre consentement est libre, éclairé et donné à des fins spécifiques. Vous pouvez retirer votre consentement à tout moment en nous contactant."
+      },
+      "sharing": {
+        "title": "4. Partage avec des tiers",
+        "intro": "Nous ne vendons, ne louons et ne partageons pas vos renseignements personnels avec des tiers à des fins de marketing.",
+        "content": "Nous pouvons partager vos renseignements uniquement dans les cas suivants :",
+        "items": [
+          { "title": "Fournisseurs de services", "content": "Avec des prestataires qui nous aident à fournir nos services (hébergement, analyse), sous réserve de clauses de confidentialité strictes." },
+          { "title": "Obligations légales", "content": "Lorsque la loi l'exige ou en réponse à une demande valide des autorités compétentes." },
+          { "title": "Protection des droits", "content": "Pour protéger nos droits, notre sécurité ou celle de tiers." }
+        ]
+      },
+      "retention": {
+        "title": "5. Durée de conservation",
+        "intro": "Nous conservons vos renseignements personnels uniquement pendant la durée nécessaire aux fins pour lesquelles ils ont été collectés :",
+        "items": [
+          { "label": "Demandes de contact", "value": "2 ans" },
+          { "label": "Données clients (compte actif)", "value": "Durée du contrat" },
+          { "label": "Données clients (après résiliation)", "value": "3 ans" },
+          { "label": "Données techniques (logs)", "value": "12 mois" }
+        ],
+        "outro": "À l'expiration de ces délais, vos renseignements sont supprimés de façon sécurisée ou anonymisés."
+      },
+      "security": {
+        "title": "6. Mesures de sécurité",
+        "intro": "Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos renseignements personnels contre :",
+        "items": [
+          { "title": "Chiffrement SSL/TLS", "subtitle": "Données en transit" },
+          { "title": "Accès restreint", "subtitle": "Personnel autorisé" },
+          { "title": "Sauvegardes", "subtitle": "Régulières et sécurisées" }
+        ]
+      },
+      "rights": {
+        "title": "7. Vos droits (Loi 25)",
+        "intro": "Conformément à la Loi 25 et aux lois applicables, vous disposez des droits suivants concernant vos renseignements personnels :",
+        "items": [
+          { "title": "Droit d'accès", "content": "Vous pouvez demander l'accès aux renseignements personnels que nous détenons à votre sujet." },
+          { "title": "Droit de rectification", "content": "Vous pouvez demander la correction de renseignements inexacts ou incomplets." },
+          { "title": "Droit à l'effacement", "content": "Vous pouvez demander la suppression de vos renseignements personnels, sous réserve de nos obligations légales de conservation." },
+          { "title": "Droit à la portabilité", "content": "Vous pouvez demander à recevoir vos renseignements dans un format structuré et couramment utilisé (en vigueur depuis septembre 2024)." },
+          { "title": "Droit de retirer votre consentement", "content": "Vous pouvez retirer votre consentement à tout moment pour le traitement futur de vos renseignements." }
+        ],
+        "outro": "Pour exercer vos droits, veuillez nous contacter à {email}. Nous répondrons à votre demande dans un délai de 30 jours."
+      },
+      "cookies": {
+        "title": "8. Témoins (Cookies)",
+        "intro": "Conformément à la Loi 25, les témoins et technologies de suivi sont désactivés par défaut sur notre site.",
+        "typesTitle": "Types de témoins utilisés :",
+        "necessary": { "title": "Témoins strictement nécessaires", "content": "Essentiels au fonctionnement du site. Ne nécessitent pas de consentement." },
+        "analytics": { "title": "Témoins analytiques (optionnels)", "content": "Nous aident à comprendre comment les visiteurs utilisent le site. Activés uniquement avec votre consentement explicite." },
+        "outro": "Vous pouvez gérer vos préférences de témoins à tout moment via les paramètres de votre navigateur."
+      },
+      "modifications": {
+        "title": "9. Modifications de cette politique",
+        "content1": "Nous pouvons mettre à jour cette politique de confidentialité périodiquement. La date de la dernière mise à jour est indiquée en haut de cette page.",
+        "content2": "En cas de modifications importantes, nous vous en informerons par courriel ou par un avis visible sur notre site."
+      },
+      "contact": {
+        "title": "10. Nous contacter",
+        "intro": "Pour toute question concernant cette politique de confidentialité, pour exercer vos droits ou pour déposer une plainte, veuillez contacter notre responsable de la protection des renseignements personnels :",
+        "role": "Responsable de la protection des renseignements personnels",
+        "cai": {
+          "title": "Commission d'accès à l'information du Québec (CAI)",
+          "content": "Si vous n'êtes pas satisfait de notre réponse, vous pouvez déposer une plainte auprès de la CAI :"
+        }
+      }
+    }
+  }
+}

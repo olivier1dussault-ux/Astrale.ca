@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
+import { useTranslation } from "@/lib/i18n";
 
 // ============================================
 // ANIMATION VARIANTS
@@ -34,13 +35,13 @@ interface Integration {
 }
 
 interface IntegrationCategory {
-  title: string;
+  titleKey: "channels" | "accounting" | "financing";
   items: Integration[];
 }
 
 const integrationCategories: IntegrationCategory[] = [
   {
-    title: "Canaux",
+    titleKey: "channels",
     items: [
       { name: "Messenger", logo: "/Messenger.svg.png" },
       { name: "SMS", logo: "/SMS.png" },
@@ -49,7 +50,7 @@ const integrationCategories: IntegrationCategory[] = [
     ],
   },
   {
-    title: "Comptabilité",
+    titleKey: "accounting",
     items: [
       { name: "QuickBooks Online", logo: "/Intuit_QuickBooks.png" },
       { name: "Acomba", logo: "/Acomba.svg", scale: 1.4 },
@@ -58,7 +59,7 @@ const integrationCategories: IntegrationCategory[] = [
     ],
   },
   {
-    title: "Financement",
+    titleKey: "financing",
     items: [
       { name: "LendCare", logo: "/LendCare.webp" },
       { name: "Fairstone", logo: "/Fairstone.png" },
@@ -179,6 +180,8 @@ function MarqueeRow({
 // INTEGRATIONS SECTION
 // ============================================
 export function IntegrationsSection() {
+  const { t } = useTranslation();
+  
   return (
     <section className="relative bg-slate-100 py-24">
       {/* Gradient transition to next section */}
@@ -193,14 +196,13 @@ export function IntegrationsSection() {
           {/* Header */}
           <motion.div variants={fadeInUp} className="text-center">
             <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
-              Écosystème
+              {t("integrations.badge")}
             </span>
             <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">
-              Compatible avec votre infrastructure.
+              {t("integrations.title")}
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-slate-500">
-              Nous connectons le terrain à vos systèmes comptables et bancaires
-              existants. Aucune migration requise.
+              {t("integrations.subtitle")}
             </p>
           </motion.div>
 
@@ -211,7 +213,7 @@ export function IntegrationsSection() {
               <MarqueeRow
                 items={integrationCategories[0].items}
                 direction="left"
-                label={integrationCategories[0].title}
+                label={t(`integrations.categories.${integrationCategories[0].titleKey}`)}
                 labelPosition="left"
                 speed={35}
               />
@@ -222,7 +224,7 @@ export function IntegrationsSection() {
               <MarqueeRow
                 items={integrationCategories[1].items}
                 direction="right"
-                label={integrationCategories[1].title}
+                label={t(`integrations.categories.${integrationCategories[1].titleKey}`)}
                 labelPosition="right"
                 speed={35}
               />
@@ -233,7 +235,7 @@ export function IntegrationsSection() {
               <MarqueeRow
                 items={integrationCategories[2].items}
                 direction="left"
-                label={integrationCategories[2].title}
+                label={t(`integrations.categories.${integrationCategories[2].titleKey}`)}
                 labelPosition="left"
                 speed={35}
               />
@@ -245,10 +247,7 @@ export function IntegrationsSection() {
             variants={fadeInUp}
             className="mx-auto mt-16 max-w-3xl text-center text-xs text-slate-400"
           >
-            Tous les noms de produits, logos et marques sont la propriété de
-            leurs détenteurs respectifs. Astrale est une solution indépendante
-            d&apos;automatisation et n&apos;est pas affiliée directement à ces
-            entités, sauf mention contraire.
+            {t("integrations.disclaimer")}
           </motion.p>
         </motion.div>
       </div>
