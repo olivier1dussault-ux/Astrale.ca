@@ -47,6 +47,8 @@ const integrationCategories: IntegrationCategory[] = [
       { name: "SMS", logo: "/SMS.png" },
       { name: "WhatsApp", logo: "/WhatsApp_icon.png" },
       { name: "Telegram", logo: "/Telegram_logo.svg.png" },
+      { name: "Microsoft Teams", logo: "/Microsoft-Teams-Logo.png" },
+      { name: "Slack", logo: "/Slack-logo.png" },
     ],
   },
   {
@@ -183,7 +185,9 @@ export function IntegrationsSection() {
   const { t } = useTranslation();
   
   return (
-    <section className="relative bg-slate-100 py-24">
+    <section id="ecosysteme" className="relative bg-slate-100 py-24">
+      {/* Gradient transition from previous section */}
+      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-slate-50 via-slate-50/50 to-transparent" />
       {/* Gradient transition to next section */}
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-white" />
       <div className="relative mx-auto max-w-6xl px-6">

@@ -2,15 +2,16 @@
   "nav": {
     "solution": "Solution",
     "howItWorks": "Fonctionnement",
+    "ecosystem": "Écosystème",
     "impact": "Impact",
     "contact": "Contact"
   },
   "hero": {
     "badge": "Pour entreprises de transport et logistique",
-    "titlePart1": "Facturez",
-    "titleHighlight": "15 jours plus vite",
-    "titlePart2": "grâce à vos preuves de livraison automatisées",
-    "subtitle": "Vos chauffeurs envoient les preuves de livraison par SMS, WhatsApp ou Messenger. Astrale extrait les données et les synchronise instantanément vers votre système de gestion — sans saisie manuelle.",
+    "titlePart1": "Automatisez le processus administratif des",
+    "titleHighlight": "preuves de livraison",
+    "titlePart2": "sans rien changer",
+    "subtitle": "Votre partenaire en automatisation. De la réception de la preuve de livraison jusqu'à la facture, Astrale s'intègre à vos canaux actuels — SMS, Messenger, WhatsApp ou autre — et connecte vos équipes terrain à vos systèmes de gestion. Prêt à facturer, sans saisie manuelle.",
     "cta": "Découvrir Astrale",
     "ctaSecondary": "Voir comment ça marche",
     "stats": {
@@ -18,8 +19,8 @@
       "daysLabel": "Cycle facturation",
       "automation": "90%",
       "automationLabel": "Saisie éliminée",
-      "instant": "Instantané",
-      "instantLabel": "Extraction IA"
+      "instant": "Simple",
+      "instantLabel": "Zéro formation"
     }
   },
   "heroVisual": {
@@ -27,22 +28,41 @@
     "extractionSuccess": "Preuve de livraison extraite avec succès"
   },
   "comparison": {
-    "badge": "Comparaison",
-    "title": "Saisie manuelle vs Extraction automatique",
-    "subtitle": "Comparez votre processus actuel de traitement des preuves de livraison.",
-    "before": "Avant",
+    "badge": "Le problème",
+    "title": "Avant vs Avec Astrale",
+    "subtitle": "Simplifiez votre processus de traitement des preuves de livraison.",
+    "before": "Processus manuel",
     "after": "Avec Astrale",
     "beforeItems": [
-      "Preuves de livraison empilées sur le bureau en fin de semaine",
-      "Saisie de données manuelle, chronophage et source d'erreurs",
-      "Retard de facturation de 5 à 15 jours",
-      "Trésorerie bloquée par les délais administratifs"
+      {
+        "title": "Saisie chronophage",
+        "description": "Des heures perdues à entrer les données manuellement"
+      },
+      {
+        "title": "Retards de facturation",
+        "description": "5 à 15 jours de délai avant de pouvoir facturer"
+      },
+      {
+        "title": "Erreurs fréquentes",
+        "description": "Données incomplètes ou incorrectes"
+      }
     ],
     "afterItems": [
-      "Extraction automatique dès réception de la preuve de livraison",
-      "Données structurées prêtes pour votre système de gestion",
-      "Accélération du cycle de facturation",
-      "Intégration via SMS, WhatsApp ou Messenger"
+      {
+        "title": "Extraction instantanée",
+        "description": "Données extraites automatiquement en quelques secondes",
+        "metric": "90%"
+      },
+      {
+        "title": "Facturation accélérée",
+        "description": "Cycle de facturation drastiquement réduit",
+        "metric": "-15 jours"
+      },
+      {
+        "title": "Données fiables",
+        "description": "Informations structurées et prêtes à l'emploi",
+        "metric": "0 saisie"
+      }
     ]
   },
   "process": {
@@ -50,14 +70,14 @@
     "title": "De la preuve de livraison à la facture. Automatiquement.",
     "subtitle": "Astrale est le tuyau invisible entre vos livreurs et votre système de gestion.",
     "step1": "Preuve reçue",
-    "step1Sub": "SMS / WhatsApp / Messenger",
+    "step1Sub": "SMS, Messenger, WhatsApp...",
     "step2": "Extraction",
     "step2Sub": "Astrale traite les données",
     "step3": "Gestion / Facturation",
     "step3Sub": "Données prêtes",
     "howItWorksTitle": "Comment ça marche",
     "howItWorksSteps": [
-      "Le chauffeur envoie la preuve de livraison par SMS, WhatsApp ou Messenger.",
+      "Le chauffeur envoie la preuve de livraison par SMS, Messenger, WhatsApp ou autre.",
       "Astrale extrait et structure les données instantanément.",
       "Les informations sont synchronisées vers votre système de gestion, prêtes pour facturation."
     ],
@@ -161,52 +181,6 @@
         "title": "2. Responsable de la protection des renseignements personnels",
         "content": "Conformément à la Loi 25 (Loi modernisant des dispositions législatives en matière de protection des renseignements personnels), Astrale a désigné une personne responsable de la protection des renseignements personnels.",
         "contact": "Pour toute question concernant la collecte, l'utilisation ou la divulgation de vos renseignements personnels, ou pour exercer vos droits en vertu de la Loi 25, veuillez nous contacter à :"
-      },
-      "hosting": {
-        "title": "3. Hébergement",
-        "intro": "Ce site est hébergé par :",
-        "website": "Site web :"
-      },
-      "intellectual": {
-        "title": "4. Propriété intellectuelle",
-        "content1": "L'ensemble du contenu de ce site (textes, images, logos, graphiques, icônes, logiciels, bases de données, etc.) est protégé par les lois canadiennes et internationales relatives à la propriété intellectuelle.",
-        "content2": "Toute reproduction, représentation, modification, publication, adaptation ou exploitation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation écrite préalable d'Astrale.",
-        "content3": "Les marques, logos et noms de domaine associés à Astrale sont la propriété exclusive d'Astrale. Toute utilisation non autorisée constitue une contrefaçon."
-      },
-      "cookies": {
-        "title": "5. Témoins (Cookies)",
-        "content1": "Conformément à la Loi 25 du Québec, les témoins (cookies) et autres technologies de suivi sont désactivés par défaut sur notre site.",
-        "content2": "Nous utilisons uniquement des témoins strictement nécessaires au fonctionnement du site. Aucun témoin de suivi publicitaire ou analytique n'est installé sans votre consentement explicite.",
-        "content3": "Pour plus d'informations sur notre utilisation des témoins, consultez notre",
-        "privacyLink": "politique de confidentialité"
-      },
-      "links": {
-        "title": "6. Liens externes",
-        "content1": "Ce site peut contenir des liens vers des sites web tiers. Ces liens sont fournis uniquement pour votre commodité.",
-        "content2": "Astrale n'exerce aucun contrôle sur le contenu de ces sites tiers et décline toute responsabilité quant à leur contenu, leurs pratiques de confidentialité ou leur disponibilité.",
-        "content3": "L'inclusion de liens vers des sites tiers n'implique pas l'approbation de leur contenu par Astrale."
-      },
-      "liability": {
-        "title": "7. Limitation de responsabilité",
-        "content1": "Les informations contenues sur ce site sont fournies à titre informatif uniquement. Astrale s'efforce de maintenir ces informations exactes et à jour, mais ne peut garantir leur exactitude, leur exhaustivité ou leur pertinence.",
-        "content2": "Astrale ne pourra être tenue responsable des dommages directs ou indirects résultant de l'utilisation ou de l'impossibilité d'utiliser ce site, y compris les dommages liés à la perte de données, de profits ou d'opportunités commerciales."
-      },
-      "jurisdiction": {
-        "title": "8. Droit applicable et juridiction",
-        "content1": "Les présentes mentions légales sont régies par les lois en vigueur au Québec, Canada.",
-        "content2": "Tout litige relatif à l'utilisation de ce site sera soumis à la compétence exclusive des tribunaux du Québec.",
-        "content3": "Les lois applicables incluent notamment :",
-        "laws": [
-          "Loi sur la protection des renseignements personnels dans le secteur privé (LPRPSP)",
-          "Loi 25 - Loi modernisant des dispositions législatives en matière de protection des renseignements personnels",
-          "Loi sur la protection du consommateur du Québec",
-          "Loi sur la protection des renseignements personnels et les documents électroniques (LPRPDE) - niveau fédéral"
-        ]
-      },
-      "modifications": {
-        "title": "9. Modification des mentions légales",
-        "content1": "Astrale se réserve le droit de modifier les présentes mentions légales à tout moment. Les modifications entrent en vigueur dès leur publication sur cette page.",
-        "content2": "Nous vous invitons à consulter régulièrement cette page pour prendre connaissance des éventuelles modifications."
       },
       "contact": {
         "title": "Contact",

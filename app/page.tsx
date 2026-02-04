@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   FileText,
   Cpu,
@@ -14,8 +13,8 @@ import {
   X,
   Check,
   Clock,
-  Calculator,
   ArrowRight,
+  ArrowDown,
   Mail,
   Send,
   Building2,
@@ -27,6 +26,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
+import { Footer } from "@/components/Footer";
 import { useTranslation } from "@/lib/i18n";
 
 // ============================================
@@ -62,7 +62,7 @@ const fadeInRight: Variants = {
 // NAVBAR
 // ============================================
 function Navbar() {
-  const { t } = useTranslation();
+  const { t, locale, setLocale } = useTranslation();
   
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-lg supports-[backdrop-filter]:bg-white/60">
@@ -81,19 +81,19 @@ function Navbar() {
         {/* Navigation - Centered */}
         <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 md:flex">
           <a
-            href="#solution"
-            className="text-base font-medium text-slate-600 transition-colors hover:text-blue-600"
-          >
-            {t("nav.solution")}
-          </a>
-          <a
             href="#fonctionnement"
             className="text-base font-medium text-slate-600 transition-colors hover:text-blue-600"
           >
             {t("nav.howItWorks")}
           </a>
           <a
-            href="#impact"
+            href="#ecosysteme"
+            className="text-base font-medium text-slate-600 transition-colors hover:text-blue-600"
+          >
+            {t("nav.ecosystem")}
+          </a>
+          <a
+            href="#roi"
             className="text-base font-medium text-slate-600 transition-colors hover:text-blue-600"
           >
             {t("nav.impact")}
@@ -101,11 +101,21 @@ function Navbar() {
         </div>
 
         {/* CTA - Right */}
-        <a href="#contact" className="ml-auto flex w-48 justify-end">
-          <Button className="h-11 bg-gradient-to-r from-blue-600 to-blue-700 px-6 text-base font-medium text-white shadow-md shadow-blue-500/20 transition-all hover:from-blue-500 hover:to-blue-600 hover:shadow-lg hover:shadow-blue-500/30">
-            {t("nav.contact")}
-          </Button>
-        </a>
+        <div className="ml-auto flex items-center gap-4">
+          {/* Language Toggle */}
+          <button
+            onClick={() => setLocale(locale === "fr" ? "en" : "fr")}
+            className="text-sm font-medium text-slate-500 transition-colors hover:text-blue-600"
+          >
+            {locale === "fr" ? "EN" : "FR"}
+          </button>
+          
+          <a href="#contact">
+            <Button className="h-11 bg-gradient-to-r from-blue-600 to-blue-700 px-6 text-base font-medium text-white shadow-md shadow-blue-500/20 transition-all hover:from-blue-500 hover:to-blue-600 hover:shadow-lg hover:shadow-blue-500/30">
+              {t("nav.contact")}
+            </Button>
+          </a>
+        </div>
       </div>
     </nav>
   );
@@ -129,20 +139,20 @@ function HeroVisual() {
         className="relative"
       >
         {/* Main card - SMS Conversation */}
-        <div className="relative rounded-2xl border border-slate-200/80 bg-white/90 p-4 shadow-2xl shadow-slate-300/50 backdrop-blur-sm">
+        <div className="relative rounded-2xl border border-slate-200/80 bg-white/90 p-5 shadow-2xl shadow-slate-300/50 backdrop-blur-sm">
           {/* Phone header */}
-          <div className="mb-3 flex items-center gap-2 border-b border-slate-100 pb-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100">
-              <MessageCircle className="h-4 w-4 text-blue-600" />
+          <div className="mb-4 flex items-center gap-3 border-b border-slate-100 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100">
+              <MessageCircle className="h-5 w-5 text-blue-600" />
             </div>
             <div>
-              <p className="text-sm font-medium text-slate-900">Astrale</p>
-              <p className="text-xs text-slate-500">{t("heroVisual.via")}</p>
+              <p className="text-base font-medium text-slate-900">Astrale</p>
+              <p className="text-sm text-slate-500">{t("heroVisual.via")}</p>
             </div>
           </div>
 
           {/* Messages */}
-          <div className="space-y-3">
+          <div className="space-y-4">
             {/* User's message (outgoing - right) - you sent the POD first */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -150,8 +160,8 @@ function HeroVisual() {
               transition={{ delay: 0.8, duration: 0.4 }}
               className="flex justify-end"
             >
-              <div className="rounded-2xl rounded-tr-sm bg-gradient-to-r from-blue-600 to-blue-700 p-2">
-                <div className="relative h-32 w-48 overflow-hidden rounded-lg bg-white/20 sm:h-40 sm:w-56">
+              <div className="rounded-2xl rounded-tr-sm bg-gradient-to-r from-blue-600 to-blue-700 p-3">
+                <div className="relative h-44 w-64 overflow-hidden rounded-lg bg-white/20">
                   <Image
                     src="/POD.png"
                     alt="Proof of delivery example"
@@ -169,20 +179,20 @@ function HeroVisual() {
               transition={{ delay: 1.4, duration: 0.4 }}
               className="flex gap-2"
             >
-              <div className="rounded-2xl rounded-tl-sm bg-slate-100 px-3 py-2">
-                <div className="flex items-center gap-1.5 text-xs text-slate-600">
-                  <Sparkles className="h-3 w-3 text-blue-500" />
+              <div className="rounded-2xl rounded-tl-sm bg-slate-100 px-4 py-3">
+                <div className="flex items-center gap-2 text-sm text-slate-600">
+                  <Sparkles className="h-4 w-4 text-blue-500" />
                   <span>Astrale</span>
                 </div>
-                <p className="mt-1 text-sm text-slate-700">{t("heroVisual.extractionSuccess")}</p>
+                <p className="mt-1.5 text-base text-slate-700">{t("heroVisual.extractionSuccess")}</p>
               </div>
             </motion.div>
           </div>
         </div>
 
         {/* Decorative elements */}
-        <div className="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-blue-500/10 blur-2xl" />
-        <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-cyan-500/10 blur-2xl" />
+        <div className="absolute -left-6 -top-6 h-32 w-32 rounded-full bg-blue-500/10 blur-2xl" />
+        <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-cyan-500/10 blur-2xl" />
       </motion.div>
     </motion.div>
   );
@@ -195,7 +205,7 @@ function HeroSection() {
   const { t } = useTranslation();
   
   return (
-    <section className="relative overflow-hidden pb-32 pt-16 lg:pb-40 lg:pt-24">
+    <section className="relative overflow-hidden pb-16 pt-10 lg:pb-20 lg:pt-16">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -209,12 +219,12 @@ function HeroSection() {
         {/* Radial gradient for depth */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent" />
         {/* Bottom fade */}
-        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-white via-white/95 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/95 to-transparent" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-5 lg:gap-16">
+        <div className="grid items-center gap-8 lg:grid-cols-5 lg:gap-12">
           {/* Left Column - Text Content */}
           <motion.div
             initial="hidden"
@@ -223,7 +233,7 @@ function HeroSection() {
             className="lg:col-span-3"
           >
             {/* Badge */}
-            <motion.div variants={fadeInUp} className="mb-6">
+            <motion.div variants={fadeInUp} className="mb-4">
               <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/80 px-4 py-1.5 text-sm font-medium text-blue-700 backdrop-blur-sm">
                 <Truck className="h-4 w-4" />
                 {t("hero.badge")}
@@ -233,9 +243,10 @@ function HeroSection() {
             {/* Title */}
             <motion.h1
               variants={fadeInUp}
-              className="mb-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
+              className="mb-4 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
             >
-              {t("hero.titlePart1")}{" "}
+              {t("hero.titlePart1")}
+              <br />
               <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                 {t("hero.titleHighlight")}
               </span>
@@ -246,7 +257,7 @@ function HeroSection() {
             {/* Subtitle */}
             <motion.p
               variants={fadeInUp}
-              className="mb-8 max-w-xl text-lg leading-relaxed text-slate-600"
+              className="mb-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg lg:text-xl"
             >
               {t("hero.subtitle")}
             </motion.p>
@@ -280,7 +291,7 @@ function HeroSection() {
             {/* Social Proof Bar */}
             <motion.div
               variants={fadeInUp}
-              className="mt-10 flex flex-wrap items-center gap-6 border-t border-slate-200/60 pt-8 sm:gap-8"
+              className="mt-6 flex flex-wrap items-center gap-6 border-t border-slate-200/60 pt-6 sm:gap-8"
             >
               <div className="flex items-center gap-2">
                 <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100">
@@ -304,7 +315,7 @@ function HeroSection() {
               <div className="hidden h-8 w-px bg-slate-200 sm:block" />
               <div className="flex items-center gap-2">
                 <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-cyan-100">
-                  <Cpu className="h-4 w-4 text-cyan-600" />
+                  <Check className="h-4 w-4 text-cyan-600" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-slate-900">{t("hero.stats.instant")}</p>
@@ -334,8 +345,11 @@ function HeroSection() {
 // ============================================
 function RealityVsAstraleSection() {
   const { t, messages } = useTranslation();
-  const beforeItems = messages.comparison.beforeItems as string[];
-  const afterItems = messages.comparison.afterItems as string[];
+  const beforeItems = messages.comparison.beforeItems as Array<{ title: string; description: string }>;
+  const afterItems = messages.comparison.afterItems as Array<{ title: string; description: string; metric?: string }>;
+
+  const beforeIcons = [Clock, FileText, X];
+  const afterIcons = [Zap, TrendingUp, Check];
   
   return (
     <section id="solution" className="relative bg-white py-24">
@@ -354,52 +368,65 @@ function RealityVsAstraleSection() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2">
-          {/* AVANT */}
-          <Card className="border-red-100 bg-gradient-to-br from-red-50 to-orange-50/50">
-            <CardContent className="p-8">
-              <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-100">
-                  <X className="h-6 w-6 text-red-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900">{t("comparison.before")}</h3>
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:gap-8">
+          {/* PROCESSUS MANUEL */}
+          <div className="rounded-2xl border border-slate-200 bg-slate-50/50 p-6 lg:p-8">
+            <div className="mb-8 flex items-center gap-4">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-200">
+                <X className="h-7 w-7 text-slate-600" />
               </div>
-              <ul className="space-y-4">
-                {beforeItems.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-red-100">
-                      <X className="h-3 w-3 text-red-600" />
+              <h3 className="text-xl font-bold text-slate-900">{t("comparison.before")}</h3>
+            </div>
+            <div className="space-y-6">
+              {beforeItems.map((item, index) => {
+                const Icon = beforeIcons[index];
+                return (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-slate-200/80">
+                      <Icon className="h-5 w-5 text-slate-500" />
                     </div>
-                    <span className="text-slate-600">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+                    <div>
+                      <p className="font-semibold text-slate-800">{item.title}</p>
+                      <p className="mt-1 text-sm text-slate-500">{item.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
 
           {/* AVEC ASTRALE */}
-          <Card className="border-green-100 bg-gradient-to-br from-green-50 to-emerald-50/50">
-            <CardContent className="p-8">
-              <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-100">
-                  <Check className="h-6 w-6 text-green-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900">
-                  {t("comparison.after")}
-                </h3>
+          <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50/80 to-cyan-50/50 p-6 lg:p-8">
+            <div className="mb-8 flex items-center gap-4">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg shadow-blue-500/20">
+                <Sparkles className="h-7 w-7 text-white" />
               </div>
-              <ul className="space-y-4">
-                {afterItems.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <div className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
-                      <Check className="h-3 w-3 text-green-600" />
+              <h3 className="text-xl font-bold text-slate-900">{t("comparison.after")}</h3>
+            </div>
+            <div className="space-y-6">
+              {afterItems.map((item, index) => {
+                const Icon = afterIcons[index];
+                return (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-blue-100">
+                      <Icon className="h-5 w-5 text-blue-600" />
                     </div>
-                    <span className="text-slate-600">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3">
+                        <p className="font-semibold text-slate-800">{item.title}</p>
+                        {item.metric && (
+                          <span className="rounded-full bg-blue-600 px-2.5 py-0.5 text-xs font-bold text-white">
+                            {item.metric}
+                          </span>
+                        )}
+                      </div>
+                      <p className="mt-1 text-sm text-slate-500">{item.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -430,23 +457,96 @@ function DataFlowSection() {
           </p>
         </div>
 
-        {/* Flow Diagram */}
-        <div className="mt-16 flex flex-col items-center justify-center gap-4 md:flex-row md:gap-0">
+        {/* Flow Diagram - Desktop */}
+        <div className="mt-16 hidden md:block">
+          {/* Icons row with centered arrows */}
+          <div className="flex items-center justify-center">
+            {/* Step 1: POD Received */}
+            <div className="flex w-32 items-center justify-center lg:w-36">
+              <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/50">
+                <FileText className="h-10 w-10 text-slate-700" />
+              </div>
+            </div>
+
+            {/* Connector 1 - Centered arrow */}
+            <div className="flex w-16 items-center justify-center lg:w-20">
+              <div className="h-px w-4 bg-gradient-to-r from-slate-200 to-blue-300 lg:w-6" />
+              <ArrowRight className="mx-1 h-5 w-5 text-blue-500" />
+              <div className="h-px w-4 bg-gradient-to-r from-blue-300 to-slate-200 lg:w-6" />
+            </div>
+
+            {/* Step 2: Extraction */}
+            <div className="flex w-32 items-center justify-center lg:w-36">
+              <div className="flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg shadow-blue-500/30">
+                <Cpu className="h-10 w-10 text-white" />
+              </div>
+            </div>
+
+            {/* Connector 2 - Centered arrow */}
+            <div className="flex w-16 items-center justify-center lg:w-20">
+              <div className="h-px w-4 bg-gradient-to-r from-slate-200 to-blue-300 lg:w-6" />
+              <ArrowRight className="mx-1 h-5 w-5 text-blue-500" />
+              <div className="h-px w-4 bg-gradient-to-r from-blue-300 to-slate-200 lg:w-6" />
+            </div>
+
+            {/* Step 3: ERP/Invoice */}
+            <div className="flex w-32 items-center justify-center lg:w-36">
+              <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/50">
+                <FileSpreadsheet className="h-10 w-10 text-slate-700" />
+              </div>
+            </div>
+          </div>
+
+          {/* Labels row */}
+          <div className="mt-4 flex items-start justify-center">
+            {/* Label 1 */}
+            <div className="flex w-32 flex-col items-center text-center lg:w-36">
+              <span className="text-sm font-semibold text-slate-900">
+                {t("process.step1")}
+              </span>
+              <span className="mt-1 text-xs leading-tight text-slate-500">{t("process.step1Sub")}</span>
+            </div>
+
+            {/* Spacer for connector */}
+            <div className="w-16 lg:w-20" />
+
+            {/* Label 2 */}
+            <div className="flex w-32 flex-col items-center text-center lg:w-36">
+              <span className="text-sm font-semibold text-slate-900">
+                {t("process.step2")}
+              </span>
+              <span className="mt-1 text-xs leading-tight text-slate-500">{t("process.step2Sub")}</span>
+            </div>
+
+            {/* Spacer for connector */}
+            <div className="w-16 lg:w-20" />
+
+            {/* Label 3 */}
+            <div className="flex w-32 flex-col items-center text-center lg:w-36">
+              <span className="text-sm font-semibold text-slate-900">
+                {t("process.step3")}
+              </span>
+              <span className="mt-1 text-xs leading-tight text-slate-500">{t("process.step3Sub")}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Flow Diagram - Mobile */}
+        <div className="mt-16 flex flex-col items-center gap-2 md:hidden">
           {/* Step 1: POD Received */}
           <div className="flex flex-col items-center">
             <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/50">
               <FileText className="h-10 w-10 text-slate-700" />
             </div>
-            <span className="mt-4 text-sm font-semibold text-slate-900">
+            <span className="mt-3 text-sm font-semibold text-slate-900">
               {t("process.step1")}
             </span>
             <span className="text-xs text-slate-500">{t("process.step1Sub")}</span>
           </div>
 
-          {/* Connector */}
-          <div className="flex h-16 w-28 items-center justify-center md:h-auto">
-            <div className="h-16 w-px border-l-2 border-dashed border-blue-300 md:h-px md:w-full md:border-l-0 md:border-t-2" />
-            <ArrowRight className="hidden h-5 w-5 text-blue-400 md:block" />
+          {/* Connector - Vertical arrow */}
+          <div className="flex items-center justify-center py-2">
+            <ArrowDown className="h-5 w-5 text-blue-500" />
           </div>
 
           {/* Step 2: Extraction */}
@@ -454,18 +554,15 @@ function DataFlowSection() {
             <div className="flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg shadow-blue-500/30">
               <Cpu className="h-10 w-10 text-white" />
             </div>
-            <span className="mt-4 text-sm font-semibold text-slate-900">
+            <span className="mt-3 text-sm font-semibold text-slate-900">
               {t("process.step2")}
             </span>
-            <span className="text-xs text-slate-500">
-              {t("process.step2Sub")}
-            </span>
+            <span className="text-xs text-slate-500">{t("process.step2Sub")}</span>
           </div>
 
-          {/* Connector */}
-          <div className="flex h-16 w-28 items-center justify-center md:h-auto">
-            <div className="h-16 w-px border-l-2 border-dashed border-blue-300 md:h-px md:w-full md:border-l-0 md:border-t-2" />
-            <ArrowRight className="hidden h-5 w-5 text-blue-400 md:block" />
+          {/* Connector - Vertical arrow */}
+          <div className="flex items-center justify-center py-2">
+            <ArrowDown className="h-5 w-5 text-blue-500" />
           </div>
 
           {/* Step 3: ERP/Invoice */}
@@ -473,7 +570,7 @@ function DataFlowSection() {
             <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/50">
               <FileSpreadsheet className="h-10 w-10 text-slate-700" />
             </div>
-            <span className="mt-4 text-sm font-semibold text-slate-900">
+            <span className="mt-3 text-sm font-semibold text-slate-900">
               {t("process.step3")}
             </span>
             <span className="text-xs text-slate-500">{t("process.step3Sub")}</span>
@@ -530,14 +627,16 @@ function ROICalculatorSection() {
   const hoursPerMonth = totalManualHoursPerMonth * 0.90;
   const hoursPerYear = hoursPerMonth * 12;
   const savingsPerYear = hoursPerYear * hourlyRate;
-  // Accélération du cycle de facturation (estimation: de 15 jours à ~2 jours)
-  const billingAcceleration = 13;
+  // Accélération du cycle de facturation (dynamique selon la charge de travail)
+  // Plus de travail manuel = plus de délai actuel = plus d'accélération avec Astrale
+  // Échelle: 5-20 jours selon les heures manuelles (0-100+ heures)
+  const billingAcceleration = Math.min(20, Math.max(5, Math.round(5 + (totalManualHoursPerMonth / 100) * 15)));
 
   return (
-    <section className="relative bg-gradient-to-b from-white to-blue-50/50 py-24">
+    <section id="roi" className="relative bg-gradient-to-b from-white to-blue-50/50 py-24">
       {/* Gradient transition to next section */}
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-white" />
-      <div className="relative mx-auto max-w-4xl px-6">
+      <div className="relative mx-auto max-w-5xl px-6">
         <div className="text-center">
           <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
             {t("roi.badge")}
@@ -618,7 +717,7 @@ function ROICalculatorSection() {
             <div className="flex flex-col rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 p-6 text-white">
               <h3 className="mb-6 text-lg font-semibold">{t("roi.results")}</h3>
               
-              <div className="flex flex-1 flex-col justify-between space-y-4">
+              <div className="flex flex-1 flex-col justify-between space-y-5">
                 <div className="rounded-lg bg-white/10 p-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -655,7 +754,7 @@ function ROICalculatorSection() {
                       <Zap className="h-5 w-5 flex-shrink-0 text-yellow-400" />
                       <span className="text-sm text-slate-300">{t("roi.billingCycle")}</span>
                     </div>
-                    <span className="text-2xl font-bold">-{billingAcceleration} {locale === "fr" ? "jours" : "days"}</span>
+                    <span className="whitespace-nowrap text-2xl font-bold">-{billingAcceleration} {locale === "fr" ? "jours/mois" : "days/month"}</span>
                   </div>
                 </div>
               </div>
@@ -675,77 +774,6 @@ function ROICalculatorSection() {
               </Button>
             </a>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ============================================
-// METRICS SECTION
-// ============================================
-function MetricsSection() {
-  const { t, messages } = useTranslation();
-  const metricsData = messages.metrics.items as Array<{ value: string; label: string; description: string }>;
-  
-  const metrics = [
-    {
-      icon: Clock,
-      value: metricsData[0].value,
-      label: metricsData[0].label,
-      description: metricsData[0].description,
-      color: "blue",
-    },
-    {
-      icon: Calculator,
-      value: metricsData[1].value,
-      label: metricsData[1].label,
-      description: metricsData[1].description,
-      color: "green",
-    },
-    {
-      icon: Zap,
-      value: metricsData[2].value,
-      label: metricsData[2].label,
-      description: metricsData[2].description,
-      color: "cyan",
-    },
-  ];
-
-  return (
-    <section id="impact" className="bg-white py-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="text-center">
-          <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
-            {t("metrics.badge")}
-          </span>
-          <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">
-            {t("metrics.title")}
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-slate-500">
-            {t("metrics.subtitle")}
-          </p>
-        </div>
-
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
-          {metrics.map((metric, index) => (
-            <Card key={index} className="border-slate-100 bg-gradient-to-b from-white to-slate-50/50 transition-all hover:shadow-lg">
-              <CardContent className="p-8 text-center">
-                <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/20">
-                  <metric.icon className="h-7 w-7 text-white" />
-                </div>
-                <div className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-4xl font-bold text-transparent">
-                  {metric.value}
-                </div>
-                <div className="mt-2 text-sm font-semibold text-slate-900">
-                  {metric.label}
-                </div>
-                <p className="mt-3 text-sm text-slate-500">
-                  {metric.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
         </div>
       </div>
     </section>
@@ -884,7 +912,7 @@ function ContactSection() {
                     {t("contact.messageLabel")}
                   </label>
                   <div className="relative">
-                    <MessageCircle className="absolute left-3 top-3 h-4 w-4 text-slate-500 transition-colors group-focus-within:text-blue-400" />
+                    <MessageCircle className="absolute left-3 top-[0.85rem] h-4 w-4 text-slate-500 transition-colors group-focus-within:text-blue-400" />
                     <textarea
                       id="message"
                       name="message"
@@ -922,58 +950,6 @@ function ContactSection() {
 }
 
 // ============================================
-// FOOTER
-// ============================================
-function Footer() {
-  const { t } = useTranslation();
-  
-  return (
-    <footer className="border-t border-slate-200 bg-slate-50 py-8">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-          <div className="flex flex-col items-center gap-4 md:flex-row md:items-center">
-            <Image
-              src="/logo.svg"
-              alt="Astrale"
-              width={240}
-              height={60}
-            />
-            <div className="hidden h-6 w-px bg-slate-300 md:block" />
-            <span className="text-center text-sm text-slate-500 md:text-left">
-              {t("footer.tagline")}
-            </span>
-          </div>
-          
-          <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
-            <a href="mailto:contact@astrale.ca" className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-blue-600">
-              <Mail className="h-4 w-4" />
-              contact@astrale.ca
-            </a>
-          </div>
-        </div>
-
-        <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 md:flex-row">
-          <div className="flex items-center gap-6 text-sm text-slate-500">
-            <a href="/mentions-legales" className="transition-colors hover:text-blue-600">
-              {t("footer.legalLinks.legal")}
-            </a>
-            <a href="/confidentialite" className="transition-colors hover:text-blue-600">
-              {t("footer.legalLinks.privacy")}
-            </a>
-            <a href="#contact" className="transition-colors hover:text-blue-600">
-              {t("footer.legalLinks.contact")}
-            </a>
-          </div>
-          <div className="text-sm text-slate-400">
-            {t("footer.copyright", { year: new Date().getFullYear() })}
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-// ============================================
 // MAIN PAGE
 // ============================================
 export default function Home() {
@@ -981,11 +957,10 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <HeroSection />
-      <RealityVsAstraleSection />
       <DataFlowSection />
+      <RealityVsAstraleSection />
       <IntegrationsSection />
       <ROICalculatorSection />
-      <MetricsSection />
       <ContactSection />
       <Footer />
     </main>

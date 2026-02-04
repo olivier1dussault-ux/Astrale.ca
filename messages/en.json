@@ -2,15 +2,16 @@
   "nav": {
     "solution": "Solution",
     "howItWorks": "How it works",
+    "ecosystem": "Ecosystem",
     "impact": "Impact",
     "contact": "Contact"
   },
   "hero": {
     "badge": "For transport and logistics companies",
-    "titlePart1": "Invoice",
-    "titleHighlight": "15 days faster",
-    "titlePart2": "with automated proof of delivery",
-    "subtitle": "Your drivers send proof of delivery via SMS, WhatsApp, or Messenger. Astrale extracts the data and instantly syncs it to your management system — no manual entry required.",
+    "titlePart1": "Automate the administrative process for",
+    "titleHighlight": "proof of delivery",
+    "titlePart2": "without changing anything",
+    "subtitle": "Your automation partner. From proof of delivery receipt to invoice, Astrale integrates with your current channels — SMS, Messenger, WhatsApp or other — and connects your field teams to your management systems. Ready to invoice, no manual entry.",
     "cta": "Discover Astrale",
     "ctaSecondary": "See how it works",
     "stats": {
@@ -18,8 +19,8 @@
       "daysLabel": "Billing cycle",
       "automation": "90%",
       "automationLabel": "Entry eliminated",
-      "instant": "Instant",
-      "instantLabel": "AI extraction"
+      "instant": "Simple",
+      "instantLabel": "Zero training"
     }
   },
   "heroVisual": {
@@ -27,22 +28,41 @@
     "extractionSuccess": "Proof of delivery extracted successfully"
   },
   "comparison": {
-    "badge": "Comparison",
-    "title": "Manual entry vs Automatic extraction",
-    "subtitle": "Compare your current proof of delivery processing workflow.",
-    "before": "Before",
+    "badge": "The problem",
+    "title": "Before vs With Astrale",
+    "subtitle": "Simplify your proof of delivery processing workflow.",
+    "before": "Manual process",
     "after": "With Astrale",
     "beforeItems": [
-      "Proof of delivery piling up on desks at end of week",
-      "Manual data entry, time-consuming and error-prone",
-      "Billing delays of 5 to 15 days",
-      "Cash flow blocked by administrative delays"
+      {
+        "title": "Time-consuming entry",
+        "description": "Hours lost manually entering data"
+      },
+      {
+        "title": "Billing delays",
+        "description": "5 to 15 days delay before invoicing"
+      },
+      {
+        "title": "Frequent errors",
+        "description": "Incomplete or incorrect data"
+      }
     ],
     "afterItems": [
-      "Automatic extraction upon proof of delivery receipt",
-      "Structured data ready for your management system",
-      "Accelerated billing cycle",
-      "Integration via SMS, WhatsApp, or Messenger"
+      {
+        "title": "Instant extraction",
+        "description": "Data automatically extracted in seconds",
+        "metric": "90%"
+      },
+      {
+        "title": "Accelerated billing",
+        "description": "Billing cycle drastically reduced",
+        "metric": "-15 days"
+      },
+      {
+        "title": "Reliable data",
+        "description": "Structured information ready to use",
+        "metric": "0 entry"
+      }
     ]
   },
   "process": {
@@ -50,14 +70,14 @@
     "title": "From proof of delivery to invoice. Automatically.",
     "subtitle": "Astrale is the invisible pipeline between your drivers and your management system.",
     "step1": "Proof received",
-    "step1Sub": "SMS / WhatsApp / Messenger",
+    "step1Sub": "SMS, Messenger, WhatsApp...",
     "step2": "Extraction",
     "step2Sub": "Astrale processes the data",
     "step3": "Management / Billing",
     "step3Sub": "Data ready",
     "howItWorksTitle": "How it works",
     "howItWorksSteps": [
-      "The driver sends the proof of delivery via SMS, WhatsApp, or Messenger.",
+      "The driver sends the proof of delivery via SMS, Messenger, WhatsApp or other.",
       "Astrale extracts and structures the data instantly.",
       "The information is synced to your management system, ready for billing."
     ],
@@ -161,52 +181,6 @@
         "title": "2. Personal information protection officer",
         "content": "In accordance with Law 25 (Act to modernize legislative provisions respecting the protection of personal information), Astrale has designated a person responsible for the protection of personal information.",
         "contact": "For any questions regarding the collection, use, or disclosure of your personal information, or to exercise your rights under Law 25, please contact us at:"
-      },
-      "hosting": {
-        "title": "3. Hosting",
-        "intro": "This site is hosted by:",
-        "website": "Website:"
-      },
-      "intellectual": {
-        "title": "4. Intellectual property",
-        "content1": "All content on this site (texts, images, logos, graphics, icons, software, databases, etc.) is protected by Canadian and international intellectual property laws.",
-        "content2": "Any reproduction, representation, modification, publication, adaptation, or exploitation of all or part of the elements of the site, by any means or process, is prohibited without the prior written authorization of Astrale.",
-        "content3": "The trademarks, logos, and domain names associated with Astrale are the exclusive property of Astrale. Any unauthorized use constitutes infringement."
-      },
-      "cookies": {
-        "title": "5. Cookies",
-        "content1": "In accordance with Quebec's Law 25, cookies and other tracking technologies are disabled by default on our site.",
-        "content2": "We only use strictly necessary cookies for the site to function. No advertising or analytics tracking cookies are installed without your explicit consent.",
-        "content3": "For more information about our use of cookies, please see our",
-        "privacyLink": "privacy policy"
-      },
-      "links": {
-        "title": "6. External links",
-        "content1": "This site may contain links to third-party websites. These links are provided for your convenience only.",
-        "content2": "Astrale has no control over the content of these third-party sites and disclaims any responsibility for their content, privacy practices, or availability.",
-        "content3": "The inclusion of links to third-party sites does not imply endorsement of their content by Astrale."
-      },
-      "liability": {
-        "title": "7. Limitation of liability",
-        "content1": "The information contained on this site is provided for informational purposes only. Astrale strives to keep this information accurate and up-to-date but cannot guarantee its accuracy, completeness, or relevance.",
-        "content2": "Astrale shall not be liable for any direct or indirect damages resulting from the use or inability to use this site, including damages related to loss of data, profits, or business opportunities."
-      },
-      "jurisdiction": {
-        "title": "8. Applicable law and jurisdiction",
-        "content1": "These legal notices are governed by the laws in force in Quebec, Canada.",
-        "content2": "Any dispute relating to the use of this site shall be subject to the exclusive jurisdiction of the courts of Quebec.",
-        "content3": "Applicable laws include:",
-        "laws": [
-          "Act respecting the protection of personal information in the private sector (APPIPS)",
-          "Law 25 - Act to modernize legislative provisions respecting the protection of personal information",
-          "Quebec Consumer Protection Act",
-          "Personal Information Protection and Electronic Documents Act (PIPEDA) - federal level"
-        ]
-      },
-      "modifications": {
-        "title": "9. Modifications to legal notices",
-        "content1": "Astrale reserves the right to modify these legal notices at any time. Modifications take effect upon publication on this page.",
-        "content2": "We invite you to regularly consult this page to be aware of any modifications."
       },
       "contact": {
         "title": "Contact",

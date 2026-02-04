@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { Mail, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Footer } from "@/components/Footer";
 import { useTranslation } from "@/lib/i18n";
 
 export default function MentionsLegales() {
-  const { t, messages } = useTranslation();
-  const laws = messages.legal.sections.jurisdiction.laws as string[];
+  const { t } = useTranslation();
   
   return (
     <main className="min-h-screen bg-slate-50">
@@ -64,7 +64,7 @@ export default function MentionsLegales() {
             </div>
           </section>
 
-          {/* Responsable protection des renseignements */}
+          {/* Responsable protection des renseignements (Loi 25) */}
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-slate-900">
               {t("legal.sections.privacy.title")}
@@ -81,119 +81,6 @@ export default function MentionsLegales() {
                 contact@astrale.ca
               </a>
             </div>
-          </section>
-
-          {/* Hébergement */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.hosting.title")}</h2>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.hosting.intro")}
-            </p>
-            <div className="mt-4 rounded-lg border border-slate-200 bg-white p-6">
-              <p className="text-slate-600">
-                <strong className="text-slate-900">Vercel Inc.</strong>
-              </p>
-              <p className="mt-2 text-slate-600">
-                440 N Barranca Ave #4133<br />
-                Covina, CA 91723<br />
-                États-Unis
-              </p>
-              <p className="mt-2 text-slate-600">
-                {t("legal.sections.hosting.website")}{" "}
-                <a href="https://vercel.com" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
-                  vercel.com
-                </a>
-              </p>
-            </div>
-          </section>
-
-          {/* Propriété intellectuelle */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.intellectual.title")}</h2>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.intellectual.content1")}
-            </p>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.intellectual.content2")}
-            </p>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.intellectual.content3")}
-            </p>
-          </section>
-
-          {/* Témoins (Cookies) */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.cookies.title")}</h2>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.cookies.content1")}
-            </p>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.cookies.content2")}
-            </p>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.cookies.content3")}{" "}
-              <a href="/confidentialite" className="text-blue-600 hover:underline">
-                {t("legal.sections.cookies.privacyLink")}
-              </a>
-              .
-            </p>
-          </section>
-
-          {/* Liens externes */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.links.title")}</h2>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.links.content1")}
-            </p>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.links.content2")}
-            </p>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.links.content3")}
-            </p>
-          </section>
-
-          {/* Limitation de responsabilité */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.liability.title")}</h2>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.liability.content1")}
-            </p>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.liability.content2")}
-            </p>
-          </section>
-
-          {/* Droit applicable */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.jurisdiction.title")}</h2>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.jurisdiction.content1")}
-            </p>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.jurisdiction.content2")}
-            </p>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.jurisdiction.content3")}
-            </p>
-            <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-600">
-              {laws.map((law, index) => (
-                <li key={index}>
-                  <strong>{law}</strong>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          {/* Modification */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.modifications.title")}</h2>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.modifications.content1")}
-            </p>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.modifications.content2")}
-            </p>
           </section>
 
           {/* Contact */}
@@ -216,11 +103,7 @@ export default function MentionsLegales() {
       </article>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 bg-white py-8">
-        <div className="mx-auto max-w-4xl px-6 text-center text-sm text-slate-500">
-          {t("legal.copyright", { year: new Date().getFullYear() })}
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

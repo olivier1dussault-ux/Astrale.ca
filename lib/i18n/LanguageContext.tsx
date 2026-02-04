@@ -46,17 +46,25 @@ function setCookie(name: string, value: string, days: number = 365): void {
 
 // Detect locale from browser
 function detectLocale(): Locale {
-  // 1. Check cookie first
+  // 1. Check cookie first (user's explicit choice)
   const cookieLocale = getCookie(COOKIE_NAME);
   if (cookieLocale === "fr" || cookieLocale === "en") {
     return cookieLocale;
   }
 
-  // 2. Check browser language
+  // 2. Check browser language preferences
   if (typeof navigator !== "undefined") {
-    const browserLang = navigator.language.split("-")[0].toLowerCase();
-    if (browserLang === "en") {
-      return "en";
+    // Use navigator.languages for comprehensive detection
+    const languages = navigator.languages || [navigator.language];
+    
+    for (const lang of languages) {
+      const browserLang = lang.split("-")[0].toLowerCase();
+      if (browserLang === "fr") {
+        return "fr";
+      }
+      if (browserLang === "en") {
+        return "en";
+      }
     }
   }
 
