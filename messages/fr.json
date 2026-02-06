@@ -13,7 +13,7 @@
     "titlePart2": "sans rien changer",
     "subtitle": "Votre partenaire en automatisation. De la réception de la preuve de livraison jusqu'à la facture, Astrale s'intègre à vos canaux actuels — SMS, Messenger, WhatsApp ou autre — et connecte vos équipes terrain à vos systèmes de gestion. Prêt à facturer, sans saisie manuelle.",
     "cta": "Découvrir Astrale",
-    "ctaSecondary": "Voir comment ça marche",
+    "ctaSecondary": "Voir comment ça fonctionne",
     "stats": {
       "days": "-15 jours",
       "daysLabel": "Cycle facturation",
@@ -75,7 +75,7 @@
     "step2Sub": "Astrale traite les données",
     "step3": "Gestion / Facturation",
     "step3Sub": "Données prêtes",
-    "howItWorksTitle": "Comment ça marche",
+    "howItWorksTitle": "Comment ça fonctionne",
     "howItWorksSteps": [
       "Le chauffeur envoie la preuve de livraison par SMS, Messenger, WhatsApp ou autre.",
       "Astrale extrait et structure les données instantanément.",
@@ -86,7 +86,7 @@
   },
   "integrations": {
     "badge": "Écosystème",
-    "title": "Compatible avec votre infrastructure.",
+    "title": "Compatible avec votre infrastructure",
     "subtitle": "Nous connectons le terrain à vos systèmes comptables et bancaires existants. Aucune migration requise.",
     "categories": {
       "channels": "Canaux",
@@ -153,6 +153,10 @@
     "messageLabel": "Message (facultatif)",
     "messagePlaceholder": "Décrivez brièvement vos besoins...",
     "submit": "Envoyer la demande",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé avec succès! Nous vous répondrons rapidement.",
+    "error": "Une erreur est survenue. Veuillez réessayer ou nous contacter directement par email.",
+    "alreadySubmitted": "Cette adresse email a déjà envoyé un formulaire de contact. Pour toute question supplémentaire, contactez-nous directement à contact@astrale.ca.",
     "privacyNotice": "En soumettant ce formulaire, vous acceptez notre",
     "privacyLink": "politique de confidentialité"
   },
@@ -170,7 +174,7 @@
     "title": "À propos d'Astrale",
     "mission": {
       "title": "Notre mission",
-      "content": "Astrale simplifie la vie des entreprises de transport et de logistique en automatisant le traitement des preuves de livraison. Notre plateforme transforme automatiquement les documents reçus par SMS, Messenger ou WhatsApp en données structurées, prêtes pour la facturation."
+      "content": "Astrale accompagne les entreprises de transport et de logistique dans l'optimisation de leurs processus administratifs. En tant que partenaire, nous intégrons des solutions d'automatisation qui s'adaptent à vos méthodes de travail existantes, sans bouleverser vos habitudes ni imposer de nouveaux outils à vos équipes."
     },
     "values": {
       "title": "Nos valeurs",

@@ -153,6 +153,10 @@
     "messageLabel": "Message (optional)",
     "messagePlaceholder": "Briefly describe your needs...",
     "submit": "Send request",
+    "sending": "Sending...",
+    "success": "Message sent successfully! We'll get back to you shortly.",
+    "error": "An error occurred. Please try again or contact us directly by email.",
+    "alreadySubmitted": "This email address has already submitted a contact form. For any additional questions, please contact us directly at contact@astrale.ca.",
     "privacyNotice": "By submitting this form, you agree to our",
     "privacyLink": "privacy policy"
   },
@@ -170,7 +174,7 @@
     "title": "About Astrale",
     "mission": {
       "title": "Our mission",
-      "content": "Astrale simplifies life for transport and logistics companies by automating proof of delivery processing. Our platform automatically transforms documents received via SMS, Messenger or WhatsApp into structured data, ready for billing."
+      "content": "Astrale partners with transport and logistics companies to optimize their administrative processes. As a partner, we integrate automation solutions that adapt to your existing workflows, without disrupting your habits or requiring your teams to adopt new tools."
     },
     "values": {
       "title": "Our values",

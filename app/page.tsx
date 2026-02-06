@@ -25,6 +25,9 @@ import {
   Play,
   Sparkles,
   Hand,
+  Loader2,
+  CheckCircle,
+  AlertCircle,
 } from "lucide-react";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
 import { useTranslation } from "@/lib/i18n";
@@ -784,7 +787,57 @@ function ROICalculatorSection() {
 // CONTACT SECTION
 // ============================================
 function ContactSection() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
+  
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'already_submitted'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, locale }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', company: '', email: '', message: '' });
+      } else if (response.status === 429) {
+        // Email has already submitted a form
+        const data = await response.json();
+        if (data.error === 'already_submitted') {
+          setSubmitStatus('already_submitted');
+        } else {
+          setSubmitStatus('error');
+        }
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   
   return (
     <section id="contact" className="relative overflow-hidden bg-slate-900 pt-24 pb-8">
@@ -832,7 +885,7 @@ function ContactSection() {
 
           {/* Right Column - Form */}
           <motion.div variants={fadeInUp}>
-            <form className="rounded-2xl border border-slate-700/50 bg-slate-800/50 p-8 backdrop-blur-sm">
+            <form onSubmit={handleSubmit} className="rounded-2xl border border-slate-700/50 bg-slate-800/50 p-8 backdrop-blur-sm">
               <div className="mb-8">
                 <h3 className="text-xl font-semibold text-white">
                   {t("contact.formTitle")}
@@ -841,6 +894,30 @@ function ContactSection() {
                   {t("contact.formSubtitle")}
                 </p>
               </div>
+
+              {/* Success Message */}
+              {submitStatus === 'success' && (
+                <div className="mb-6 flex items-center gap-3 rounded-lg border border-green-500/30 bg-green-500/10 p-4 text-green-400">
+                  <CheckCircle className="h-5 w-5 flex-shrink-0" />
+                  <p>{t("contact.success")}</p>
+                </div>
+              )}
+
+              {/* Error Message */}
+              {submitStatus === 'error' && (
+                <div className="mb-6 flex items-center gap-3 rounded-lg border border-red-500/30 bg-red-500/10 p-4 text-red-400">
+                  <AlertCircle className="h-5 w-5 flex-shrink-0" />
+                  <p>{t("contact.error")}</p>
+                </div>
+              )}
+
+              {/* Already Submitted Message */}
+              {submitStatus === 'already_submitted' && (
+                <div className="mb-6 flex items-center gap-3 rounded-lg border border-amber-500/30 bg-amber-500/10 p-4 text-amber-400">
+                  <AlertCircle className="h-5 w-5 flex-shrink-0" />
+                  <p>{t("contact.alreadySubmitted")}</p>
+                </div>
+              )}
 
               <div className="space-y-5">
                 {/* Name & Company Row */}
@@ -858,8 +935,13 @@ function ContactSection() {
                         type="text"
                         id="name"
                         name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        minLength={2}
                         placeholder={t("contact.namePlaceholder")}
-                        className="w-full rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                        className="w-full rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 disabled:opacity-50"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -876,8 +958,11 @@ function ContactSection() {
                         type="text"
                         id="company"
                         name="company"
+                        value={formData.company}
+                        onChange={handleChange}
                         placeholder={t("contact.companyPlaceholder")}
-                        className="w-full rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                        className="w-full rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 disabled:opacity-50"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -897,8 +982,12 @@ function ContactSection() {
                       type="email"
                       id="email"
                       name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
                       placeholder={t("contact.emailPlaceholder")}
-                      className="w-full rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                      className="w-full rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 disabled:opacity-50"
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -917,8 +1006,11 @@ function ContactSection() {
                       id="message"
                       name="message"
                       rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder={t("contact.messagePlaceholder")}
-                      className="w-full resize-none rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                      className="w-full resize-none rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 disabled:opacity-50"
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -927,10 +1019,20 @@ function ContactSection() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="mt-2 w-full bg-gradient-to-r from-blue-600 to-cyan-600 py-6 text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:from-blue-500 hover:to-cyan-500 hover:shadow-xl hover:shadow-blue-500/30"
+                  disabled={isSubmitting}
+                  className="mt-2 w-full bg-gradient-to-r from-blue-600 to-cyan-600 py-6 text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:from-blue-500 hover:to-cyan-500 hover:shadow-xl hover:shadow-blue-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {t("contact.submit")}
-                  <Send className="ml-2 h-4 w-4" />
+                  {isSubmitting ? (
+                    <>
+                      {t("contact.sending")}
+                      <Loader2 className="ml-2 h-4 w-4 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      {t("contact.submit")}
+                      <Send className="ml-2 h-4 w-4" />
+                    </>
+                  )}
                 </Button>
               </div>
 
