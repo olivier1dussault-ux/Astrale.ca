@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Mail, ArrowLeft, Shield, Lock, Eye, UserCheck, Database, Clock } from "lucide-react";
+import { Mail, ArrowLeft, Shield, Lock, Eye, UserCheck, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/lib/i18n";
 
@@ -13,7 +13,6 @@ export default function Confidentialite() {
   const technicalItems = messages.privacy.sections.collected.technicalItems as string[];
   const purposeItems = messages.privacy.sections.purposes.items as Array<{ title: string; content: string }>;
   const sharingItems = messages.privacy.sections.sharing.items as Array<{ title: string; content: string }>;
-  const retentionItems = messages.privacy.sections.retention.items as Array<{ label: string; value: string }>;
   const securityItems = messages.privacy.sections.security.items as Array<{ title: string; subtitle: string }>;
   const rightsItems = messages.privacy.sections.rights.items as Array<{ title: string; content: string }>;
   
@@ -145,31 +144,7 @@ export default function Confidentialite() {
             </ul>
           </section>
 
-          {/* Section 5: Durée de conservation */}
-          <section>
-            <div className="mb-4 flex items-center gap-3">
-              <Clock className="h-6 w-6 text-blue-600" />
-              <h2 className="text-2xl font-semibold text-slate-900">{t("privacy.sections.retention.title")}</h2>
-            </div>
-            <p className="text-slate-600">
-              {t("privacy.sections.retention.intro")}
-            </p>
-            <div className="mt-4 rounded-lg border border-slate-200 bg-white p-6">
-              <ul className="space-y-3 text-slate-600">
-                {retentionItems.map((item, index) => (
-                  <li key={index} className={`flex items-center justify-between ${index < retentionItems.length - 1 ? "border-b border-slate-100 pb-3" : ""}`}>
-                    <span>{item.label}</span>
-                    <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium">{item.value}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <p className="mt-4 text-slate-600">
-              {t("privacy.sections.retention.outro")}
-            </p>
-          </section>
-
-          {/* Section 6: Mesures de sécurité */}
+          {/* Section 5: Mesures de sécurité */}
           <section>
             <div className="mb-4 flex items-center gap-3">
               <Lock className="h-6 w-6 text-blue-600" />
@@ -193,7 +168,7 @@ export default function Confidentialite() {
             </div>
           </section>
 
-          {/* Section 7: Vos droits (Loi 25) */}
+          {/* Section 6: Vos droits (Loi 25) */}
           <section>
             <h2 className="text-2xl font-semibold text-slate-900">{t("privacy.sections.rights.title")}</h2>
             <p className="mt-4 text-slate-600">
@@ -218,7 +193,7 @@ export default function Confidentialite() {
             </p>
           </section>
 
-          {/* Section 8: Témoins (Cookies) */}
+          {/* Section 7: Témoins (Cookies) */}
           <section>
             <h2 className="text-2xl font-semibold text-slate-900">{t("privacy.sections.cookies.title")}</h2>
             <p className="mt-4 text-slate-600">
@@ -245,7 +220,7 @@ export default function Confidentialite() {
             </p>
           </section>
 
-          {/* Section 9: Modifications */}
+          {/* Section 8: Modifications */}
           <section>
             <h2 className="text-2xl font-semibold text-slate-900">{t("privacy.sections.modifications.title")}</h2>
             <p className="mt-4 text-slate-600">
@@ -256,7 +231,7 @@ export default function Confidentialite() {
             </p>
           </section>
 
-          {/* Section 10: Contact */}
+          {/* Section 9: Contact */}
           <section className="rounded-xl border border-slate-200 bg-white p-8">
             <h2 className="text-2xl font-semibold text-slate-900">{t("privacy.sections.contact.title")}</h2>
             <p className="mt-4 text-slate-600">
@@ -264,9 +239,6 @@ export default function Confidentialite() {
             </p>
             <div className="mt-6 rounded-lg border border-blue-100 bg-blue-50 p-6">
               <p className="font-semibold text-slate-900">Astrale</p>
-              <p className="mt-2 text-slate-600">
-                {t("privacy.sections.contact.role")}
-              </p>
               <a
                 href="mailto:contact@astrale.ca"
                 className="mt-4 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 font-medium text-white transition-all hover:from-blue-500 hover:to-blue-600"
@@ -276,7 +248,15 @@ export default function Confidentialite() {
               </a>
             </div>
 
-            <div className="mt-8 rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <p className="mt-6 text-slate-600">
+              {t("privacy.sections.contact.legalNotice")}{" "}
+              <a href="/mentions-legales" className="text-blue-600 hover:underline">
+                {t("privacy.sections.contact.legalNoticeLink")}
+              </a>
+              .
+            </p>
+
+            <div className="mt-6 rounded-lg border border-slate-200 bg-slate-50 p-4">
               <p className="text-sm text-slate-600">
                 <strong>{t("privacy.sections.contact.cai.title")}</strong><br />
                 {t("privacy.sections.contact.cai.content")}{" "}
@@ -293,13 +273,6 @@ export default function Confidentialite() {
           </section>
         </div>
       </article>
-
-      {/* Footer */}
-      <footer className="border-t border-slate-200 bg-white py-8">
-        <div className="mx-auto max-w-4xl px-6 text-center text-sm text-slate-500">
-          {t("legal.copyright", { year: new Date().getFullYear() })}
-        </div>
-      </footer>
     </main>
   );
 }

@@ -24,9 +24,9 @@ import {
   Truck,
   Play,
   Sparkles,
+  Hand,
 } from "lucide-react";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
-import { Footer } from "@/components/Footer";
 import { useTranslation } from "@/lib/i18n";
 
 // ============================================
@@ -218,8 +218,8 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/85 to-blue-50/80" />
         {/* Radial gradient for depth */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent" />
-        {/* Bottom fade */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/95 to-transparent" />
+        {/* Bottom fade - transitions to slate-50 for processus section */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-50 via-white/90 to-transparent" />
       </div>
 
       {/* Content */}
@@ -354,7 +354,7 @@ function RealityVsAstraleSection() {
   return (
     <section id="solution" className="relative bg-white py-24">
       {/* Gradient transition to next section */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-slate-50" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-slate-50" />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="text-center">
           <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
@@ -373,7 +373,7 @@ function RealityVsAstraleSection() {
           <div className="rounded-2xl border border-slate-200 bg-slate-50/50 p-6 lg:p-8">
             <div className="mb-8 flex items-center gap-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-200">
-                <X className="h-7 w-7 text-slate-600" />
+                <Hand className="h-7 w-7 text-slate-600" />
               </div>
               <h3 className="text-xl font-bold text-slate-900">{t("comparison.before")}</h3>
             </div>
@@ -441,9 +441,9 @@ function DataFlowSection() {
   const howItWorksSteps = messages.process.howItWorksSteps as string[];
   
   return (
-    <section id="fonctionnement" className="relative bg-gradient-to-b from-slate-50 to-white py-24">
-      {/* Gradient transition to next section */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-slate-50" />
+    <section id="fonctionnement" className="relative bg-gradient-to-b from-slate-50 via-white to-white py-24">
+      {/* Gradient transition to next section (Comparaison) */}
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent via-white to-white" />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="text-center">
           <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
@@ -787,7 +787,7 @@ function ContactSection() {
   const { t } = useTranslation();
   
   return (
-    <section id="contact" className="relative overflow-hidden bg-slate-900 py-24">
+    <section id="contact" className="relative overflow-hidden bg-slate-900 pt-24 pb-8">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-600/20 via-transparent to-transparent" />
@@ -962,7 +962,6 @@ export default function Home() {
       <IntegrationsSection />
       <ROICalculatorSection />
       <ContactSection />
-      <Footer />
     </main>
   );
 }

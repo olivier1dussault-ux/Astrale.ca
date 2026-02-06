@@ -28,7 +28,7 @@
     "extractionSuccess": "Proof of delivery extracted successfully"
   },
   "comparison": {
-    "badge": "The problem",
+    "badge": "Comparison",
     "title": "Before vs With Astrale",
     "subtitle": "Simplify your proof of delivery processing workflow.",
     "before": "Manual process",
@@ -161,9 +161,25 @@
     "legalLinks": {
       "legal": "Legal notice",
       "privacy": "Privacy",
-      "contact": "Contact"
+      "about": "About"
     },
     "copyright": "© {year} Astrale. All rights reserved."
+  },
+  "about": {
+    "backToHome": "Back to home",
+    "title": "About Astrale",
+    "mission": {
+      "title": "Our mission",
+      "content": "Astrale simplifies life for transport and logistics companies by automating proof of delivery processing. Our platform automatically transforms documents received via SMS, Messenger or WhatsApp into structured data, ready for billing."
+    },
+    "values": {
+      "title": "Our values",
+      "content": "Simplicity, efficiency and compliance guide every decision we make. We believe automation should be invisible: your teams continue working as before, while Astrale handles the rest in the background."
+    },
+    "location": {
+      "title": "Based in Quebec",
+      "content": "Astrale is a Quebec-based company proud to serve local businesses. We understand the realities of the local market and comply with Canadian regulatory requirements, including Law 25 on personal information protection."
+    }
   },
   "legal": {
     "backToHome": "Back to home",
@@ -197,7 +213,7 @@
         "title": "1. Personal information collected",
         "intro": "We collect the following personal information when you use our site or services:",
         "identification": "Identification information",
-        "identificationItems": ["Full name", "Professional email address", "Phone number", "Company name"],
+        "identificationItems": ["Full name", "Professional email address", "Company name"],
         "technical": "Technical information",
         "technicalItems": ["IP address", "Browser type", "Pages visited", "Date and time of visit"]
       },
@@ -206,7 +222,6 @@
         "intro": "We collect and use your personal information only for the following purposes:",
         "items": [
           { "title": "Respond to your requests", "content": "Process and respond to your questions, demo requests, or information requests." },
-          { "title": "Provide our services", "content": "Allow you to use our document processing automation platform." },
           { "title": "Improve our services", "content": "Analyze site usage to improve user experience." },
           { "title": "Communications", "content": "Send you information about our services (with your consent)." },
           { "title": "Legal compliance", "content": "Meet our legal and regulatory obligations." }
@@ -227,19 +242,8 @@
           { "title": "Protection of rights", "content": "To protect our rights, safety, or that of third parties." }
         ]
       },
-      "retention": {
-        "title": "5. Retention period",
-        "intro": "We retain your personal information only for the time necessary for the purposes for which it was collected:",
-        "items": [
-          { "label": "Contact requests", "value": "2 years" },
-          { "label": "Customer data (active account)", "value": "Duration of contract" },
-          { "label": "Customer data (after termination)", "value": "3 years" },
-          { "label": "Technical data (logs)", "value": "12 months" }
-        ],
-        "outro": "Upon expiration of these periods, your information is securely deleted or anonymized."
-      },
       "security": {
-        "title": "6. Security measures",
+        "title": "5. Security measures",
         "intro": "We implement appropriate technical and organizational security measures to protect your personal information against:",
         "items": [
           { "title": "SSL/TLS encryption", "subtitle": "Data in transit" },
@@ -248,7 +252,7 @@
         ]
       },
       "rights": {
-        "title": "7. Your rights (Law 25)",
+        "title": "6. Your rights (Law 25)",
         "intro": "In accordance with Law 25 and applicable laws, you have the following rights regarding your personal information:",
         "items": [
           { "title": "Right of access", "content": "You may request access to the personal information we hold about you." },
@@ -260,7 +264,7 @@
         "outro": "To exercise your rights, please contact us at {email}. We will respond to your request within 30 days."
       },
       "cookies": {
-        "title": "8. Cookies",
+        "title": "7. Cookies",
         "intro": "In accordance with Law 25, cookies and tracking technologies are disabled by default on our site.",
         "typesTitle": "Types of cookies used:",
         "necessary": { "title": "Strictly necessary cookies", "content": "Essential for the site to function. Do not require consent." },
@@ -268,14 +272,15 @@
         "outro": "You can manage your cookie preferences at any time through your browser settings."
       },
       "modifications": {
-        "title": "9. Modifications to this policy",
+        "title": "8. Modifications to this policy",
         "content1": "We may update this privacy policy periodically. The date of the last update is indicated at the top of this page.",
         "content2": "In case of significant changes, we will notify you by email or by a visible notice on our site."
       },
       "contact": {
-        "title": "10. Contact us",
-        "intro": "For any questions regarding this privacy policy, to exercise your rights, or to file a complaint, please contact our personal information protection officer:",
-        "role": "Personal Information Protection Officer",
+        "title": "9. Contact us",
+        "intro": "For any questions regarding this privacy policy, to exercise your rights, or to file a complaint, please contact us:",
+        "legalNotice": "The contact information of our personal information protection officer is available on our",
+        "legalNoticeLink": "Legal Notice",
         "cai": {
           "title": "Commission d'accès à l'information du Québec (CAI)",
           "content": "If you are not satisfied with our response, you may file a complaint with the CAI:"

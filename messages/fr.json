@@ -28,7 +28,7 @@
     "extractionSuccess": "Preuve de livraison extraite avec succès"
   },
   "comparison": {
-    "badge": "Le problème",
+    "badge": "Comparaison",
     "title": "Avant vs Avec Astrale",
     "subtitle": "Simplifiez votre processus de traitement des preuves de livraison.",
     "before": "Processus manuel",
@@ -161,9 +161,25 @@
     "legalLinks": {
       "legal": "Mentions légales",
       "privacy": "Confidentialité",
-      "contact": "Contact"
+      "about": "À propos"
     },
     "copyright": "© {year} Astrale. Tous droits réservés."
+  },
+  "about": {
+    "backToHome": "Retour à l'accueil",
+    "title": "À propos d'Astrale",
+    "mission": {
+      "title": "Notre mission",
+      "content": "Astrale simplifie la vie des entreprises de transport et de logistique en automatisant le traitement des preuves de livraison. Notre plateforme transforme automatiquement les documents reçus par SMS, Messenger ou WhatsApp en données structurées, prêtes pour la facturation."
+    },
+    "values": {
+      "title": "Nos valeurs",
+      "content": "Simplicité, efficacité et conformité guident chacune de nos décisions. Nous croyons que l'automatisation doit être invisible : vos équipes continuent de travailler comme avant, pendant qu'Astrale s'occupe du reste en arrière-plan."
+    },
+    "location": {
+      "title": "Basés au Québec",
+      "content": "Astrale est une entreprise québécoise fière de servir les entreprises d'ici. Nous comprenons les réalités du marché local et respectons les exigences réglementaires canadiennes, incluant la Loi 25 sur la protection des renseignements personnels."
+    }
   },
   "legal": {
     "backToHome": "Retour à l'accueil",
@@ -197,7 +213,7 @@
         "title": "1. Renseignements personnels collectés",
         "intro": "Nous collectons les renseignements personnels suivants lorsque vous utilisez notre site ou nos services :",
         "identification": "Informations d'identification",
-        "identificationItems": ["Nom complet", "Adresse courriel professionnelle", "Numéro de téléphone", "Nom de l'entreprise"],
+        "identificationItems": ["Nom complet", "Adresse courriel professionnelle", "Nom de l'entreprise"],
         "technical": "Informations techniques",
         "technicalItems": ["Adresse IP", "Type de navigateur", "Pages visitées", "Date et heure de visite"]
       },
@@ -206,7 +222,6 @@
         "intro": "Nous collectons et utilisons vos renseignements personnels uniquement pour les finalités suivantes :",
         "items": [
           { "title": "Répondre à vos demandes", "content": "Traiter et répondre à vos questions, demandes de démonstration ou demandes d'information." },
-          { "title": "Fournir nos services", "content": "Vous permettre d'utiliser notre plateforme d'automatisation de traitement de documents." },
           { "title": "Améliorer nos services", "content": "Analyser l'utilisation du site pour améliorer l'expérience utilisateur." },
           { "title": "Communications", "content": "Vous envoyer des informations relatives à nos services (avec votre consentement)." },
           { "title": "Conformité légale", "content": "Respecter nos obligations légales et réglementaires." }
@@ -227,19 +242,8 @@
           { "title": "Protection des droits", "content": "Pour protéger nos droits, notre sécurité ou celle de tiers." }
         ]
       },
-      "retention": {
-        "title": "5. Durée de conservation",
-        "intro": "Nous conservons vos renseignements personnels uniquement pendant la durée nécessaire aux fins pour lesquelles ils ont été collectés :",
-        "items": [
-          { "label": "Demandes de contact", "value": "2 ans" },
-          { "label": "Données clients (compte actif)", "value": "Durée du contrat" },
-          { "label": "Données clients (après résiliation)", "value": "3 ans" },
-          { "label": "Données techniques (logs)", "value": "12 mois" }
-        ],
-        "outro": "À l'expiration de ces délais, vos renseignements sont supprimés de façon sécurisée ou anonymisés."
-      },
       "security": {
-        "title": "6. Mesures de sécurité",
+        "title": "5. Mesures de sécurité",
         "intro": "Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos renseignements personnels contre :",
         "items": [
           { "title": "Chiffrement SSL/TLS", "subtitle": "Données en transit" },
@@ -248,7 +252,7 @@
         ]
       },
       "rights": {
-        "title": "7. Vos droits (Loi 25)",
+        "title": "6. Vos droits (Loi 25)",
         "intro": "Conformément à la Loi 25 et aux lois applicables, vous disposez des droits suivants concernant vos renseignements personnels :",
         "items": [
           { "title": "Droit d'accès", "content": "Vous pouvez demander l'accès aux renseignements personnels que nous détenons à votre sujet." },
@@ -260,7 +264,7 @@
         "outro": "Pour exercer vos droits, veuillez nous contacter à {email}. Nous répondrons à votre demande dans un délai de 30 jours."
       },
       "cookies": {
-        "title": "8. Témoins (Cookies)",
+        "title": "7. Témoins (Cookies)",
         "intro": "Conformément à la Loi 25, les témoins et technologies de suivi sont désactivés par défaut sur notre site.",
         "typesTitle": "Types de témoins utilisés :",
         "necessary": { "title": "Témoins strictement nécessaires", "content": "Essentiels au fonctionnement du site. Ne nécessitent pas de consentement." },
@@ -268,14 +272,15 @@
         "outro": "Vous pouvez gérer vos préférences de témoins à tout moment via les paramètres de votre navigateur."
       },
       "modifications": {
-        "title": "9. Modifications de cette politique",
+        "title": "8. Modifications de cette politique",
         "content1": "Nous pouvons mettre à jour cette politique de confidentialité périodiquement. La date de la dernière mise à jour est indiquée en haut de cette page.",
         "content2": "En cas de modifications importantes, nous vous en informerons par courriel ou par un avis visible sur notre site."
       },
       "contact": {
-        "title": "10. Nous contacter",
-        "intro": "Pour toute question concernant cette politique de confidentialité, pour exercer vos droits ou pour déposer une plainte, veuillez contacter notre responsable de la protection des renseignements personnels :",
-        "role": "Responsable de la protection des renseignements personnels",
+        "title": "9. Nous contacter",
+        "intro": "Pour toute question concernant cette politique de confidentialité, pour exercer vos droits ou pour déposer une plainte, veuillez nous contacter :",
+        "legalNotice": "Les coordonnées de notre responsable de la protection des renseignements personnels sont disponibles sur notre page",
+        "legalNoticeLink": "Mentions légales",
         "cai": {
           "title": "Commission d'accès à l'information du Québec (CAI)",
           "content": "Si vous n'êtes pas satisfait de notre réponse, vous pouvez déposer une plainte auprès de la CAI :"

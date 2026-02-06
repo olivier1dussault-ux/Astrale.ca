@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { Mail, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Footer } from "@/components/Footer";
 import { useTranslation } from "@/lib/i18n";
 
 export default function MentionsLegales() {
@@ -83,27 +82,8 @@ export default function MentionsLegales() {
             </div>
           </section>
 
-          {/* Contact */}
-          <section className="rounded-lg border border-slate-200 bg-white p-8">
-            <h2 className="text-2xl font-semibold text-slate-900">{t("legal.sections.contact.title")}</h2>
-            <p className="mt-4 text-slate-600">
-              {t("legal.sections.contact.content")}
-            </p>
-            <div className="mt-6">
-              <a
-                href="mailto:contact@astrale.ca"
-                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 font-medium text-white transition-all hover:from-blue-500 hover:to-blue-600"
-              >
-                <Mail className="h-5 w-5" />
-                contact@astrale.ca
-              </a>
-            </div>
-          </section>
         </div>
       </article>
-
-      {/* Footer */}
-      <Footer />
     </main>
   );
 }
