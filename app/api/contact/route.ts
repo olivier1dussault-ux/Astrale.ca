@@ -4,7 +4,14 @@ import { NextResponse } from 'next/server';
 import { getSupabase } from '@/lib/supabase';
 import { generateConfirmationEmail } from '@/lib/emails/confirmation';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy init Resend client to avoid build-time env var crash
+let _resend: Resend | null = null;
+function getResend(): Resend {
+  if (!_resend) {
+    _resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return _resend;
+}
 
 // Emails allowed to submit multiple times (for testing)
 const WHITELISTED_EMAILS = ['olivier.dussault@astrale.ca'];
@@ -64,7 +71,7 @@ ${message}
     `.trim();
 
     // Send email via Resend
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await getResend().emails.send({
       from: `Astrale Contact <noreply@${process.env.CONTACT_EMAIL?.split('@')[1] || 'astrale.ca'}>`,
       to: [process.env.CONTACT_EMAIL || 'contact@astrale.ca'],
       replyTo: email,
@@ -99,7 +106,7 @@ ${message}
     // Send confirmation email to the user (best-effort, don't fail the request)
     try {
       const confirmation = generateConfirmationEmail({ name, locale });
-      const { error: confirmationError } = await resend.emails.send({
+      const { error: confirmationError } = await getResend().emails.send({
         from: `Astrale <noreply@${process.env.CONTACT_EMAIL?.split('@')[1] || 'astrale.ca'}>`,
         to: [email],
         subject: confirmation.subject,
