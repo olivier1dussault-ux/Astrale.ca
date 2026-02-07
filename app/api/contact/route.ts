@@ -80,16 +80,20 @@ ${message}
       );
     }
 
-    // Store the email in the database (ignore errors for whitelisted emails)
-    if (!WHITELISTED_EMAILS.includes(normalizedEmail)) {
-      const { error: insertError } = await supabase
-        .from('contact_submissions')
-        .insert({ email: normalizedEmail });
+    // Store submission in database (for ALL emails, including whitelisted)
+    const { error: insertError } = await supabase
+      .from('contact_submissions')
+      .insert({
+        email: normalizedEmail,
+        name,
+        company: company || null,
+        message: message || null,
+        locale,
+      });
 
-      if (insertError) {
-        console.error('Supabase insert error:', insertError);
-        // Don't fail the request if insert fails - email was already sent
-      }
+    if (insertError) {
+      console.error('Supabase insert error:', JSON.stringify(insertError));
+      // Don't fail the request if insert fails - email was already sent
     }
 
     // Send confirmation email to the user (best-effort, don't fail the request)
