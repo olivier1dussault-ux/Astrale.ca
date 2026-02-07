@@ -33,8 +33,19 @@ const content = {
   },
 };
 
+/** Escape HTML special characters to prevent XSS in email content */
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 export function generateConfirmationEmail({ name, locale }: ConfirmationEmailParams): ConfirmationEmailResult {
   const t = content[locale];
+  const safeName = escapeHtml(name);
 
   const html = `
 <!DOCTYPE html>
@@ -61,7 +72,7 @@ export function generateConfirmationEmail({ name, locale }: ConfirmationEmailPar
           <tr>
             <td style="background-color: #ffffff; padding: 40px;">
               <p style="margin: 0 0 8px; font-size: 16px; color: #334155; line-height: 1.6;">
-                ${t.greeting(name)}
+                ${t.greeting(safeName)}
               </p>
               <h2 style="margin: 16px 0 12px; font-size: 22px; font-weight: 700; color: #0f172a;">
                 ${t.thankYou}

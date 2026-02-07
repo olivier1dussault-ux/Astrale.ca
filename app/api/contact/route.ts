@@ -17,15 +17,60 @@ function getResend(): Resend {
 const WHITELISTED_EMAILS = ['olivier.dussault@astrale.ca'];
 
 const contactSchema = z.object({
-  name: z.string().min(2, 'Le nom doit contenir au moins 2 caractères'),
-  company: z.string().optional(),
-  email: z.string().email('Adresse email invalide'),
-  message: z.string().optional(),
+  name: z.string().min(2, 'Le nom doit contenir au moins 2 caractères').max(100),
+  company: z.string().max(100).optional(),
+  email: z.string().email('Adresse email invalide').max(254),
+  message: z.string().max(5000).optional(),
   locale: z.enum(['fr', 'en']).default('fr'),
 });
 
+// --- In-memory IP-based rate limiting ---
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+const RATE_LIMIT_MAX = 5; // max requests per window per IP
+
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+
+  entry.count++;
+  return entry.count > RATE_LIMIT_MAX;
+}
+
+// Periodically clean up expired entries to prevent memory leaks
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, entry] of rateLimitMap) {
+    if (now > entry.resetAt) {
+      rateLimitMap.delete(ip);
+    }
+  }
+}, RATE_LIMIT_WINDOW_MS);
+
+// Strip control characters (newlines, tabs, etc.) from a string
+function sanitizeForSubject(str: string): string {
+  return str.replace(/[\r\n\t\x00-\x1f\x7f]/g, '').trim();
+}
+
 export async function POST(request: Request) {
   try {
+    // IP-based rate limiting
+    const forwarded = request.headers.get('x-forwarded-for');
+    const ip = forwarded?.split(',')[0]?.trim() || 'unknown';
+
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json();
 
     // Validate the request body
@@ -71,11 +116,11 @@ ${message}
     `.trim();
 
     // Send email via Resend
-    const { data, error } = await getResend().emails.send({
+    const { error } = await getResend().emails.send({
       from: `Astrale Contact <noreply@${process.env.CONTACT_EMAIL?.split('@')[1] || 'astrale.ca'}>`,
       to: [process.env.CONTACT_EMAIL || 'contact@astrale.ca'],
       replyTo: email,
-      subject: `Nouveau message de ${name}${company ? ` (${company})` : ''}`,
+      subject: `Nouveau message de ${sanitizeForSubject(name)}${company ? ` (${sanitizeForSubject(company)})` : ''}`,
       text: emailContent,
     });
 
@@ -121,7 +166,7 @@ ${message}
     }
 
     return NextResponse.json(
-      { success: true, messageId: data?.id },
+      { success: true },
       { status: 200 }
     );
   } catch (error) {
