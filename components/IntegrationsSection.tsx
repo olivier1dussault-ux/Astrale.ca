@@ -162,7 +162,7 @@ function MarqueeRow({
   );
 
   return (
-    <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:gap-4">
+    <div className={`flex items-center justify-center gap-3 md:flex-row md:gap-4 ${labelPosition === "right" ? "flex-col-reverse" : "flex-col"}`}>
       {labelPosition === "left" ? (
         <>
           {labelElement}
