@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Astrale",
   description: "Transformez le chaos du terrain en conformité bancaire. Accélérez votre cycle de facturation avec Astrale.",
   icons: {
-    icon: "/White_Icon.png",
+    icon: "/favicon.svg",
   },
 };
 
