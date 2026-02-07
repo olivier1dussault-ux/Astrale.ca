@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 import { z } from 'zod';
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/supabase';
 import { generateConfirmationEmail } from '@/lib/emails/confirmation';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -35,7 +35,7 @@ export async function POST(request: Request) {
 
     // Check if email has already submitted (unless whitelisted)
     if (!WHITELISTED_EMAILS.includes(normalizedEmail)) {
-      const { data: existingSubmission } = await supabase
+      const { data: existingSubmission } = await getSupabase()
         .from('contact_submissions')
         .select('id')
         .eq('email', normalizedEmail)
@@ -81,7 +81,7 @@ ${message}
     }
 
     // Store submission in database (for ALL emails, including whitelisted)
-    const { error: insertError } = await supabase
+    const { error: insertError } = await getSupabase()
       .from('contact_submissions')
       .insert({
         email: normalizedEmail,
