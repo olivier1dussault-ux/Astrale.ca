@@ -80,9 +80,9 @@ function IntegrationLogo({ integration }: { integration: Integration }) {
   
   return (
     <div className="flex flex-col items-center">
-      <div className="flex h-24 w-52 items-center justify-center rounded-xl bg-white p-5 shadow-sm transition-all duration-300 hover:shadow-md">
+      <div className="flex h-14 w-28 sm:h-16 sm:w-36 items-center justify-center rounded-xl bg-white p-2 sm:p-3 shadow-sm transition-all duration-300 hover:shadow-md md:h-24 md:w-52 md:p-5">
         <div 
-          className="relative h-14 w-full"
+          className="relative h-8 sm:h-10 w-full md:h-14"
           style={{ transform: `scale(${scale})` }}
         >
           <Image
@@ -93,7 +93,7 @@ function IntegrationLogo({ integration }: { integration: Integration }) {
           />
         </div>
       </div>
-      <span className="mt-2 text-center text-sm font-medium text-slate-600 transition-colors duration-300">
+      <span className="mt-1.5 sm:mt-2 text-center text-xs sm:text-sm font-medium text-slate-600 transition-colors duration-300">
         {integration.name}
       </span>
       {integration.badge && (
@@ -126,19 +126,19 @@ function MarqueeRow({
   const animationName = direction === "left" ? "marquee-left" : "marquee-right";
 
   const labelElement = (
-    <div className="flex w-44 shrink-0 items-center justify-center">
-      <span className="text-lg font-extrabold uppercase tracking-widest text-slate-800">
+    <div className="flex w-full shrink-0 items-center justify-center md:w-44">
+      <span className="text-base font-extrabold uppercase tracking-widest text-slate-800 md:text-lg">
         {label}
       </span>
     </div>
   );
 
   const marqueeElement = (
-    <div className="group relative max-w-3xl flex-1 overflow-hidden">
+    <div className="group relative w-full flex-1 overflow-hidden md:max-w-3xl">
       {/* Gradient mask - left side */}
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-slate-100 to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-10 bg-gradient-to-r from-slate-100 to-transparent md:w-20" />
       {/* Gradient mask - right side */}
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-slate-100 to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-10 bg-gradient-to-l from-slate-100 to-transparent md:w-20" />
 
       <div
         className="marquee-animate flex w-max"
@@ -148,7 +148,7 @@ function MarqueeRow({
       >
         {/* Render 2 copies for seamless infinite scroll */}
         {[...Array(2)].map((_, setIndex) => (
-          <div key={setIndex} className="flex gap-8 pr-8">
+          <div key={setIndex} className="flex gap-3 pr-3 sm:gap-4 sm:pr-4 md:gap-8 md:pr-8">
             {items.map((integration) => (
               <IntegrationLogo
                 key={`${integration.name}-${setIndex}`}
@@ -162,7 +162,7 @@ function MarqueeRow({
   );
 
   return (
-    <div className="flex items-center justify-center gap-4">
+    <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:gap-4">
       {labelPosition === "left" ? (
         <>
           {labelElement}
@@ -185,12 +185,12 @@ export function IntegrationsSection() {
   const { t } = useTranslation();
   
   return (
-    <section id="ecosysteme" className="relative bg-slate-100 py-24">
+    <section id="ecosysteme" className="relative bg-slate-100 py-14 sm:py-18 md:py-24">
       {/* Gradient transition from previous section */}
-      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-slate-50 via-slate-50/50 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-24 sm:h-32 md:h-48 bg-gradient-to-b from-slate-50 via-slate-50/50 to-transparent" />
       {/* Gradient transition to next section */}
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-white" />
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -211,7 +211,7 @@ export function IntegrationsSection() {
           </motion.div>
 
           {/* Categories Marquee Rows */}
-          <div className="mt-16 space-y-12">
+          <div className="mt-10 md:mt-16 space-y-6 md:space-y-12">
             {/* Canaux: label left, icons scroll left toward label */}
             <motion.div variants={fadeInUp}>
               <MarqueeRow
@@ -249,7 +249,7 @@ export function IntegrationsSection() {
           {/* Legal Disclaimer */}
           <motion.p
             variants={fadeInUp}
-            className="mx-auto mt-16 max-w-3xl text-center text-xs text-slate-400"
+            className="mx-auto mt-10 md:mt-16 max-w-3xl text-center text-xs text-slate-400"
           >
             {t("integrations.disclaimer")}
           </motion.p>

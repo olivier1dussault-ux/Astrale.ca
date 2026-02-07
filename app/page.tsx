@@ -636,10 +636,10 @@ function ROICalculatorSection() {
   const billingAcceleration = Math.min(20, Math.max(5, Math.round(5 + (totalManualHoursPerMonth / 100) * 15)));
 
   return (
-    <section id="roi" className="relative bg-gradient-to-b from-white to-blue-50/50 py-24">
+    <section id="roi" className="relative bg-gradient-to-b from-white to-blue-50/50 py-16 md:py-24">
       {/* Gradient transition to next section */}
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-white" />
-      <div className="relative mx-auto max-w-5xl px-6">
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
         <div className="text-center">
           <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
             {t("roi.badge")}
@@ -653,13 +653,13 @@ function ROICalculatorSection() {
         </div>
 
         {/* Calculator Panel - Always visible */}
-        <div className="mt-12 rounded-2xl border border-slate-200 bg-white p-8 shadow-xl">
-          <div className="grid gap-8 md:grid-cols-2">
+        <div className="mt-8 sm:mt-10 md:mt-12 rounded-2xl border border-slate-200 bg-white p-4 shadow-xl sm:p-6 md:p-8">
+          <div className="grid gap-6 md:gap-8 md:grid-cols-2">
             {/* Inputs */}
             <div className="flex flex-col">
-              <h3 className="mb-6 text-lg font-semibold text-slate-900">{t("roi.yourData")}</h3>
+              <h3 className="mb-4 sm:mb-6 text-lg font-semibold text-slate-900">{t("roi.yourData")}</h3>
               
-              <div className="flex flex-1 flex-col justify-between space-y-5">
+              <div className="flex flex-1 flex-col justify-between space-y-4 sm:space-y-5">
                 {/* Documents per month */}
                 <div className="rounded-lg border border-slate-100 bg-slate-50/50 p-4">
                   <label className="mb-3 flex items-center justify-between text-sm font-medium text-slate-700">
@@ -717,47 +717,47 @@ function ROICalculatorSection() {
             </div>
 
             {/* Results */}
-            <div className="flex flex-col rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 p-6 text-white">
-              <h3 className="mb-6 text-lg font-semibold">{t("roi.results")}</h3>
+            <div className="flex flex-col rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 p-4 sm:p-6 text-white">
+              <h3 className="mb-4 sm:mb-6 text-lg font-semibold">{t("roi.results")}</h3>
               
-              <div className="flex flex-1 flex-col justify-between space-y-5">
-                <div className="rounded-lg bg-white/10 p-4">
-                  <div className="flex items-center justify-between">
+              <div className="flex flex-1 flex-col justify-between space-y-4 sm:space-y-5">
+                <div className="rounded-lg bg-white/10 p-3 sm:p-4">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex items-center gap-3">
                       <Clock className="h-5 w-5 flex-shrink-0 text-blue-400" />
                       <span className="text-sm text-slate-300">{t("roi.hoursPerMonth")}</span>
                     </div>
-                    <span className="text-2xl font-bold">{Math.round(hoursPerMonth)} h</span>
+                    <span className="text-xl font-bold sm:text-2xl">{Math.round(hoursPerMonth)} h</span>
                   </div>
                 </div>
 
-                <div className="rounded-lg bg-white/10 p-4">
-                  <div className="flex items-center justify-between">
+                <div className="rounded-lg bg-white/10 p-3 sm:p-4">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex items-center gap-3">
                       <TrendingUp className="h-5 w-5 flex-shrink-0 text-green-400" />
                       <span className="text-sm text-slate-300">{t("roi.hoursPerYear")}</span>
                     </div>
-                    <span className="text-2xl font-bold">{formatNumber(hoursPerYear)} h</span>
+                    <span className="text-xl font-bold sm:text-2xl">{formatNumber(hoursPerYear)} h</span>
                   </div>
                 </div>
 
-                <div className="rounded-lg bg-gradient-to-r from-blue-600/20 to-cyan-600/20 p-4">
-                  <div className="flex items-center justify-between">
+                <div className="rounded-lg bg-gradient-to-r from-blue-600/20 to-cyan-600/20 p-3 sm:p-4">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex items-center gap-3">
                       <DollarSign className="h-5 w-5 flex-shrink-0 text-cyan-400" />
                       <span className="text-sm text-slate-300">{t("roi.savingsPerYear")}</span>
                     </div>
-                    <span className="text-2xl font-bold text-cyan-400">{formatNumber(savingsPerYear)} $</span>
+                    <span className="text-xl font-bold text-cyan-400 sm:text-2xl">{formatNumber(savingsPerYear)} $</span>
                   </div>
                 </div>
 
-                <div className="rounded-lg bg-white/10 p-4">
-                  <div className="flex items-center justify-between">
+                <div className="rounded-lg bg-white/10 p-3 sm:p-4">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex items-center gap-3">
                       <Zap className="h-5 w-5 flex-shrink-0 text-yellow-400" />
                       <span className="text-sm text-slate-300">{t("roi.billingCycle")}</span>
                     </div>
-                    <span className="whitespace-nowrap text-2xl font-bold">-{billingAcceleration} {locale === "fr" ? "jours/mois" : "days/month"}</span>
+                    <span className="text-xl font-bold sm:text-2xl">-{billingAcceleration} {locale === "fr" ? "jours/mois" : "days/month"}</span>
                   </div>
                 </div>
               </div>
@@ -769,9 +769,9 @@ function ROICalculatorSection() {
           </div>
 
           {/* CTA */}
-          <div className="mt-8 text-center">
+          <div className="mt-6 text-center md:mt-8">
             <a href="#contact">
-              <Button className="h-12 bg-gradient-to-r from-blue-600 to-blue-700 px-8 font-semibold shadow-lg shadow-blue-500/25 hover:from-blue-500 hover:to-blue-600">
+              <Button className="h-12 w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 px-8 font-semibold shadow-lg shadow-blue-500/25 hover:from-blue-500 hover:to-blue-600">
                 {t("roi.cta")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -939,6 +939,7 @@ function ContactSection() {
                         onChange={handleChange}
                         required
                         minLength={2}
+                        maxLength={100}
                         placeholder={t("contact.namePlaceholder")}
                         className="w-full rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 disabled:opacity-50"
                         disabled={isSubmitting}
@@ -960,6 +961,7 @@ function ContactSection() {
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
+                        maxLength={100}
                         placeholder={t("contact.companyPlaceholder")}
                         className="w-full rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 disabled:opacity-50"
                         disabled={isSubmitting}
@@ -985,6 +987,7 @@ function ContactSection() {
                       value={formData.email}
                       onChange={handleChange}
                       required
+                      maxLength={254}
                       placeholder={t("contact.emailPlaceholder")}
                       className="w-full rounded-lg border border-slate-600/50 bg-slate-700/50 py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 disabled:opacity-50"
                       disabled={isSubmitting}
@@ -1006,6 +1009,7 @@ function ContactSection() {
                       id="message"
                       name="message"
                       rows={4}
+                      maxLength={5000}
                       value={formData.message}
                       onChange={handleChange}
                       placeholder={t("contact.messagePlaceholder")}
