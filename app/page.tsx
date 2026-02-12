@@ -28,6 +28,7 @@ import {
   Loader2,
   CheckCircle,
   AlertCircle,
+  BadgePercent,
 } from "lucide-react";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
 import { useTranslation } from "@/lib/i18n";
@@ -638,7 +639,7 @@ function ROICalculatorSection() {
   return (
     <section id="roi" className="relative bg-gradient-to-b from-white to-blue-50/50 py-16 md:py-24">
       {/* Gradient transition to next section */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-white" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-blue-50" />
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
         <div className="text-center">
           <span className="inline-block rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-700">
@@ -778,6 +779,80 @@ function ROICalculatorSection() {
             </a>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+// ============================================
+// SUBSIDIES SECTION
+// ============================================
+function SubventionsSection() {
+  const { t } = useTranslation();
+
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 sm:py-28">
+      {/* Top gradient fade from ROI section */}
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-blue-50/80 to-transparent" />
+      {/* Subtle background decoration */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-blue-100/40 blur-3xl" />
+        <div className="absolute -left-40 bottom-0 h-96 w-96 rounded-full bg-cyan-100/40 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-4xl px-6 lg:px-8">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center"
+        >
+          {/* Badge */}
+          <motion.div variants={fadeInUp} className="mb-6 flex justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700">
+              <BadgePercent className="h-4 w-4" />
+              {t("subsidies.badge")}
+            </span>
+          </motion.div>
+
+          {/* Title */}
+          <motion.h2
+            variants={fadeInUp}
+            className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+          >
+            {t("subsidies.title")}
+          </motion.h2>
+
+          {/* Highlight stat */}
+          <motion.div variants={fadeInUp} className="mt-6 flex justify-center">
+            <div className="inline-flex items-center gap-3 rounded-xl border border-blue-200/60 bg-white px-6 py-3 shadow-sm">
+              <DollarSign className="h-6 w-6 text-blue-600" />
+              <div className="text-left">
+                <p className="text-xl font-bold text-blue-700">{t("subsidies.highlight")}</p>
+                <p className="text-sm text-slate-500">{t("subsidies.highlightLabel")}</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Subtitle */}
+          <motion.p
+            variants={fadeInUp}
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600"
+          >
+            {t("subsidies.subtitle")}
+          </motion.p>
+
+          {/* CTA */}
+          <motion.div variants={fadeInUp} className="mt-8">
+            <a href="/subventions">
+              <Button className="h-12 bg-gradient-to-r from-blue-600 to-cyan-600 px-8 font-semibold shadow-lg shadow-blue-500/25 hover:from-blue-500 hover:to-cyan-500 hover:shadow-xl hover:shadow-blue-500/30">
+                {t("subsidies.cta")}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
@@ -1067,6 +1142,7 @@ export default function Home() {
       <RealityVsAstraleSection />
       <IntegrationsSection />
       <ROICalculatorSection />
+      <SubventionsSection />
       <ContactSection />
     </main>
   );

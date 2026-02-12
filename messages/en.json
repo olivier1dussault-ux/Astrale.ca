@@ -160,6 +160,82 @@
     "privacyNotice": "By submitting this form, you agree to our",
     "privacyLink": "privacy policy"
   },
+  "subsidies": {
+    "badge": "Funding",
+    "title": "Your project could be subsidized",
+    "subtitle": "Several government programs in Quebec and Canada cover up to 50% of costs related to AI adoption and automation. As your partner, Astrale supports you in identifying and applying for the right subsidies.",
+    "cta": "Learn more",
+    "highlight": "Up to 50%",
+    "highlightLabel": "of costs covered"
+  },
+  "subsidiesPage": {
+    "backToHome": "Back to home",
+    "title": "Subsidies and funding",
+    "intro": "Integrating automation and artificial intelligence solutions into your transport or logistics company can be funded through several government programs. Here are the main funding opportunities available for our clients.",
+    "accompagnement": {
+      "title": "Astrale supports you",
+      "content": "Our team helps you identify the most suitable programs for your situation and supports you in preparing your subsidy applications. From eligibility assessment to filing, we are by your side.",
+      "cta": "Discuss your project"
+    },
+    "disclaimer": "The information on this page is provided for informational purposes and may be modified by the responsible organizations. We recommend verifying details directly from official sources.",
+    "programs": {
+      "essor": {
+        "name": "ESSOR Program — Component 2",
+        "org": "Investissement Québec",
+        "description": "The ESSOR program supports investment projects aimed at increasing productivity through technological transition or the acquisition of new technologies. Component 2 is specifically designed for projects promoting productivity and expansion.",
+        "funding": "Up to 50% of costs",
+        "fundingType": "Non-repayable contributions",
+        "eligibility": "SMEs with 5 to 499 employees and annual revenue of $1M to $100M",
+        "period": "April 2025 — March 2027",
+        "link": "https://www.investquebec.com/quebec/fr/produits-financiers/toutes-nos-solutions/Programme-de-financement-ESSOR.html"
+      },
+      "iria": {
+        "name": "Regional Artificial Intelligence Initiative (RAII)",
+        "org": "Canada Economic Development (CED)",
+        "description": "The RAII funds Quebec SMEs looking to adopt or strategically integrate artificial intelligence into their operations. The program aims to accelerate AI adoption across Quebec regions.",
+        "funding": "Up to 50% of authorized costs",
+        "fundingType": "Interest-free loan (repayable contribution)",
+        "eligibility": "SMEs ready to adopt AI, startups developing AI solutions",
+        "period": "Active until March 2029",
+        "link": "https://www.canada.ca/en/economic-development-quebec-regions/financing-services/regional-artificial-intelligence-initiative.html"
+      },
+      "scaleai": {
+        "name": "Scale AI",
+        "org": "Federal Innovation Supercluster",
+        "description": "Scale AI is Canada's supercluster dedicated to artificial intelligence applied to supply chains. The program funds collaborative projects in transport, logistics, manufacturing, and retail sectors.",
+        "funding": "Up to 40-50% of eligible expenses",
+        "fundingType": "Non-repayable grant",
+        "eligibility": "Companies in the supply chain (transport, logistics, manufacturing)",
+        "period": "Ongoing",
+        "link": "https://www.scaleai.ca/en/"
+      },
+      "partenaria": {
+        "name": "PARTENAR-IA",
+        "org": "Ministry of Economy, Innovation and Energy (MEIE)",
+        "description": "PARTENAR-IA supports innovation and R&D projects in artificial intelligence carried out by groups of Quebec businesses. The program encourages collaboration between SMEs, startups, and research centers.",
+        "funding": "Up to $1,500,000 per project",
+        "fundingType": "35% for SMEs, 50% for startups",
+        "eligibility": "Consortium of at least 2 Quebec businesses including one SME or startup",
+        "period": "Next deadline: check website",
+        "link": "https://rsri.quebec/appel-a-projets-en-intelligence-artificielle-partenar-ia/"
+      },
+      "iq": {
+        "name": "Digital Transformation",
+        "org": "Investissement Québec",
+        "description": "Investissement Québec offers free, tailored support to help SMEs with their digital transformation. Experts provide diagnostics, action plans, and guidance for implementing technology projects.",
+        "funding": "Free support",
+        "fundingType": "Advisory services",
+        "eligibility": "Quebec SMEs in all sectors",
+        "period": "Anytime",
+        "link": "https://innovation.investquebec.com/transformation-numerique"
+      }
+    },
+    "visitWebsite": "Visit official website",
+    "fundingLabel": "Funding",
+    "typeLabel": "Aid type",
+    "eligibilityLabel": "Eligibility",
+    "periodLabel": "Period"
+  },
   "footer": {
     "tagline": "The invisible automation between your drivers and your management system",
     "legalLinks": {

@@ -160,6 +160,82 @@
     "privacyNotice": "En soumettant ce formulaire, vous acceptez notre",
     "privacyLink": "politique de confidentialité"
   },
+  "subsidies": {
+    "badge": "Financement",
+    "title": "Votre projet pourrait être subventionné",
+    "subtitle": "Plusieurs programmes gouvernementaux au Québec et au Canada financent jusqu'à 50 % des coûts liés à l'adoption de l'intelligence artificielle et de l'automatisation. En tant que partenaire, Astrale vous accompagne dans l'identification et les démarches de demande de subventions.",
+    "cta": "En savoir plus",
+    "highlight": "Jusqu'à 50 %",
+    "highlightLabel": "des coûts couverts"
+  },
+  "subsidiesPage": {
+    "backToHome": "Retour à l'accueil",
+    "title": "Subventions et financement",
+    "intro": "L'intégration de solutions d'automatisation et d'intelligence artificielle dans votre entreprise de transport ou de logistique peut être financée par plusieurs programmes gouvernementaux. Voici les principales opportunités de financement disponibles pour nos clients.",
+    "accompagnement": {
+      "title": "Astrale vous accompagne",
+      "content": "Notre équipe vous aide à identifier les programmes les plus adaptés à votre situation et vous accompagne dans la préparation de vos demandes de subvention. De l'évaluation de votre admissibilité jusqu'au dépôt du dossier, nous sommes à vos côtés.",
+      "cta": "Discuter de votre projet"
+    },
+    "disclaimer": "Les informations présentées sur cette page sont fournies à titre informatif et peuvent être modifiées par les organismes responsables. Nous vous recommandons de vérifier les détails directement auprès des sources officielles.",
+    "programs": {
+      "essor": {
+        "name": "Programme ESSOR — Volet 2",
+        "org": "Investissement Québec",
+        "description": "Le programme ESSOR soutient les projets d'investissement visant à augmenter la productivité par une transition technologique ou l'acquisition de nouvelles technologies. Le Volet 2 est spécifiquement conçu pour les projets favorisant la productivité et l'expansion.",
+        "funding": "Jusqu'à 50 % des coûts",
+        "fundingType": "Contributions non remboursables",
+        "eligibility": "PME de 5 à 499 employés avec un chiffre d'affaires annuel de 1 M$ à 100 M$",
+        "period": "Avril 2025 — Mars 2027",
+        "link": "https://www.investquebec.com/quebec/fr/produits-financiers/toutes-nos-solutions/Programme-de-financement-ESSOR.html"
+      },
+      "iria": {
+        "name": "Initiative régionale en intelligence artificielle (IRIA)",
+        "org": "Développement économique Canada (DEC)",
+        "description": "L'IRIA finance les PME québécoises qui souhaitent adopter ou intégrer stratégiquement l'intelligence artificielle dans leurs opérations. Le programme vise à accélérer l'adoption de l'IA à travers les régions du Québec.",
+        "funding": "Jusqu'à 50 % des coûts autorisés",
+        "fundingType": "Prêt sans intérêt (contribution remboursable)",
+        "eligibility": "PME prêtes à adopter l'IA, startups développant des solutions IA",
+        "period": "Actif jusqu'en mars 2029",
+        "link": "https://www.canada.ca/fr/developpement-economique-regions-quebec/services/financement/initiative-regionale-intelligence-artificielle.html"
+      },
+      "scaleai": {
+        "name": "Scale AI",
+        "org": "Supergrappe fédérale d'innovation",
+        "description": "Scale AI est la grappe pancanadienne dédiée à l'intelligence artificielle appliquée aux chaînes d'approvisionnement. Le programme finance des projets collaboratifs dans les secteurs du transport, de la logistique, de la fabrication et du commerce de détail.",
+        "funding": "Jusqu'à 40-50 % des dépenses admissibles",
+        "fundingType": "Subvention non remboursable",
+        "eligibility": "Entreprises dans la chaîne d'approvisionnement (transport, logistique, fabrication)",
+        "period": "En cours",
+        "link": "https://www.scaleai.ca/fr/"
+      },
+      "partenaria": {
+        "name": "PARTENAR-IA",
+        "org": "Ministère de l'Économie, de l'Innovation et de l'Énergie (MEIE)",
+        "description": "PARTENAR-IA soutient les projets d'innovation et de R-D en intelligence artificielle réalisés par des regroupements d'entreprises québécoises. Le programme encourage la collaboration entre PME, startups et centres de recherche.",
+        "funding": "Jusqu'à 1 500 000 $ par projet",
+        "fundingType": "35 % pour PME, 50 % pour startups",
+        "eligibility": "Consortium d'au moins 2 entreprises québécoises dont une PME ou startup",
+        "period": "Prochaine date de dépôt : consulter le site",
+        "link": "https://rsri.quebec/appel-a-projets-en-intelligence-artificielle-partenar-ia/"
+      },
+      "iq": {
+        "name": "Transformation numérique",
+        "org": "Investissement Québec",
+        "description": "Investissement Québec offre un accompagnement gratuit et sur mesure pour aider les PME dans leur transformation numérique. Les experts proposent des diagnostics, des plans d'action et un accompagnement à l'implantation de projets technologiques.",
+        "funding": "Accompagnement gratuit",
+        "fundingType": "Services-conseils",
+        "eligibility": "PME québécoises de tous les secteurs",
+        "period": "En tout temps",
+        "link": "https://innovation.investquebec.com/transformation-numerique"
+      }
+    },
+    "visitWebsite": "Visiter le site officiel",
+    "fundingLabel": "Financement",
+    "typeLabel": "Type d'aide",
+    "eligibilityLabel": "Admissibilité",
+    "periodLabel": "Période"
+  },
   "footer": {
     "tagline": "L'automatisation invisible entre vos livreurs et votre système de gestion",
     "legalLinks": {
